@@ -1,12 +1,11 @@
 <?php
 
-class Model
-{
+class Model {
+
     /**
      * @param object $db A PDO database connection
      */
-    function __construct($db)
-    {
+    function __construct($db) {
         try {
             $this->db = $db;
         } catch (PDOException $e) {
@@ -15,10 +14,34 @@ class Model
     }
 
     /**
+     * Get all rental units from database
+     */
+    public function getAllRentalUnits() {
+        $sql = "SELECT * FROM rental_unit";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        // fetchAll() is the PDO method that gets all result rows, here in object-style because we defined this in
+        // core/controller.php! If you prefer to get an associative array as the result, then do
+        // $query->fetchAll(PDO::FETCH_ASSOC); or change core/controller.php's PDO options to
+        // $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ...
+        return $query->fetchAll();
+    }
+
+    public function search() {
+        $search = $_POST["search"];
+        $search = preg_replace("#[^0-9a-z]#i", " ", $search);
+        $sql = "SELECT * FROM rental_unit WHERE CONCAT_WS('', title, description, zipcode) LIKE '%$search%'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        
+        return $query->fetchAll();
+    }
+
+    /**
      * Get all songs from database
      */
-    public function getAllSongs()
-    {
+    public function getAllSongs() {
         $sql = "SELECT id, artist, track, link FROM song";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -41,8 +64,7 @@ class Model
      * @param string $track Track
      * @param string $link Link
      */
-    public function addSong($artist, $track, $link)
-    {
+    public function addSong($artist, $track, $link) {
         $sql = "INSERT INTO song (artist, track, link) VALUES (:artist, :track, :link)";
         $query = $this->db->prepare($sql);
         $parameters = array(':artist' => $artist, ':track' => $track, ':link' => $link);
@@ -59,8 +81,7 @@ class Model
      * add/update/delete stuff!
      * @param int $song_id Id of song
      */
-    public function deleteSong($song_id)
-    {
+    public function deleteSong($song_id) {
         $sql = "DELETE FROM song WHERE id = :song_id";
         $query = $this->db->prepare($sql);
         $parameters = array(':song_id' => $song_id);
@@ -74,8 +95,7 @@ class Model
     /**
      * Get a song from database
      */
-    public function getSong($song_id)
-    {
+    public function getSong($song_id) {
         $sql = "SELECT id, artist, track, link FROM song WHERE id = :song_id LIMIT 1";
         $query = $this->db->prepare($sql);
         $parameters = array(':song_id' => $song_id);
@@ -101,8 +121,7 @@ class Model
      * @param string $link Link
      * @param int $song_id Id
      */
-    public function updateSong($artist, $track, $link, $song_id)
-    {
+    public function updateSong($artist, $track, $link, $song_id) {
         $sql = "UPDATE song SET artist = :artist, track = :track, link = :link WHERE id = :song_id";
         $query = $this->db->prepare($sql);
         $parameters = array(':artist' => $artist, ':track' => $track, ':link' => $link, ':song_id' => $song_id);
@@ -117,8 +136,7 @@ class Model
      * Get simple "stats". This is just a simple demo to show
      * how to use more than one model in a controller (see application/controller/songs.php for more)
      */
-    public function getAmountOfSongs()
-    {
+    public function getAmountOfSongs() {
         $sql = "SELECT COUNT(id) AS amount_of_songs FROM song";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -126,4 +144,5 @@ class Model
         // fetch() is the PDO method that get exactly one result
         return $query->fetch()->amount_of_songs;
     }
+
 }
