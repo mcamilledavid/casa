@@ -1,5 +1,5 @@
 body {
-    font-family: 'Poppins', sans-serif!important;
+    font-family: 'Lato', sans-serif!important;
     font-size: 12px!important;
 }
 
@@ -17,7 +17,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 .inner-addon .ionicons {
     position: absolute;
-    padding: 6px 12px;
+    padding: 10px;
     pointer-events: none;
 }
 
@@ -116,7 +116,6 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 .nav>li {
-    border-left: 1px solid #e7e7e7;
     padding: 0 5px;
 }
 
@@ -162,7 +161,6 @@ input[type="text"], input[type="email"], input[type="password"] {
     .navbar-form {
         padding-top: 8px!important;
         padding-bottom: 8px!important;
-        border-left: 1px solid #e7e7e7!important
     }
 }
 

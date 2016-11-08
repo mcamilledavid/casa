@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row" id="main">
         <div class="signup-login-form-border signup-login-form-container" id="signup-login-popup">
-            <form  action="" autocomplete="on"> 
+            <form  action="<?php echo URL; ?>login/logInUser" method="POST" autocomplete="on"> 
                 <div class="form-group text-center">
                     <h2 class="signup-login-header">Log In</h2>
                 </div>

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 /**
  * Class Home
  *
@@ -18,7 +20,6 @@ class Home extends Controller {
 
         $rental_units = $this->model->getAllRentalUnits();
 
-        // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/index.php';
         require APP . 'view/_templates/footer.php';
@@ -26,7 +27,7 @@ class Home extends Controller {
 
     public function search() {
         if (isset($_POST["search"])) {
-            $query = $this->model->search();
+            $query = $this->model->search($_POST["search"]);
             require APP . 'view/_templates/header.php';
             require APP . 'view/home/search.php';
             require APP . 'view/_templates/footer.php';

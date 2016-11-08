@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 /**
  * Class Problem
  * Formerly named "Error", but as PHP 7 does not allow Error as class name anymore (as there's a Error class in the
