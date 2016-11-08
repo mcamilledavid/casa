@@ -19,6 +19,8 @@ class Logout extends Controller {
         $message = "You are signed out.";
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/message.php';
+        require APP . 'view/signup/index.php';
+        require APP . 'view/login/index.php';
         require APP . 'view/_templates/footer.php';
     }
 

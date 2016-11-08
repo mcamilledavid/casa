@@ -6,6 +6,7 @@ class Login extends Controller {
 
     public function index() {
         require APP . 'view/_templates/header.php';
+        require APP . 'view/signup/index.php';
         require APP . 'view/login/index.php';
         require APP . 'view/_templates/footer.php';
     }
@@ -21,6 +22,7 @@ class Login extends Controller {
                 require APP . 'view/_templates/header.php';
                 require APP . 'view/login/message.php';
                 require APP . 'view/login/index.php';
+                require APP . 'view/signup/index.php';
                 require APP . 'view/_templates/footer.php';
             } else {
                 $user = $this->model->getUserFromUsername($_POST['username']);
@@ -29,6 +31,7 @@ class Login extends Controller {
                 $message = "You are logged in $user->username";
                 require APP . 'view/_templates/header.php';
                 require APP . 'view/login/message.php';
+                require APP . 'view/signup/index.php';
                 require APP . 'view/_templates/footer.php';
             }
         }

@@ -12,7 +12,7 @@ input[type="text"], input[type="email"], input[type="password"] {
     background-color: #fff;
     border: 1px solid #555;
     padding: 5px 10px;
-    height: 40px;
+    height: 50px;
 }
 
 .inner-addon .ionicons {
@@ -26,21 +26,13 @@ input[type="text"], input[type="email"], input[type="password"] {
 .right-addon .ionicons { right: 0;}
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
-.ionicons { font-size: 1.8em; }
-
-.ionicons-login {
-    font-size: 2.2em!important;
-    padding: 12px!important;
-}
-
-.input-login {
-    height: 55px!important;
-}
+.ionicons { font-size: 2.5em; }
 
 .signup-login-header {
     text-align: center;
-    font-weight: 300;
-    margin: 0 0 20px 0;
+    font-weight: 600;
+    margin: 0 0 30px 0;
+    font-size: 24px;
 }
 
 .signup-login-btn {
@@ -65,15 +57,7 @@ input[type="text"], input[type="email"], input[type="password"] {
     padding: 30px 40px;
 }
 
-@media (min-width: 744px) {
-    .signup-login-form-container {
-        width: 450px;
-        margin: 0 auto;
-    }
-}
-
 .signup-login-footer {
-    border-top: 1px solid #e7e7e7;
     padding-top: 20px;
     font-size: 16px;
 }
@@ -116,17 +100,13 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 .nav>li {
-    padding: 0 5px;
-}
-
-.nav>li:first-child {
-    border: 0;
-    padding: 0 20px;
+    padding: 0 5px!important;
 }
 
 .navbar-nav>li>a {
     line-height: 25px!important;
     text-shadow: 0!important;
+    font-size: 14px!important;
 }
 
 .header-post-listing-btn {
@@ -226,4 +206,39 @@ footer {
 
 #main {
     padding: 100px 0!important;
+}
+
+/* popup */
+.modal {
+    width: 100%!important;
+    height: 100%!important;
+    background-color: rgba(0,0,0,0.4)!important;
+    padding-top: 60px!important;
+}
+
+.modal-content {
+    background-color: #fff!important;
+    margin: 0 auto!important;
+    border: 0px!important;
+    width: 30%!important;
+    padding: 50px;
+    border-radius: 0px!important;
+    -webkit-border-radius: 0px!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    color: #000!important;
+    font-size: 45px!important;
+    font-weight: bold!important;
+}
+
+.close:hover,
+.close:focus {
+    color: red!important;
+    cursor: pointer!important;
 }

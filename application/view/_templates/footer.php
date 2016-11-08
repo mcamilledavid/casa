@@ -1,4 +1,3 @@
-
 <footer class="footer">
     <div class="col-lg-6">
         <ul class="left">
@@ -20,6 +19,11 @@
 <!-- define the project's URL (to make AJAX calls possible, even when using this in sub-folders etc) -->
 <script>
     var url = "<?php echo URL; ?>";
+</script>
+
+<script>
+    var signup = document.getElementById('popup-signup');
+    var login = document.getElementById('popup-login');
 </script>
 
 <!-- our JavaScript -->

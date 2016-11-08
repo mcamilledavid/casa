@@ -36,8 +36,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="<?php echo URL; ?>post" class="header-post-listing-btn">Post a Listing</a></li>
                         <li><a href="#">Listings</a></li>
-                        <li><a href="<?php echo URL; ?>signup">Sign Up</a></li>
-                        <li><a href="<?php echo URL; ?>login">Log In</a></li>
+                        <li><a href="#signup" onclick="document.getElementById('popup-signup').style.display='block'">Sign Up</a></li>
+                        <li><a href="#login" onclick="document.getElementById('popup-login').style.display='block'">Log In</a></li>
                     </ul>
                 </div>
             </nav>
