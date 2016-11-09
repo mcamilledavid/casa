@@ -32,7 +32,7 @@
 
         <div class="signup-login-footer">
             Don't have an account?
-            <a href="<?php echo URL; ?>signup" class="signup-login-footer-btn">Sign Up</a>
+            <a href="#signup" onclick="document.getElementById('popup-signup').style.display='block'" class="signup-login-footer-btn">Sign Up</a>
         </div>
     </form>
 </div>

@@ -3,7 +3,7 @@
 session_start();
 
 class Home extends Controller {
-    
+
     public function index() {
 
         $rental_units = $this->model->getAllRentalUnits();

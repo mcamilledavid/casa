@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
-                            <i class="ionicons ion-ios-search"></i>
+                            <i class="ionicons ion-ios-search ionicons-search"></i>
                             <input type="text" class="form-control header-search-form" placeholder="Search">
                         </div>
                         <button type="submit" class="btn btn-default header-search-btn">Search</button>
@@ -36,8 +36,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="<?php echo URL; ?>post" class="header-post-listing-btn">Post a Listing</a></li>
                         <li><a href="#">Listings</a></li>
-                        <li><a href="#signup" onclick="document.getElementById('popup-signup').style.display='block'">Sign Up</a></li>
-                        <li><a href="#login" onclick="document.getElementById('popup-login').style.display='block'">Log In</a></li>
+                        <li><a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'">Sign Up</a></li>
+                        <li><a href="#login" onclick="document.getElementById('popup-login').style.display = 'block'">Log In</a></li>
                     </ul>
                 </div>
             </nav>
@@ -55,7 +55,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
-                            <i class="ionicons ion-ios-search"></i>
+                            <i class="ionicons ion-ios-search ionicons-search"></i>
                             <input type="text" class="form-control header-search-form" placeholder="Search">
                         </div>
                         <button type="submit" class="btn btn-default header-search-btn">Search</button>
@@ -63,11 +63,11 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#" class="header-post-listing-btn">Post a Listing</a></li>
                         <li><a href="#">Listings</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="header-username"><?php if (isset($user->username)) echo htmlspecialchars($user->username, ENT_QUOTES, 'UTF-8'); ?></span><i class="ionicons ion-ios-contact-outline"></i></a>
+                        <li class="dropdown header-user-container">
+                            <a href="#" class="dropdown-toggle ionicons-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="header-user"><?php if (isset($user->username)) echo htmlspecialchars($user->username, ENT_QUOTES, 'UTF-8'); ?></span><i class="ionicons ion-ios-contact-outline"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Manage Listings</a></li>
-                                <li><a href="#">Edit Profile</a></li>
+                                <li><a href="#">Edit Account</a></li>
                                 <li><a href="<?php echo URL; ?>logout">Logout</a></li>
                             </ul>
                         </li>

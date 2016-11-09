@@ -31,9 +31,7 @@ class Signup extends Controller {
             }
 
             $isStudent = isset($_POST["isStudent"]) ? $_POST["isStudent"] : 0;
-
             $pass_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-
             $this->model->addNewUser($_POST["firstname"], $_POST["lastname"], $_POST["username"], $_POST["email"], $isStudent, $pass_hash);
 
             header('location: ' . URL . 'login');

@@ -1,7 +1,7 @@
 <!-- Popup -->
 <div id="popup-signup" class="modal">
     <!-- Popup Content -->
-    <form  action="<?php echo URL; ?>signup/addnewuser" method="POST" autocomplete="off" class="modal-content"> 
+    <form  action="<?php echo URL; ?>signup/addnewuser" method="POST" autocomplete="off" class="modal-content" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }"> 
         <span onclick="document.getElementById('popup-signup').style.display = 'none'" 
               class="close" title="Close Modal">&times;</span>
         <div class="form-group">
@@ -55,7 +55,7 @@
         </div>
 
         <div class="form-group text-center">
-            <input type="checkbox" value="check" id="agree"> By signing up, I agree to Casa's <a href="">Terms of Service</a> and <a href="">Privacy Policy</a>.
+            <input type="checkbox" value="check" id="agree"> By signing up, I agree to Casa's <a href="">Terms & Privacy</a>.
         </div> 
 
         <div class="form-group">
@@ -64,7 +64,7 @@
 
         <div class="signup-login-footer">
             Already have a Casa account?
-            <a href="<?php echo URL; ?>login" class="signup-login-footer-btn">Log In</a>
+            <a href="#login" onclick="document.getElementById('popup-login').style.display='block'" class="signup-login-footer-btn">Log In</a>
         </div>
     </form>
 </div>
