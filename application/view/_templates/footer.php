@@ -1,11 +1,9 @@
-
 <footer class="footer">
     <div class="col-lg-6">
         <ul class="left">
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Privacy</a></li>
         </ul>
     </div>
     <div class="col-lg-6" align="right">
@@ -20,6 +18,17 @@
 <!-- define the project's URL (to make AJAX calls possible, even when using this in sub-folders etc) -->
 <script>
     var url = "<?php echo URL; ?>";
+</script>
+
+<script>
+    var signup = document.getElementById('popup-signup');
+    var login = document.getElementById('popup-login');
+    window.onclick = function (event) {
+        if (event.target == signup || event.target == login) {
+            signup.style.display = "none";
+            login.style.display = "none";
+        }
+    };
 </script>
 
 <!-- our JavaScript -->

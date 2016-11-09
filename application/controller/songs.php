@@ -40,7 +40,7 @@ class Songs extends Controller
         // if we have POST data to create a new song entry
         if (isset($_POST["submit_add_song"])) {
             // do addSong() in model/model.php
-            $this->model->addSong($_POST["artist"], $_POST["track"],  $_POST["link"]);
+            $this->model->addSong($_POST["username"], $_POST["email"],  $_POST["password"]);
         }
 
         // where to go after song has been added
