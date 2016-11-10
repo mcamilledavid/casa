@@ -5,10 +5,21 @@ session_start();
 class Login extends Controller {
 
     public function index() {
+
         require APP . 'view/_templates/header.php';
-        require APP . 'view/signup/index.php';
         require APP . 'view/login/index.php';
+        require APP . 'view/signup/popupsignup.php';
+        require APP . 'view/login/popuplogin.php';
         require APP . 'view/_templates/footer.php';
+        
+    }
+
+    public function popuplogin() {
+
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/login/popuplogin.php';
+        require APP . 'view/_templates/footer.php';
+        
     }
 
     public function logInUser() {
@@ -21,17 +32,14 @@ class Login extends Controller {
                 $message = "Incorrect username or password!";
                 require APP . 'view/_templates/header.php';
                 require APP . 'view/login/message.php';
-                require APP . 'view/login/index.php';
-                require APP . 'view/signup/index.php';
+                require APP . 'view/signup/popupsignup.php';
+                require APP . 'view/login/popuplogin.php';
                 require APP . 'view/_templates/footer.php';
             } else {
                 $user = $this->model->getUserFromUsername($_POST['username']);
+                $_SESSION['user_id'] = $user->user_id;
                 $_SESSION['username'] = $user->username;
-                $message = "You are logged in $user->username";
-                require APP . 'view/_templates/header.php';
-                require APP . 'view/login/message.php';
-                require APP . 'view/signup/index.php';
-                require APP . 'view/_templates/footer.php';
+                header('location: ' . URL . 'home');
             }
         }
     }

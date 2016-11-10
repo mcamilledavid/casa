@@ -62,10 +62,20 @@ class Model {
     }
 
     public function getUserFromUsername($username) {
-        $sql = "SELECT username FROM registered_user WHERE username = '$username'";
+        $sql = "SELECT * FROM registered_user WHERE username = '$username'";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetch();
+    }
+    
+    public function updateUserInfo($firstname, $lastname, $email, $password, $user_id)
+    {
+        $sql = "UPDATE registered_user SET firstname = :firstname, lastname = :lastname, "
+                . "email = :email, password = :password WHERE user_id = :user_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':firstname' => $firstname, ':lastname' => $lastname, 
+            ':email' => $email, ':password' => $password, ':song_id' => $song_id);
+        $query->execute($parameters);
     }
 
 }

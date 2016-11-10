@@ -1,3 +1,3 @@
-<div class="container">
-    <p>This is the Error-page. Will be shown when a page (= controller / method) does not exist.</p>
+<div class="container text-center" id="main-alt">
+    <h1>Page not found.</h1>
 </div>

@@ -23,8 +23,8 @@ class Problem extends Controller
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/problem/index.php';
-        require APP . 'view/signup/index.php';
-        require APP . 'view/login/index.php';
+        require APP . 'view/signup/popupsignup.php';
+        require APP . 'view/login/popuplogin.php';
         require APP . 'view/_templates/footer.php';
     }
 }

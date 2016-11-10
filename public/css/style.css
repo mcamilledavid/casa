@@ -1,10 +1,14 @@
 body {
-    font-family: 'Lato', sans-serif!important;
-    font-size: 12px!important;
+    font-family: 'Helvetica Neue', sans-serif!important;
+    font-size: 14px!important;
 }
 
-a:hover {
-    text-decoration: none!important;
+a, a:hover { text-decoration: none!important; }
+
+p {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 300;
 }
 
 /* forms */
@@ -15,9 +19,14 @@ input[type="text"], input[type="email"], input[type="password"] {
     height: 50px;
 }
 
+textarea {
+    width: 100%!important;
+    height: 150px;
+}
+
 .inner-addon .ionicons {
     position: absolute;
-    padding: 10px;
+    padding: 8px;
     pointer-events: none;
 }
 
@@ -28,11 +37,19 @@ input[type="text"], input[type="email"], input[type="password"] {
 .right-addon input { padding-right: 30px; }
 .ionicons { font-size: 2.5em; }
 
+.form-control {
+    border-radius: 0!important;
+    -webkit-border-radius: 0!important;
+    -moz-border-radius: 0;
+    font-size: 16px!important;
+    font-weight: 300;
+}
+
 .signup-login-header {
     text-align: center;
-    font-weight: 600;
+    font-weight: 400;
     margin: 0 0 30px 0;
-    font-size: 24px;
+    font-size: 32px;
 }
 
 .signup-login-btn {
@@ -82,13 +99,13 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 /* navbar */
 .ionicons-user {
-    padding-top: 8px!important;
-    padding-bottom: 8px!important;
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
     padding-right: 15px!important;
 }
 
 .ionicons-search {
-    padding: 12px 5px!important;
+    padding: 10px 5px!important;
 }
 
 .header-user-container {
@@ -104,11 +121,14 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 .navbar {
     margin-bottom: 0!important;
+    position: fixed!important;
+    width: 100%;
+    z-index: 1000;
+    height: 56px;
 }
 
 .navbar-default {
     background-image: none!important;
-    background-repeat: none!important;
     border-radius: 0!important;
     -webkit-border-radius: 0!important;
     -moz-border-radius: 0!important;
@@ -144,7 +164,6 @@ input[type="text"], input[type="email"], input[type="password"] {
     color: #888!important;
     border: 2px solid #e7e7e7;   
 }
-
 
 .header-search-form {
     border: 0!important;
@@ -196,6 +215,7 @@ footer {
 .footer p {
     color: #aaa;
     font-size: 12px;
+    line-height: 45px;
     font-weight: 300;
     margin: 0;
 }
@@ -204,6 +224,7 @@ footer {
     color: #bababa;
     font-weight: 300;
     text-decoration: none!important;
+    font-size: 12px;
 }
 
 .footer a:hover {
@@ -223,7 +244,11 @@ footer {
 }
 
 #main {
-    padding: 100px 0!important;
+    padding: 75px 0 75px 0!important;
+}
+
+#main-alt {
+    padding: 125px 0 75px 0!important;
 }
 
 /* popup */
@@ -231,7 +256,8 @@ footer {
     width: 100%!important;
     height: 100%!important;
     background-color: rgba(0,0,0,0.4)!important;
-    padding-top: 60px!important;
+    padding-top: 100px!important;
+
 }
 
 .modal-content {
@@ -259,4 +285,46 @@ footer {
 .close:focus {
     color: red!important;
     cursor: pointer!important;
+}
+
+.form-container {
+    width: 35%;
+    margin: 0 auto;
+    padding: 50px;
+    border: 1px solid #e7e7e7;
+}
+
+/* post a listing */
+.post-container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 45px;
+    border: 1px solid #e7e7e7;
+}
+
+.post-disclaimer {
+    padding: 20px;
+    border: 1px solid #e7e7e7;
+}
+
+/* sidebar */
+.sidebar {
+    margin: 15px 0;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+.sidebar a { color: #444; }
+
+/* about header */
+
+#about-header {
+    background: url(../public/img/about-bg.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 450px;
+    background-position: center;
+    padding: 0;
+    margin: 0;
 }
