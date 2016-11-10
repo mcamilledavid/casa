@@ -11,13 +11,13 @@
                         <div class="col-lg-6">
                             <div class="inner-addon right-addon">
                                 <i class="ionicons ion-ios-person-outline"></i>
-                                <input type="text" name="firstname" class="form-control" value="<?php echo htmlspecialchars($user->firstname, ENT_QUOTES, 'UTF-8'); ?>" required>
+                                <input type="text" name="firstname" class="form-control" value="<?php if (isset($_SESSION["firstname"])) echo ($_SESSION["firstname"]); ?>" required>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="inner-addon right-addon">
                                 <i class="ionicons ion-ios-person-outline"></i>
-                                <input type="text" name="lastname" class="form-control" value="<?php echo htmlspecialchars($user->lastname, ENT_QUOTES, 'UTF-8'); ?>" required>
+                                <input type="text" name="lastname" class="form-control" value="<?php if (isset($_SESSION["lastname"])) echo ($_SESSION["lastname"]); ?>" required>
                             </div>
                         </div>
                     </div>
@@ -26,14 +26,14 @@
                 <div class="form-group">
                     <div class="inner-addon right-addon">
                         <i class="ionicons ion-ios-person-outline"></i>
-                        <input type="text" name="username" class="form-control" value="<?php echo htmlspecialchars($user->username, ENT_QUOTES, 'UTF-8'); ?>" required>
+                        <input type="text" name="username" class="form-control" value="<?php if (isset($_SESSION["username"])) echo ($_SESSION["username"]); ?>" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="inner-addon right-addon">
                         <i class="ionicons ion-ios-email-outline"></i>
-                        <input type="email" name="email" class="form-control" value="<?php echo htmlspecialchars($user->email, ENT_QUOTES, 'UTF-8'); ?>" required>
+                        <input type="email" name="email" class="form-control" value="<?php if (isset($_SESSION["email"])) echo ($_SESSION["email"]); ?>" required>
                     </div>
                 </div>
 
