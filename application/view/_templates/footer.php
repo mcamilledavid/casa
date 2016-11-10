@@ -1,9 +1,9 @@
 <footer class="footer">
     <div class="col-lg-6">
         <ul class="left">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Terms & Privacy</a></li>
+            <li><a href="<?php echo URL; ?>about">About</a></li>
+            <li><a href="<?php echo URL; ?>contact">Contact</a></li>
+            <li><a href="<?php echo URL; ?>terms">Terms & Privacy</a></li>
         </ul>
     </div>
     <div class="col-lg-6" align="right">

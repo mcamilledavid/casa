@@ -1,9 +1,9 @@
-<div class="container-fluid" id="main-alt">
+<div class="container" id="main-alt">
     <div class="row">
         <div class="form-container">
-            <form  action="<?php echo URL; ?>signup/addnewuser" method="POST" autocomplete="off" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
+            <form  action="<?php echo URL; ?>account/updateuserinfo" method="POST" autocomplete="off">
                 <div class="form-group">
-                    <h2 class="signup-login-header">Sign Up</h2>
+                    <h2 class="signup-login-header">Edit Account</h2>
                 </div>
 
                 <div class="form-group">
@@ -11,13 +11,13 @@
                         <div class="col-lg-6">
                             <div class="inner-addon right-addon">
                                 <i class="ionicons ion-ios-person-outline"></i>
-                                <input type="text" name="firstname" class="form-control" placeholder="First Name" required>
+                                <input type="text" name="firstname" class="form-control" value="<?php echo htmlspecialchars($user->firstname, ENT_QUOTES, 'UTF-8'); ?>" required>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="inner-addon right-addon">
                                 <i class="ionicons ion-ios-person-outline"></i>
-                                <input type="text" name="lastname" class="form-control" placeholder="Last Name" required>
+                                <input type="text" name="lastname" class="form-control" value="<?php echo htmlspecialchars($user->lastname, ENT_QUOTES, 'UTF-8'); ?>" required>
                             </div>
                         </div>
                     </div>
@@ -26,14 +26,14 @@
                 <div class="form-group">
                     <div class="inner-addon right-addon">
                         <i class="ionicons ion-ios-person-outline"></i>
-                        <input type="text" name="username" class="form-control" placeholder="Username" required>
+                        <input type="text" name="username" class="form-control" value="<?php echo htmlspecialchars($user->username, ENT_QUOTES, 'UTF-8'); ?>" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="inner-addon right-addon">
                         <i class="ionicons ion-ios-email-outline"></i>
-                        <input type="email" name="email" class="form-control" placeholder="Email" required>
+                        <input type="email" name="email" class="form-control" value="<?php echo htmlspecialchars($user->email, ENT_QUOTES, 'UTF-8'); ?>" required>
                     </div>
                 </div>
 
@@ -52,18 +52,9 @@
                     </label>
                 </div>
 
-                <div class="form-group text-center">
-                    <input type="checkbox" value="check" id="agree"> By signing up, I agree to Casa's <a href="<?php echo URL; ?>terms">Terms & Privacy</a>.
-                </div> 
-
                 <div class="form-group">
-                    <button type="submit" class="btn btn-block signup-login-btn" name="submit_add_user">Sign Up</button>
+                    <button type="submit" class="btn btn-block signup-login-btn" name="submit__edit_user">Update</button>
                 </div> 
-
-                <div class="signup-login-footer">
-                    Already have a Casa account?
-                    <a href="#login" onclick="document.getElementById('popup-login').style.display = 'block'" class="signup-login-footer-btn">Log In</a>
-                </div>
             </form>
         </div>
     </div>
