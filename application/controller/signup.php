@@ -9,11 +9,18 @@ class Signup extends Controller {
         if (empty($_SESSION)) {
             require APP . 'view/_templates/header.php';
             require APP . 'view/signup/index.php';
-            require APP . 'view/login/index.php';
+            require APP . 'view/signup/popupsignup.php';
+            require APP . 'view/login/popuplogin.php';
             require APP . 'view/_templates/footer.php';
-        } else {
-            header('location: ' . URL . 'home');
         }
+        
+    }
+
+    public function popupsignup() {
+
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/signup/popupsignup.php';
+        require APP . 'view/_templates/footer.php';
     }
 
     public function addNewUser() {
@@ -23,9 +30,9 @@ class Signup extends Controller {
             if ($this->model->userExists($_POST['username']) == true) {
                 $message = "Username taken!";
                 require APP . 'view/_templates/header.php';
-                require APP . 'view/users/message.php';
-                require APP . 'view/signup/index.php';
-                require APP . 'view/login/index.php';
+                require APP . 'view/signup/message.php';
+                require APP . 'view/signup/popupsignup.php';
+                require APP . 'view/login/popuplogin.php';
                 require APP . 'view/_templates/footer.php';
                 return;
             }
