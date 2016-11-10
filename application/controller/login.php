@@ -39,6 +39,10 @@ class Login extends Controller {
                 $user = $this->model->getUserFromUsername($_POST['username']);
                 $_SESSION['user_id'] = $user->user_id;
                 $_SESSION['username'] = $user->username;
+                $_SESSION['firstname'] = $user->firstname;
+                $_SESSION['lastname'] = $user->lastname;
+                $_SESSION['email'] = $user->email;
+                $_SESSION['isStudent'] = $user->isStudent;
                 header('location: ' . URL . 'home');
             }
         }
