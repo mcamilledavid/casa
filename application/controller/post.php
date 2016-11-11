@@ -32,11 +32,11 @@ class Post extends Controller {
             $date_availability = filter_input(INPUT_POST, 'date_availability', FILTER_SANITIZE_STRING);
             $lease_length = filter_input(INPUT_POST, 'lease_length', FILTER_SANITIZE_STRING);
             $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
-            $pets = filter_input(INPUT_POST, 'pets', FILTER_SANITIZE_NUMBER_INT) === 1 ? 1 : 0;
-            $smoking = filter_input(INPUT_POST, 'smoking', FILTER_SANITIZE_NUMBER_INT) === 1 ? 1 : 0;
-            $furnished = filter_input(INPUT_POST, 'furnished', FILTER_SANITIZE_NUMBER_INT) === 1 ? 1 : 0;
-            $parking = filter_input(INPUT_POST, 'parking', FILTER_SANITIZE_NUMBER_INT) === 1 ? 1 : 0;
-            $laundry = filter_input(INPUT_POST, 'laundry', FILTER_SANITIZE_NUMBER_INT) === 1 ? 1 : 0;
+            $pets = filter_input(INPUT_POST, 'pets', FILTER_SANITIZE_NUMBER_INT) == NULL ? 0 : 1;
+            $smoking = filter_input(INPUT_POST, 'smoking', FILTER_SANITIZE_NUMBER_INT) == NULL ? 0 : 1;
+            $furnished = filter_input(INPUT_POST, 'furnished', FILTER_SANITIZE_NUMBER_INT) == NULL ? 0 : 1;
+            $parking = filter_input(INPUT_POST, 'parking', FILTER_SANITIZE_NUMBER_INT) == NULL ? 0 : 1;
+            $laundry = filter_input(INPUT_POST, 'laundry', FILTER_SANITIZE_NUMBER_INT) == NULL ? 0 : 1;
             $type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_STRING);
             $dist_from_campus = filter_input(INPUT_POST, 'dist_from_campus', FILTER_SANITIZE_NUMBER_FLOAT);
             
