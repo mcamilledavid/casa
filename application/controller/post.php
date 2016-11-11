@@ -18,8 +18,7 @@ class Post extends Controller {
         }
     }
     public function addRentalUnit() {
-        if (isset($_POST['submit_post_listing']) && $_SESSION['user_id']) {
-            
+        if (filter_has_var(INPUT_POST, 'submit_post_listing') && $_SESSION['user_id']) {
             $lister_id = $_SESSION['user_id'];
             $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
             $street = filter_input(INPUT_POST, 'street', FILTER_SANITIZE_STRING);
@@ -50,7 +49,7 @@ class Post extends Controller {
                 // what to do if insertion fails;
             } 
             
-            
+            /* change redirection once Manage Listings is setup */
             header('location: ' . URL . 'home');
             
         } else {
