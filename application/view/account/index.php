@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <div class="inner-addon right-addon">
                         <i class="ionicons ion-ios-person-outline"></i>
-                        <input type="text" name="username" class="form-control" value="<?php if (isset($_SESSION["username"])) echo ($_SESSION["username"]); ?>" required>
+                        <input type="text" name="username" class="form-control" value="<?php if (isset($_SESSION["username"])) echo ($_SESSION["username"]); ?>" readonly>
                     </div>
                 </div>
 
