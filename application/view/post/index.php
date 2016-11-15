@@ -9,7 +9,7 @@
                         return false;
                     }">
                 <div class="form-group">
-                    <h2 class="">Post a Listing</h2>
+                    <h2 class="">Details</h2>
                 </div>
                 <div class="form-group">
                     <input type="text" name="title" class="form-control" placeholder="Title" maxlength="75" required>

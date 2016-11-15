@@ -12,7 +12,7 @@ class Model {
             exit('Database connection could not be established.');
         }
     }
-    
+
     public function getAllRentalUnits() {
         $sql = "SELECT * FROM rental_unit";
         $query = $this->db->prepare($sql);
@@ -75,7 +75,7 @@ class Model {
     }
 
     public function search($search) {
-        $search = preg_replace("#[^0-9a-z]#i", " ", $search);
+        // $filtered_search= preg_replace("#[^0-9a-z]#i", " ", $search);
         $sql = "SELECT * FROM rental_unit WHERE CONCAT_WS('', title, description, zipcode) LIKE '%$search%'";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -121,48 +121,46 @@ class Model {
         $query->execute();
         return $query->fetch();
     }
-    
-    public function updateUserInfo($firstname, $lastname, $email, $password, $user_id)
-    {
+
+    public function updateUserInfo($firstname, $lastname, $email, $isStudent, $password, $user_id) {
         $sql = "UPDATE registered_user SET firstname = :firstname, lastname = :lastname, "
-                . "email = :email, password = :password WHERE user_id = :user_id";
+                . "email = :email, is_student = :isStudent, password = :password  WHERE user_id = :user_id";
         $query = $this->db->prepare($sql);
         $parameters = array(':firstname' => $firstname, ':lastname' => $lastname, 
-            ':email' => $email, ':password' => $password, ':song_id' => $song_id);
+            ':email' => $email, ':isStudent' => $isStudent, ':password' => $password, 
+            ':user_id' => $user_id);
         $query->execute($parameters);
     }
 
     // returns true if rental unit sucessfully added to database, otherwise 
     // returns false
-    public function addRentalUnit($lister_id, $title, $street, $city, $state, 
-            $zipcode, $beds, $baths, $rent, $deposit, $date_availability, 
-            $lease_length, $description, $pets, $smoking, $furnished, $parking,
-            $laundry, $type, $dist_from_campus) {
-        
+    public function addRentalUnit($lister_id, $title, $street, $city, $state, $zipcode, $beds, $baths, $rent, $deposit, $date_availability, $lease_length, $description, $pets, $smoking, $furnished, $parking, $laundry, $type, $dist_from_campus) {
+
         $sql = "INSERT INTO rental_unit "
-                ."(lister_id, title, street, city, state, zipcode, beds, baths,"
-                ." rent, deposit, date_availability, lease_length, description,"
-                ." pets, smoking, furnished, parking, laundry, type, dist_from_campus)"
-                ."VALUES "
-                ."(:lister_id, :title, :street, :city, :state, :zipcode, :beds,"
-                ." :baths, :rent, :deposit, :date_availability, :lease_length,"
-                ." :description, :pets, :smoking, :furnished, :parking,"
-                ." :laundry, :type, :dist_from_campus)";
-       
+                . "(lister_id, title, street, city, state, zipcode, beds, baths,"
+                . " rent, deposit, date_availability, lease_length, description,"
+                . " pets, smoking, furnished, parking, laundry, type, dist_from_campus)"
+                . "VALUES "
+                . "(:lister_id, :title, :street, :city, :state, :zipcode, :beds,"
+                . " :baths, :rent, :deposit, :date_availability, :lease_length,"
+                . " :description, :pets, :smoking, :furnished, :parking,"
+                . " :laundry, :type, :dist_from_campus)";
+
         $query = $this->db->prepare($sql);
-        
-        $parameters = array(':lister_id' => $lister_id,  ':title' => $title,
-            ':street' => $street,  ':city' => $city,  ':state' => $state, 
-            ':zipcode' => $zipcode,  ':beds' => $beds,  ':baths' => $baths,
-            ':rent' => $rent,  ':deposit' => $deposit,
+
+        $parameters = array(':lister_id' => $lister_id, ':title' => $title,
+            ':street' => $street, ':city' => $city, ':state' => $state,
+            ':zipcode' => $zipcode, ':beds' => $beds, ':baths' => $baths,
+            ':rent' => $rent, ':deposit' => $deposit,
             ':date_availability' => $date_availability,
-            ':lease_length' => $lease_length,  ':description' => $description,
-            ':pets' => $pets,  ':smoking' => $smoking,  ':furnished' => $furnished,
-            ':parking' => $parking, ':laundry' => $laundry,  ':type' => $type,  
+            ':lease_length' => $lease_length, ':description' => $description,
+            ':pets' => $pets, ':smoking' => $smoking, ':furnished' => $furnished,
+            ':parking' => $parking, ':laundry' => $laundry, ':type' => $type,
             ':dist_from_campus' => $dist_from_campus);
-       
+
         $status = $query->execute($parameters);
 
         return $status;
     }
+
 }
