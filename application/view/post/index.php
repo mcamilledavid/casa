@@ -1,7 +1,8 @@
 <div class="container" id="main-alt">
     <div class="row">
         <div class="post-container">
-            <form  action="<?php echo URL; ?>post/addNewPosting" method="POST" autocomplete="off" enctype="multipart/form-data" onsubmit="if (document.getElementById('agree').checked) {
+            <form  action="<?php echo URL; ?>post/addRentalUnit" method="POST" autocomplete="off" enctype="multipart/form-data" onsubmit="if (document.getElementById('agree').checked) {
+
                         return true;
                     } else {
                         alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy');

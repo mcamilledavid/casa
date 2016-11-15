@@ -28,10 +28,14 @@ class Model {
     public function addNewRentalUnit($listerId,$title,$street,$city,$state,$zipcode,
             $beds,$baths,$rent,$deposit,$dateAvailability,$leaseLength,$description,
             $pets,$smoking,$furnished,$parking,$laundry,$type,$distanceFromCampus){
-        $sql = "INSERT INTO rental_unit (lister_id,title, street,city,state,zipcode,beds,baths,rent,deposit,"
-            ."date_availability,lease_length,description,pets,smoking,furnished,parking,laundry,type,dist_from_campus,is_rented)"
-                . "VALUES (:listerId,:title,:street,:city,:state,:zipcode,:beds,:baths,:rent,:deposit,"
-            .":date_availability,:lease_length,:description,:pets,:smoking,:furnished,:parking,:laundry,:type,:distance_from_campus,:is_rented)";
+        $sql = "INSERT INTO rental_unit (lister_id,title, street,city,state,"
+                . "zipcode,beds,baths,rent,deposit,date_availability,"
+                . "lease_length,description,pets,smoking,furnished,parking,"
+                . "laundry,type,dist_from_campus,is_rented)"
+                . "VALUES (:listerId,:title,:street,:city,:state,:zipcode,:beds,"
+                . ":baths,:rent,:deposit,:date_availability,:lease_length,"
+                . ":description,:pets,:smoking,:furnished,:parking,:laundry,"
+                . ":type,:distance_from_campus,:is_rented)";
         $query = $this->db->prepare($sql);
         $parameters = array(':listerId'=>$listerId,':title'=>$title,':street'=>$street,
             ':city'=>$city,':state'=>$state,':zipcode'=>$zipcode,':beds'=>$beds,
@@ -128,4 +132,37 @@ class Model {
         $query->execute($parameters);
     }
 
+    // returns true if rental unit sucessfully added to database, otherwise 
+    // returns false
+    public function addRentalUnit($lister_id, $title, $street, $city, $state, 
+            $zipcode, $beds, $baths, $rent, $deposit, $date_availability, 
+            $lease_length, $description, $pets, $smoking, $furnished, $parking,
+            $laundry, $type, $dist_from_campus) {
+        
+        $sql = "INSERT INTO rental_unit "
+                ."(lister_id, title, street, city, state, zipcode, beds, baths,"
+                ." rent, deposit, date_availability, lease_length, description,"
+                ." pets, smoking, furnished, parking, laundry, type, dist_from_campus)"
+                ."VALUES "
+                ."(:lister_id, :title, :street, :city, :state, :zipcode, :beds,"
+                ." :baths, :rent, :deposit, :date_availability, :lease_length,"
+                ." :description, :pets, :smoking, :furnished, :parking,"
+                ." :laundry, :type, :dist_from_campus)";
+       
+        $query = $this->db->prepare($sql);
+        
+        $parameters = array(':lister_id' => $lister_id,  ':title' => $title,
+            ':street' => $street,  ':city' => $city,  ':state' => $state, 
+            ':zipcode' => $zipcode,  ':beds' => $beds,  ':baths' => $baths,
+            ':rent' => $rent,  ':deposit' => $deposit,
+            ':date_availability' => $date_availability,
+            ':lease_length' => $lease_length,  ':description' => $description,
+            ':pets' => $pets,  ':smoking' => $smoking,  ':furnished' => $furnished,
+            ':parking' => $parking, ':laundry' => $laundry,  ':type' => $type,  
+            ':dist_from_campus' => $dist_from_campus);
+       
+        $status = $query->execute($parameters);
+
+        return $status;
+    }
 }
