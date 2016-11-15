@@ -26,12 +26,12 @@
                     <a class="navbar-brand" href="<?php echo URL; ?>">casa</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <form class="navbar-form navbar-left">
+                    <form class="navbar-form navbar-left" action="<?php echo URL; ?>home/search" method="POST">
                         <div class="form-group">
                             <i class="ionicons ion-ios-search ionicons-search"></i>
-                            <input type="text" class="form-control header-search-form" placeholder="Search">
+                            <input type="text" class="form-control header-search-form" name="search_value" value="" required placeholder="Search">
                         </div>
-                        <button type="submit" class="btn btn-default header-search-btn">Search</button>
+                        <button type="submit" class="btn btn-default header-search-btn" name="submit_search" value="Submit">Search</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="<?php echo URL; ?>post" class="header-post-listing-btn">Post a Listing</a></li>
@@ -53,12 +53,12 @@
                     <a class="navbar-brand" href="<?php echo URL; ?>">casa</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <form class="navbar-form navbar-left">
+                    <form class="navbar-form navbar-left" action="<?php echo URL; ?>home/search" method="POST">
                         <div class="form-group">
                             <i class="ionicons ion-ios-search ionicons-search"></i>
-                            <input type="text" class="form-control header-search-form" placeholder="Search">
+                            <input type="text" class="form-control header-search-form" name="search_value" value="" required placeholder="Search">
                         </div>
-                        <button type="submit" class="btn btn-default header-search-btn">Search</button>
+                        <button type="submit" class="btn btn-default header-search-btn" name="submit_search" value="Submit">Search</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="<?php echo URL; ?>post" class="header-post-listing-btn">Post a Listing</a></li>
