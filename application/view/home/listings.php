@@ -17,8 +17,7 @@
                 <th>Distance from campus</th>
             </tr>
  
-        <?php foreach ($results as $query) {
-           $image=$query->thumnail;  ?>
+        <?php foreach ($results as $query) { ?>
                 <tr>
                     <td>
                         <?php if (isset($query->title)) { ?>
@@ -33,7 +32,6 @@
                     <td><?php if (isset($query->deposit)) echo htmlspecialchars($query->deposit, ENT_QUOTES, 'UTF-8'); ?></td>
                     <td><?php if (isset($query->description)) echo htmlspecialchars($query->description, ENT_QUOTES, 'UTF-8'); ?></td>
                     <td><?php if (isset($query->dist_from_campus)) echo htmlspecialchars($query->dist_from_campus, ENT_QUOTES, 'UTF-8'); ?></td>
-                    <td><?php if(isset($image)) echo '<img src="data:image/jpeg;base64,'. base64_encode($image) .'" />'?></td>
                 </tr>
             <?php } ?> 
         </tbody>  
