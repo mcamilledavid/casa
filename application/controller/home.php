@@ -22,7 +22,6 @@ class Home extends Controller {
     public function search() {
 
         if (isset($_POST["search"])) {
-
             $query = $this->model->search($_POST['search']);
             require APP . 'view/_templates/header.php';
             require APP . 'view/home/search.php';
@@ -30,6 +29,14 @@ class Home extends Controller {
             require APP . 'view/login/popuplogin.php';
             require APP . 'view/_templates/footer.php';
         }
+    }
+    
+    public function showListings(){
+        
+            $results = $this->model->getAllRentalUnits();
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/home/listings.php';
+            require APP . 'view/_templates/footer.php';
     }
 
 }
