@@ -19,6 +19,60 @@ class Model {
         $query->execute();
         return $query->fetchAll();
     }
+    
+    /**
+     * @all variables These are the values to be inserted in the database
+     */
+    //Use this function to add new listing
+    //returns the rental_unit_id of the latest Rental unit created
+    public function addNewRentalUnit($listerId,$title,$street,$city,$state,$zipcode,
+            $beds,$baths,$rent,$deposit,$dateAvailability,$leaseLength,$description,
+            $pets,$smoking,$furnished,$parking,$laundry,$type,$distanceFromCampus){
+        $sql = "INSERT INTO rental_unit (lister_id,title, street,city,state,"
+                . "zipcode,beds,baths,rent,deposit,date_availability,"
+                . "lease_length,description,pets,smoking,furnished,parking,"
+                . "laundry,type,dist_from_campus,is_rented)"
+                . "VALUES (:listerId,:title,:street,:city,:state,:zipcode,:beds,"
+                . ":baths,:rent,:deposit,:date_availability,:lease_length,"
+                . ":description,:pets,:smoking,:furnished,:parking,:laundry,"
+                . ":type,:distance_from_campus,:is_rented)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':listerId'=>$listerId,':title'=>$title,':street'=>$street,
+            ':city'=>$city,':state'=>$state,':zipcode'=>$zipcode,':beds'=>$beds,
+            ':baths'=>$baths,':rent'=>$rent,':deposit'=>$deposit,
+            ':date_availability'=>$dateAvailability,':lease_length'=>$leaseLength,
+            ':description'=>$description,':pets'=>$pets,':smoking'=>$smoking,
+            ':furnished'=>$furnished,':parking'=>$parking,':laundry'=>$laundry,
+            ':type'=>$type,':distance_from_campus'=>$distanceFromCampus,':is_rented'=> 0);
+        $query->execute($parameters);
+        return $this->getLastInsertedRentalUnitId($listerId);
+    }
+    
+    //Use this function to add image for a rental unit
+    public function addRentalUnitImages($image,$ru_id){
+         $sql = "INSERT INTO image (rental_unit_id,image) VALUES (:rental_unit_id,:image)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':rental_unit_id'=>$ru_id,':image' => $image);
+        $query->execute($parameters);
+     }
+    
+    //Use this function to add image for a rental unit
+    public function addRentalUnitThumbnail($image,$ru_id){
+         $sql = "UPDATE rental_unit SET thumbnail=:image WHERE rental_unit_id = $ru_id;";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':image' => $image);
+        $query->execute($parameters);
+    } 
+     
+    /**
+     * @listerId returns the id of the last inserted rental unit 
+     */
+    public function getLastInsertedRentalUnitId($listerId) {       
+        $sql = "SELECT LAST_INSERT_ID() AS last_id FROM rental_unit WHERE lister_id = $listerId;";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetch()->last_id;
+    }
 
     public function search($search) {
         $search = preg_replace("#[^0-9a-z]#i", " ", $search);

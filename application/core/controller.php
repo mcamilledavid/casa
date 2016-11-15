@@ -47,4 +47,35 @@ class Controller
         // create new "model" (and pass the database connection)
         $this->model = new Model($this->db);
     }
+    
+    // Wont be using for the Milestone 3 Demo
+    // Keep till we have a better solution
+    protected function resizeImage($file)
+    {
+        $maxDim = 400;
+        list($width, $height) = getimagesize( $file );
+        if ( $width > $maxDim || $height > $maxDim ) {
+            
+            $target_filename = $file;
+            $fn = $file;
+            
+            // find new proportional height & width
+            $size = getimagesize( $fn );
+            $ratio = $size[0] / $size[1]; // width/height
+            if( $ratio > 1) { // width > height
+                $width = $maxDim;
+                $height = $maxDim / $ratio;
+            } else { // width < height
+                $width = $maxDim * $ratio;
+                $height = $maxDim;
+            }
+            // resize image with new height & width
+            $src = imagecreatefromstring( file_get_contents( $fn ) );
+            $dst = imagecreatetruecolor( $width, $height );
+            imagecopyresampled( $dst, $src, 0, 0, 0, 0, $width, $height, $size[0], $size[1] );
+            imagedestroy( $src );
+            imagepng( $dst, $target_filename );
+            imagedestroy( $dst );
+        }
+    }
 }
