@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-block signup-login-btn" name="submit__edit_user">Update</button>
+                    <button type="submit" class="btn btn-block signup-login-btn" name="submit_update_user">Update</button>
                 </div> 
             </form>
         </div>
