@@ -18,6 +18,7 @@
             </tr>
  
         <?php foreach ($results as $query) { ?>
+            <tbody>
                 <tr>
                     <td>
                         <?php if (isset($query->title)) { ?>

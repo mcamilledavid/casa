@@ -73,6 +73,13 @@ class Model {
         $query->execute();
         return $query->fetch()->last_id;
     }
+    
+    public function getFeaturedListings(){
+        $sql = "SELECT * FROM rental_unit ORDER BY rental_unit_id DESC LIMIT 4";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
 
     public function search($search) {
         // $filtered_search= preg_replace("#[^0-9a-z]#i", " ", $search);
