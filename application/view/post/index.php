@@ -2,13 +2,14 @@
     <div class="row">
         <div class="post-container">
             <form  action="<?php echo URL; ?>post/addRentalUnit" method="POST" autocomplete="off" enctype="multipart/form-data" onsubmit="if (document.getElementById('agree').checked) {
+
                         return true;
                     } else {
                         alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy');
                         return false;
                     }">
                 <div class="form-group">
-                    <h2 class="">Post a Listing</h2>
+                    <h2 class="">Details</h2>
                 </div>
                 <div class="form-group">
                     <input type="text" name="title" class="form-control" placeholder="Title" maxlength="75" required>
@@ -80,6 +81,23 @@
                             <h3>Deposit</h3>
                             <input type="text" name="deposit" class="form-control" placeholder="Deposit (ex. 1000.00)" maxlength="75">
                         </div>
+                        <div class="col-lg-4">
+                            <h3>Distance From Campus</h3>
+                            <select name="distance_from_campus">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>  
+                      </div>
                     </div>
                 </div>
 
@@ -104,10 +122,10 @@
                         <option value="12">12</option>
                     </select>  
                 </div>
-
+                
                 <div class="form-group col-lg-12">
                     <h3>Photos</h3>
-                    <input type="file" name="image[]" multiple>
+                    <input type="file" name="rental_unit_thumb"  multiple>
                 </div>
 
                 <div class="form-group col-lg-12">

@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <div class="inner-addon right-addon">
                         <i class="ionicons ion-ios-person-outline"></i>
-                        <input type="text" name="username" class="form-control" value="<?php if (isset($_SESSION["username"])) echo ($_SESSION["username"]); ?>" required>
+                        <input type="text" name="username" class="form-control" value="<?php if (isset($_SESSION["username"])) echo ($_SESSION["username"]); ?>" readonly>
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-block signup-login-btn" name="submit__edit_user">Update</button>
+                    <button type="submit" class="btn btn-block signup-login-btn" name="submit_update_user">Update</button>
                 </div> 
             </form>
         </div>
