@@ -7,12 +7,14 @@ class Home extends Controller {
     public function index() {
 
         if (empty($_SESSION)) {
+            $featured = $this->model->getFeaturedListings();
             require APP . 'view/_templates/header.php';
             require APP . 'view/home/index.php';
             require APP . 'view/signup/popupsignup.php';
             require APP . 'view/login/popuplogin.php';
             require APP . 'view/_templates/footer.php';
         } else {
+            $featured = $this->model->getFeaturedListings();
             require APP . 'view/_templates/header.php';
             require APP . 'view/home/index.php';
             require APP . 'view/_templates/footer.php';
