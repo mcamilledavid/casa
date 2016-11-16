@@ -46,27 +46,27 @@
                     <p><?php
                         if (isset($query->pets)) {
                             if ($query->pets == 1) {
-                                echo "<img src='../public/img/Dog-50.png' title='' width='25' class='listing-icons'>";
+                                echo "<img src='../dev/public/img/Dog-50.png' title='' width='25' class='listing-icons'>";
                             }
                         }
                         if (isset($query->smoking)) {
                             if ($query->pets == 1) {
-                                echo "<img src='../public/img/Smoking-50.png' title='' width='25' class='listing-icons'>";
+                                echo "<img src='../dev/public/img/Smoking-50.png' title='' width='25' class='listing-icons'>";
                             }
                         }
                         if (isset($query->laundry)) {
                             if ($query->pets == 1) {
-                                echo "<img src='../public/img/Washing Machine-50.png' title='' width='25' class='listing-icons'>";
+                                echo "<img src='../dev/public/img/Washing Machine-50.png' title='' width='25' class='listing-icons'>";
                             }
                         }
                         if (isset($query->parking)) {
                             if ($query->pets == 1) {
-                                echo "<img src='../public/img/Parking-50.png' title='' width='25' class='listing-icons'>";
+                                echo "<img src='../dev/public/img/Parking-50.png' title='' width='25' class='listing-icons'>";
                             }
                         }
                         if (isset($query->furnished)) {
                             if ($query->pets == 1) {
-                                echo "<img src='../public/img/Sofa-50.png' title='' width='25' class='listing-icons'>";
+                                echo "<img src='../dev/public/img/Sofa-50.png' title='' width='25' class='listing-icons'>";
                             }
                         }
                         ?>
