@@ -28,9 +28,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <form action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" method="POST">
-                        <div class="form-group">
-                            <i class="ionicons ion-ios-search ionicons-search"></i>
-                            <input type="text" class="form-control header-search-form" name="search_value" value="" placeholder="Search">
+                            <div class="inner-addon left-addon">
+                                <i class="ionicons ion-ios-search ionicons-search"></i>
+                                <input type="text" class="form-control header-search-form" name="search_value" value="" placeholder="Search by city, zipcode, rental type.">
                         </div>
                         <button type="submit" class="btn btn-default header-search-btn" name="submit_search">Search</button>
                     </form>
@@ -55,10 +55,10 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <form action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" method="POST">
-                        <div class="form-group">
-                            <i class="ionicons ion-ios-search ionicons-search"></i>
-                            <input type="text" class="form-control header-search-form" name="search_value" value="" placeholder="Search">
-                        </div>
+                            <div class="inner-addon left-addon">
+                                <i class="ionicons ion-ios-search ionicons-search"></i>
+                                <input type="text" class="form-control header-search-form" name="search_value" value="" placeholder="Search by city, zipcode, rental type.">
+                            </div>
                         <button type="submit" class="btn btn-default header-search-btn" name="submit_search">Search</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
@@ -67,7 +67,7 @@
                         <li class="dropdown header-user-container">
                             <a href="#" class="dropdown-toggle ionicons-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="header-user"><?php if (isset($_SESSION["username"])) echo ($_SESSION["username"]); ?></span><i class="ionicons ion-ios-contact-outline"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Manage Listings</a></li>
+                                <li><a href="<?php echo URL; ?>manage">Manage Listings</a></li>
                                 <li><a href="<?php echo URL; ?>account">Edit Account</a></li>
                                 <li><a href="<?php echo URL; ?>logout">Logout</a></li>
                             </ul>

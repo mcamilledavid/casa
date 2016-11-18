@@ -1,20 +1,25 @@
 <div class="container-fluid" id="main-alt">
     <div class="row">
         <div class="form-container">
-            <form  action="<?php echo URL; ?>signup/addnewuser" method="POST" autocomplete="off" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
+            <form  action="<?php echo URL; ?>signup/addnewuser" method="POST" autocomplete="off" onsubmit="if (document.getElementById('agree').checked) {
+                        return true;
+                    } else {
+                        alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy');
+                        return false;
+                    }">
                 <div class="form-group">
                     <h2 class="signup-login-header">Sign Up</h2>
                 </div>
 
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 left-input">
                             <div class="inner-addon right-addon">
                                 <i class="ionicons ion-ios-person-outline"></i>
                                 <input type="text" name="firstname" class="form-control" placeholder="First Name" required>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 right-input">
                             <div class="inner-addon right-addon">
                                 <i class="ionicons ion-ios-person-outline"></i>
                                 <input type="text" name="lastname" class="form-control" placeholder="Last Name" required>
