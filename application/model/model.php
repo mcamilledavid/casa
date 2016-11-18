@@ -14,7 +14,7 @@ class Model {
     }
 
     public function getAllRentalUnits() {
-        $sql = "SELECT * FROM rental_unit";
+        $sql = "SELECT * FROM rental_unit ORDER BY rental_unit_id DESC";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
