@@ -51,22 +51,22 @@
                                     }
                                 }
                                 if (isset($query->smoking)) {
-                                    if ($query->pets == 1) {
+                                    if ($query->smoking == 1) {
                                         echo "<img src='" . URL . "img/Smoking-50.png' title='smoking' width='25' class='listing-icons'>";
                                     }
                                 }
                                 if (isset($query->laundry)) {
-                                    if ($query->pets == 1) {
+                                    if ($query->laundry == 1) {
                                         echo "<img src='" . URL . "img/Washing Machine-50.png' title='laundry' width='25' class='listing-icons'>";
                                     }
                                 }
                                 if (isset($query->parking)) {
-                                    if ($query->pets == 1) {
+                                    if ($query->parking == 1) {
                                         echo "<img src='" . URL . "img/Parking-50.png' title='parking' width='25' class='listing-icons'>";
                                     }
                                 }
                                 if (isset($query->furnished)) {
-                                    if ($query->pets == 1) {
+                                    if ($query->furnished == 1) {
                                         echo "<img src='" . URL . "img/Sofa-50.png' title='furnished' width='25' class='listing-icons'>";
                                     }
                                 }
