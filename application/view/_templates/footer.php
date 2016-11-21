@@ -7,7 +7,7 @@
         </ul>
     </div>
     <div class="col-lg-6" align="right">
-        <p>SFSU SWE Project. Demonstration Only. Copyright © 2016 Casa.</p>
+        <p>SFSU/FAU/FULDA Software Engineering Project Fall 2016. For Demonstration Only. Copyright © 2016 Casa.</p>
     </div>
 </footer>
 

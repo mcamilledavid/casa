@@ -1,17 +1,12 @@
-<div class="container" id="main-alt">
-    <div class="col-lg-3">
+<div class="container" id="main-large">
+    <div class="col-lg-2">
         <div style="border: 1px solid #e7e7e7; width: 100%; height: 500px;"></div>
     </div>
-    <div class="col-lg-9">
-        <table><tbody>
+    <div class="col-lg-10">
                 <?php
                 $count = 0;
                 foreach ($query as $query) {
-                    if ($count % 2 == 0) {
-                        echo "<tr>";
-                    }
                     ?>
-                <td>
                     <div class="listing-container">
                         <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
                         <?php
@@ -80,15 +75,15 @@
                                 ?>
                             </p>
                             <div class="form-group">
-                                <form action="" method="POST">
-                                    <button type="submit" class="btn listing-message-btn" name="submit_contact_lister">Message Lister</button>
-                                </form>
-                            </div>
+                                <a href="<?php echo URL; ?>message" target="_blank"><button type="submit" class="btn listing-message-btn" name="submit_contact_lister">Message Lister</button></a>
+                            </div> 
                         </div>
                     </div>
-                </td>
                 <?php $count++;
-            } ?>
-            </tr></tbody></table>
+            } 
+            if ($count == 0) {
+            echo "<h2>Sorry, no results found. Please try searching again.</h2>";
+        }
+        ?>
     </div>
 </div>

@@ -17,14 +17,14 @@
         </div>
     </div>
 </div>
-<div class="container" id="featured">
+<div class="container" id="main-alt">
     <h2 class="text-center">Featured Listings</h2>
-    <div class="col-lg-10">
+    <div class="col-lg-12">
         <table><tbody>
                 <?php
                 $count = 0;
                 foreach ($featured as $query) {
-                    if ($count % 2 == 0) {
+                    if ($count % 3 == 0) {
                         echo "<tr>";
                     }
                     ?>
@@ -68,22 +68,22 @@
                                     }
                                 }
                                 if (isset($query->smoking)) {
-                                    if ($query->pets == 1) {
+                                    if ($query->smoking == 1) {
                                         echo "<img src='" . URL . "img/Smoking-50.png' title='smoking' width='25' class='listing-icons'>";
                                     }
                                 }
                                 if (isset($query->laundry)) {
-                                    if ($query->pets == 1) {
+                                    if ($query->laundry == 1) {
                                         echo "<img src='" . URL . "img/Washing Machine-50.png' title='laundry' width='25' class='listing-icons'>";
                                     }
                                 }
                                 if (isset($query->parking)) {
-                                    if ($query->pets == 1) {
+                                    if ($query->parking == 1) {
                                         echo "<img src='" . URL . "img/Parking-50.png' title='parking' width='25' class='listing-icons'>";
                                     }
                                 }
                                 if (isset($query->furnished)) {
-                                    if ($query->pets == 1) {
+                                    if ($query->furnished == 1) {
                                         echo "<img src='" . URL . "img/Sofa-50.png' title='furnished' width='25' class='listing-icons'>";
                                     }
                                 }
@@ -97,10 +97,8 @@
                                 ?>
                             </p>
                             <div class="form-group">
-                                <form action="" method="POST">
-                                    <button type="submit" class="btn listing-message-btn" name="submit_contact_lister">Message Lister</button>
-                                </form>
-                            </div>
+                                <a href="<?php echo URL; ?>message" target="_blank"><button type="submit" class="btn listing-message-btn" name="submit_contact_lister">Message Lister</button></a>
+                            </div>                        
                         </div>
                     </div>
                 </td>

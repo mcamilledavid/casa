@@ -28,9 +28,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <form action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" method="POST">
-                            <div class="inner-addon left-addon">
-                                <i class="ionicons ion-ios-search ionicons-search"></i>
-                                <input type="text" class="form-control header-search-form" name="search_value" value="" placeholder="Search by city, zipcode, rental type.">
+                        <div class="inner-addon left-addon">
+                            <i class="ionicons ion-ios-search ionicons-search"></i>
+                            <input type="text" class="form-control header-search-form" name="search_value" value="" placeholder="Search by city, zipcode, rental type.">
                         </div>
                         <button type="submit" class="btn btn-default header-search-btn" name="submit_search">Search</button>
                     </form>
@@ -55,10 +55,10 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <form action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" method="POST">
-                            <div class="inner-addon left-addon">
-                                <i class="ionicons ion-ios-search ionicons-search"></i>
-                                <input type="text" class="form-control header-search-form" name="search_value" value="" placeholder="Search by city, zipcode, rental type.">
-                            </div>
+                        <div class="inner-addon left-addon">
+                            <i class="ionicons ion-ios-search ionicons-search"></i>
+                            <input type="text" class="form-control header-search-form" name="search_value" value="" placeholder="Search by city, zipcode, rental type.">
+                        </div>
                         <button type="submit" class="btn btn-default header-search-btn" name="submit_search">Search</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">

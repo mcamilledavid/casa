@@ -272,11 +272,11 @@ footer {
 }
 
 #main-alt {
-    padding: 125px 0 125px 0!important;
+    padding: 75px 0 125px 0!important;
 }
 
-#featured {
-    padding: 75px 0 125px 0!important;
+#main-large {
+    padding: 125px 0 125px 0!important;
 }
 
 /* popup */
@@ -367,7 +367,7 @@ footer {
 
 .listing-container {
     padding: 10px;
-    display: block;
+    display: inline-block;
 }
 
 .listing-preview {
@@ -395,7 +395,7 @@ footer {
 }
 
 .listing-message-btn:hover{
-    border: 2px solid #ddd!important;
+    background: #58a258!important;
 }
 
 .listing-price {
@@ -469,4 +469,41 @@ footer {
 
 .home-search-form {
     border: 1px solid #ddd!important;
+}
+
+.page-title-container {
+    margin: 50px 0 100px;
+    text-align: center;
+}
+
+.manage-listing-thumbnails {
+    max-height: 150px;
+    max-width: 250px;
+    height: 100%;
+}
+
+.manage-listing-container {
+    padding: 10px 0;
+    display: inline-block;
+}
+
+.manage-listing-preview {
+    float: right;
+    padding: 0 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .manage-listing-preview {
+        float: none;
+        padding: 0px;
+    }
+}
+
+.manage-listing-preview a {
+    color: #333;
+}
+
+.manage-listing-preview p {
+    font-size: 14px;
+    line-height: 8px;
 }

@@ -1,4 +1,4 @@
-<div class="container-fluid" id="main-alt">
+<div class="container-fluid" id="main-large">
     <div class="row">
         <div class="form-container">
             <form  action="<?php echo URL; ?>signup/addnewuser" method="POST" autocomplete="off" onsubmit="if (document.getElementById('agree').checked) {

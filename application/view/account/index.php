@@ -1,4 +1,4 @@
-<div class="container" id="main-alt">
+<div class="container" id="main-large">
     <div class="row">
         <div class="form-container">
             <form  action="<?php echo URL; ?>account/updateuserinfo" method="POST" autocomplete="off">
@@ -8,13 +8,13 @@
 
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 left-input">
                             <div class="inner-addon right-addon">
                                 <i class="ionicons ion-ios-person-outline"></i>
                                 <input type="text" name="firstname" class="form-control" value="<?php if (isset($_SESSION["firstname"])) echo ($_SESSION["firstname"]); ?>" required>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 right-input">
                             <div class="inner-addon right-addon">
                                 <i class="ionicons ion-ios-person-outline"></i>
                                 <input type="text" name="lastname" class="form-control" value="<?php if (isset($_SESSION["lastname"])) echo ($_SESSION["lastname"]); ?>" required>
