@@ -42,7 +42,7 @@ class Login extends Controller {
                 $_SESSION['firstname'] = $user->firstname;
                 $_SESSION['lastname'] = $user->lastname;
                 $_SESSION['email'] = $user->email;
-                $_SESSION['isStudent'] = $user->isStudent;
+                $_SESSION['isStudent'] = $user->is_student;
                 header('location: ' . URL . 'home');
             }
         }
