@@ -46,9 +46,8 @@
 <script>
     if (datefield.type != "date") {
         jQuery(function ($) {
-            dateFormat: 'YYYY-MM-DD';
-            $('#date').datepicker();
-        })
+            $('#date').datepicker({ dateFormat: 'yy-mm-dd' });
+        });
     }
 </script>
 
