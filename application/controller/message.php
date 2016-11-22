@@ -2,8 +2,8 @@
 
 session_start();
 
-class Manage extends Controller {
-
+class Message extends Controller {
+    
     public function index() {
         if (empty($_SESSION)) {
             require APP . 'view/_templates/header.php';
@@ -12,19 +12,10 @@ class Manage extends Controller {
             require APP . 'view/login/popuplogin.php';
             require APP . 'view/_templates/footer.php';
         } else {
-            $result = $this->model->getRentalUnitsByUserId($_SESSION['user_id']);
             require APP . 'view/_templates/header.php';
-            require APP . 'view/manage/index.php';
+            require APP . 'view/message/index.php';
             require APP . 'view/_templates/footer.php';
         }
-    }
-    
-    public function popupmessage() {
-
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/message/popupmessage.php';
-        require APP . 'view/_templates/footer.php';
-        
     }
 
 }

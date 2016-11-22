@@ -16,6 +16,7 @@ class Home extends Controller {
         } else {
             $featured = $this->model->getFeaturedListings();
             require APP . 'view/_templates/homeheader.php';
+            require APP . 'view/message/popupmessage.php';
             require APP . 'view/home/index.php';
             require APP . 'view/_templates/footer.php';
         }
@@ -29,6 +30,7 @@ class Home extends Controller {
 
             require APP . 'view/_templates/header.php';
             require APP . 'view/home/search.php';
+            require APP . 'view/message/popupmessage.php';
             require APP . 'view/signup/popupsignup.php';
             require APP . 'view/login/popuplogin.php';
             require APP . 'view/_templates/footer.php';
@@ -40,19 +42,10 @@ class Home extends Controller {
         $query = $this->model->getAllRentalUnits();
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/search.php';
+        require APP . 'view/message/popupmessage.php';
         require APP . 'view/signup/popupsignup.php';
         require APP . 'view/login/popuplogin.php';
         require APP . 'view/_templates/footer.php';
     }
 
-    public function featuredListings(){
-        
-        $query = $this->model->getFeaturedListings();
-        require APP . 'view/_templates/homeheader.php';
-        require APP . 'view/home/index.php';
-        require APP . 'view/home/search.php';
-        require APP . 'view/signup/popupsignup.php';
-        require APP . 'view/login/popuplogin.php';
-        require APP . 'view/_templates/footer.php';
-    }
 }

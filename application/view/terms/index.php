@@ -1,4 +1,4 @@
-<div class="container" id="main">
+<div class="container" id="main-large">
       <div class="col-lg-12">
          <h2>Terms & Privacy</h2>
          <br>

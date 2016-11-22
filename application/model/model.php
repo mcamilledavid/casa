@@ -81,8 +81,6 @@ class Model {
         $query->execute();
         return $query->fetchAll();
     }
-    
-    
 
     public function search($search) {
         // $filtered_search= preg_replace("#[^0-9a-z]#i", " ", $search);
@@ -171,6 +169,13 @@ class Model {
         $status = $query->execute($parameters);
 
         return $status;
+    }
+    
+    public function getRentalUnitsByUserId($listerId) {
+        $sql = "SELECT * FROM rental_unit WHERE lister_id = $listerId;";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
     }
 
 }

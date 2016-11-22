@@ -1,4 +1,4 @@
-<div class="container-fluid" id="main-alt">
+<div class="container-fluid" id="main-large">
     <div class="row">
         <div class="form-container">
             <form  action="<?php echo URL; ?>login/loginuser" method="POST" autocomplete="on">
