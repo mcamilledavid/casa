@@ -68,7 +68,7 @@
                             <a href="#" class="dropdown-toggle ionicons-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="header-user"><?php if (isset($_SESSION["username"])) echo ($_SESSION["username"]); ?></span><i class="ionicons ion-ios-contact-outline"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo URL; ?>manage">Manage Listings</a></li>
-                                <?php if ($_SESSION['isStudent'] == '1') { ?> <li><a href="<?php echo URL; ?>favorites">Favorites</a></li> <?php } ?>
+                                <?php if (isset($_SESSION['isStudent'])) { ?> <li><a href="<?php echo URL; ?>favorites">Favorites</a></li> <?php } ?>
                                 <li><a href="<?php echo URL; ?>account">Edit Account</a></li>
                                 <li><a href="<?php echo URL; ?>logout">Logout</a></li>
                             </ul>
