@@ -177,5 +177,13 @@ class Model {
         $query->execute();
         return $query->fetchAll();
     }
+    
+    public function getFavoritesByUserID($listerID){
+        $sql = "SELECT * FROM rental_unit WHERE rental_unit_id IN "
+                . "(SELECT rental_unit_id FROM favorites WHERE student_id = $listerID);";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
 
 }
