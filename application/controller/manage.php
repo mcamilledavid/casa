@@ -18,5 +18,13 @@ class Manage extends Controller {
             require APP . 'view/_templates/footer.php';
         }
     }
+    
+    public function popupmessage() {
+
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/message/popupmessage.php';
+        require APP . 'view/_templates/footer.php';
+        
+    }
 
 }

@@ -7,13 +7,14 @@ body {
 a, a:hover { text-decoration: none!important; }
 
 p {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 26px;
     font-weight: 400;
 }
 
 h1,h2,h3,h4,h5,h6, strong {
     color: #333!important;
+    font-family: 'Lato', sans-serif!important;
 }
 
 img {
@@ -21,16 +22,32 @@ img {
 }
 
 /* forms */
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
     background-color: #fff;
     border: 1px solid #ddd;
     padding: 5px 10px;
     height: 50px;
 }
 
+select {
+    width: 100%;
+    height: 50px;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: url(https://upload.wikimedia.org/wikipedia/commons/f/f1/MediaWiki_Vector_skin_action_arrow.svg) no-repeat #fff;
+    background-position-x: 98%;
+    background-position-y: 50%;
+}
+
 textarea {
     width: 100%!important;
     height: 150px;
+    border: 1px solid #ddd;
+    padding: 10px;
 }
 
 .inner-addon .ionicons {
@@ -324,13 +341,27 @@ footer {
 
 /* post a listing */
 .post-container {
-    width: 90%;
+    width: 50%;
     margin: 0 auto;
 }
 
 .post-disclaimer {
     padding: 20px;
     border: 1px solid #e7e7e7;
+    background: #fff;
+}
+
+.post-btn {
+    width: 40%!important;
+    float: right;
+    color: #fff;
+    padding: 15px 15px!important;
+    background: #888;
+}
+
+.post-btn:hover {
+    background: #666!important;
+    color: #fff!important;
 }
 
 /* sidebar */
@@ -359,59 +390,8 @@ footer {
     font-weight: 700;
 }
 
-.listing-thumbnails {
-    max-height: 250px;
-    max-width: 350px;
-    height: 100%;
-}
 
-.listing-container {
-    padding: 10px;
-    display: inline-block;
-}
-
-.listing-preview {
-    float: left;
-    padding: 0 5px;
-}
-
-.listing-preview a {
-    color: #333;
-}
-
-.listing-preview p {
-    font-size: 14px;
-    line-height: 8px;
-}
-
-.listing-message-btn {
-    margin: 25px 0 0 0;
-    font-size: 13px!important;
-    border: 0!important;
-    background: #5cb85c!important;
-    color: #fff!important;
-    font-family: 'Lato', sans-serif!important;
-    padding: 10px 18px!important;
-}
-
-.listing-message-btn:hover{
-    background: #58a258!important;
-}
-
-.listing-price {
-    position: absolute;
-    color: #e7e7e7;
-    font-size: 18px;
-    font-weight: 500;
-    background: rgba(0, 0, 0, 0.55);
-    padding: 10px;
-}
-
-.listing-icons {
-    width: 25px!important;
-    padding: 2px;
-}
-
+/* home page */
 #home-header {
     background-size: cover;
     width: 100%;
@@ -444,16 +424,16 @@ footer {
     color: #888!important;
 }
 
-.home-search-container {
-    margin: 45px auto;
-    width: 70%;
-    display: inline-block;
-}
-
 .ionicons-search-home {
     font-size: 25px;
     padding: 12px!important;
     z-index: 100;
+}
+
+.home-search-container {
+    margin: 45px auto;
+    width: 70%;
+    display: inline-block;
 }
 
 .home-search-btn {
@@ -476,34 +456,83 @@ footer {
     text-align: center;
 }
 
-.manage-listing-thumbnails {
-    max-height: 150px;
-    max-width: 250px;
-    height: 100%;
-}
+.page-subtitle-container {
+    margin-bottom: 50px;
+} 
 
-.manage-listing-container {
-    padding: 10px 0;
+.manage-listing-container, .listing-container {
+    max-width: 400px;
+    margin: 20px;
     display: inline-block;
 }
 
-.manage-listing-preview {
-    float: right;
-    padding: 0 10px;
+.manage-listing-preview, .listing-preview {
+    text-align: left;
 }
 
-@media only screen and (max-width: 1000px) {
-    .manage-listing-preview {
-        float: none;
-        padding: 0px;
-    }
-}
-
-.manage-listing-preview a {
+.manage-listing-preview a, .listing-preview a {
     color: #333;
 }
 
-.manage-listing-preview p {
+.manage-listing-preview p, .listing-preview p {
     font-size: 14px;
     line-height: 8px;
+}
+
+.listing-message-btn {
+    margin: 25px 0 0 0;
+    font-size: 13px!important;
+    border: 0!important;
+    background: #5cb85c!important;
+    color: #fff!important;
+    font-family: 'Lato', sans-serif!important;
+    padding: 10px 18px!important;
+}
+
+.listing-message-btn:hover{
+    background: #58a258!important;
+}
+
+.listing-price {
+    position: absolute;
+    color: #e7e7e7;
+    font-size: 18px;
+    font-weight: 500;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 10px;
+}
+
+.listing-icons {
+    width: 25px!important;
+    padding: 2px;
+}
+
+.thumbnail {
+    box-shadow: none!important;
+    border: 0!important;
+    background: none!important;
+    padding: 0px!important;
+    border-radius: 0px!important;
+}
+
+.manage-post-listing-btn-container {
+    margin: 40px auto;
+}
+
+.manage-post-listing-btn {
+    padding: 10px 30px!important;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: #fff!important;
+    border: 0;
+    background: #888; 
+}
+
+.manage-post-listing-btn:hover{
+    background: #666!important; 
+}
+
+.dropdown-menu {
+    border: 0!important;
 }

@@ -23,12 +23,33 @@
 <script>
     var signup = document.getElementById('popup-signup');
     var login = document.getElementById('popup-login');
+    var message = document.getElementById('popup-message');
     window.onclick = function (event) {
-        if (event.target == signup || event.target == login) {
+        if (event.target == signup || event.target == login || event.target == message) {
             signup.style.display = "none";
             login.style.display = "none";
+            message.style.display = "none";
         }
     };
+</script>
+
+<script type="text/javascript">
+    var datefield = document.createElement("input")
+    datefield.setAttribute("type", "date")
+    if (datefield.type != "date") {
+        document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n')
+    }
+</script>
+
+<script>
+    if (datefield.type != "date") {
+        jQuery(function ($) {
+            dateFormat: 'YYYY-MM-DD';
+            $('#date').datepicker();
+        })
+    }
 </script>
 
 <!-- Google Analytic JavaScript -->
