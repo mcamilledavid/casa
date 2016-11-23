@@ -6,6 +6,8 @@
         <?php
         $count = 0;
         foreach ($query as $query) {
+            $rental_unit_id=$query->rental_unit_id;
+            $lister_id=$query->lister_id;
             ?>
             <div class="listing-container">
                 <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
@@ -80,7 +82,7 @@
                     <?php if (!empty($_SESSION)) { ?>
 
                         <div class="form-group">
-                            <a href="#message" onclick="document.getElementById('popup-message').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
+                            <a href="#message?rental_unit_id=<?= $rental_unit_id ?>,lister_id=<?= $lister_id ?>" onclick="document.getElementById('popup-message').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                         </div>
                     <?php } ?>  
                 </div>

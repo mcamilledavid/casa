@@ -171,6 +171,22 @@ class Model {
         return $status;
     }
     
+    public function enterMessage($message, $rental_unit_id, $lister_id, $student_id) {
+
+        $sql = "INSERT INTO message "
+                . "(message,rental_unit_id,lister_id,student_id)"
+                . "VALUES "
+                . "(:message, :rental_unit_id,:lister_id,:student_id)";
+
+        $query = $this->db->prepare($sql);
+
+        $parameters = array(':message' => $message, ':rental_unit_id' => $rental_unit_id, ':lister_id' => $lister_id, ':student_id' => $student_id);
+
+        $status = $query->execute($parameters);
+
+        return $status;
+    }
+    
     public function getRentalUnitsByUserId($listerId) {
         $sql = "SELECT * FROM rental_unit WHERE lister_id = $listerId;";
         $query = $this->db->prepare($sql);
