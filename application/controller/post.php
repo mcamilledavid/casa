@@ -165,8 +165,8 @@ class Post extends Controller {
             $zipcode = filter_input(INPUT_POST, 'zipcode', FILTER_SANITIZE_STRING);
             $beds = filter_input(INPUT_POST, 'beds', FILTER_SANITIZE_STRING);
             $baths = filter_input(INPUT_POST, 'baths', FILTER_SANITIZE_STRING);
-            $rent = filter_input(INPUT_POST, 'rent', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-            $deposit = filter_input(INPUT_POST, 'deposit', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+            $rent = filter_input(INPUT_POST, 'rent', FILTER_SANITIZE_NUMBER_INT);
+            $deposit = filter_input(INPUT_POST, 'deposit', FILTER_SANITIZE_NUMBER_INT);
             $date_availability = filter_input(INPUT_POST, 'date_availability', FILTER_SANITIZE_STRING);
             $lease_length = filter_input(INPUT_POST, 'lease_length', FILTER_SANITIZE_STRING);
             $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
