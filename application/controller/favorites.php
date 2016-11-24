@@ -20,7 +20,7 @@ class Favorites extends Controller {
             require APP . 'view/_templates/footer.php';
         }
     }
-    
+    /*
     public function addFavorite(){
         
         
@@ -39,4 +39,7 @@ class Favorites extends Controller {
         }
     }
     }
+     * 
+     * *
+     */
   }
