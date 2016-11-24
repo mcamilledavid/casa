@@ -185,5 +185,12 @@ class Model {
         $query->execute();
         return $query->fetchAll();
     }
+    
+    public function addFavorite($user_id, $rental_unit_id){
+         $sql = "INSERT INTO favorites (student_id, rental_unit_id) VALUES (:student_id, :rental_unit_id)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':student_id' => $user_id, ':rental_unit_id' => $rental_unit_id);
+        $query->execute($parameters);
+    }
 
 }

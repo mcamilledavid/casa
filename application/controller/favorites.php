@@ -20,4 +20,23 @@ class Favorites extends Controller {
             require APP . 'view/_templates/footer.php';
         }
     }
+    
+    public function addFavorite(){
+        
+        
+        if (empty($_SESSION)) {
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/signup/index.php';
+            require APP . 'view/signup/popupsignup.php';
+            require APP . 'view/login/popuplogin.php';
+            require APP . 'view/_templates/footer.php';
+        } else {
+        
+        if (isset($_POST['add_favorite'])) {
+            
+            
+            $this->model->addFavorite($_SESSION['user_id'], $_POST[$query->rental_unit_id]);
+        }
+    }
+    }
   }
