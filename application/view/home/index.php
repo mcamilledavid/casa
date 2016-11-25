@@ -3,7 +3,7 @@
         <h1 class="top-title">Search for off-campus housing</h1>
         <h2 class="bottom-title">Rent student homes, apartments, and rooms near SF State.</h2>
         <div class="container">
-            <form method="POST" action="<?php echo URL; ?>/home/search" class="home-search-container">
+            <form method="POST" action="<?php echo URL; ?>home/search" class="home-search-container">
                 <div class="input-group">
                     <div class="inner-addon left-addon">
                         <i class="ionicons ion-ios-search ionicons-search-home"></i>
@@ -27,13 +27,18 @@
         foreach ($featured as $query) {
             ?>
             <div class="listing-container">
-                <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
-                <?php
-                if (isset($query->thumbnail)) {
-                    echo "<img src='data:image/jpeg;base64," . base64_encode($query->thumbnail)
-                    . "' alt='Item image' class='thumbnail' height='300px'>";
-                }
-                ?>
+                <div class="listing-image-container">
+                    <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
+                    <form action="<?php echo URL; ?>favorites/addFavorite" method="POST">
+                        <button type="submit" value="<?php $query->rental_unit_id ?>" name="add_favorite" class="favorite-btn"><i class="ionicons ion-ios-heart"></i></button>
+                    </form>
+                    <?php
+                    if (isset($query->thumbnail)) {
+                        echo "<img src='data:image/jpeg;base64," . base64_encode($query->thumbnail)
+                        . "' alt='Item image' class='thumbnail' height='auto'>";
+                    }
+                    ?>
+                </div>
                 <div class="listing-preview">
                     <h4><a href="#" target="_blank"><?php if (isset($query->title)) echo htmlspecialchars($query->title, ENT_QUOTES, 'UTF-8'); ?></a></h4>
                     <p><?php if (isset($query->type)) echo htmlspecialchars($query->type, ENT_QUOTES, 'UTF-8'); ?> -
