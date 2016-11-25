@@ -171,6 +171,25 @@ class Model {
         return $status;
     }
     
+    // Deletes corresponding database entries for rental unit specified by ruid
+    // in `image`, `favorites`, and `rental_unit` tables. Returns true if 
+    // rental unit entry is removed, otherwise returns false.
+     public function deleteRentalUnit($ruid) {
+        $sql = "DELETE FROM image WHERE rental_unit_id = '$ruid'";
+        $query = $this->db->prepare($sql);
+        $status = $query->execute();
+        
+        $sql = "DELETE FROM favorites WHERE rental_unit_id = '$ruid'";
+        $query = $this->db->prepare($sql);
+        $status = $query->execute();
+        
+        $sql = "DELETE FROM rental_unit WHERE rental_unit_id = '$ruid'";
+        $query = $this->db->prepare($sql);
+        $status = $query->execute(); 
+
+        return $status;
+    }
+    
     public function getRentalUnitsByUserId($listerId) {
         $sql = "SELECT * FROM rental_unit WHERE lister_id = $listerId;";
         $query = $this->db->prepare($sql);
