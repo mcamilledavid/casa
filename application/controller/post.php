@@ -199,8 +199,7 @@ class Post extends Controller {
             $this->model->addRentalUnitImages($image,$last_ru_id);
             $this->model->addRentalUnitThumbnail($image,$last_ru_id);
             
-            /* change redirection once Manage Listings is setup */
-            header('location: ' . URL . 'home');
+            header('location: ' . URL . 'manage');
             
         } else {
             Post::index();
