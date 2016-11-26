@@ -20,7 +20,7 @@ class Favorites extends Controller {
             require APP . 'view/_templates/footer.php';
         }
     }
-    /*
+    
     public function addFavorite(){
         
         
@@ -35,11 +35,9 @@ class Favorites extends Controller {
         if (isset($_POST['add_favorite'])) {
             
             
-            $this->model->addFavorite($_SESSION['user_id'], $_POST[$query->rental_unit_id]);
+            $this->model->addFavorite($_SESSION['user_id'], $_POST['add_favorite']);
         }
     }
     }
-     * 
-     * *
-     */
+   
   }
