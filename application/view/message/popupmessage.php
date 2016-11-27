@@ -1,7 +1,7 @@
 <!-- Popup -->
 <div id="popup-message" class="modal">
     <!-- Popup Content -->            
-    <form  action="<?php echo URL; ?>" method="POST" autocomplete="on" class="modal-content">
+    <form  action="<?php echo URL; ?>home/messageLister" method="POST" autocomplete="on" class="modal-content">
         <span onclick="document.getElementById('popup-message').style.display = 'none'" 
               class="close" title="Close Modal">&times;</span>
         <div class="form-group">
@@ -25,12 +25,21 @@
             </div>
         </div>
 
+        
         <div class="form-group">
             <div class="inner-addon right-addon">
                 <i class="ionicons ion-ios-email-outline"></i>
                 <input type="email" name="email" class="form-control" placeholder="Email" value="<?php if (isset($_SESSION["email"])) echo ($_SESSION["email"]); ?>" required>
             </div>
         </div>
+        
+        
+        <input type="hidden" name="rental_unit_id" class="form-control" value=<?php echo $rental_unit_id ?>>
+            
+        
+        
+        <input type="hidden" name="lister_id" class="form-control" value=<?php echo $lister_id ?>>
+            
 
         <div class="form-group">
             <textarea name="message" class="form-control" placeholder="I am interested in the listing."></textarea>

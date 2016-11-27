@@ -171,6 +171,19 @@ class Model {
         return $status;
     }
     
+    public function enterMessage($message, $rental_unit_id, $lister_id, $student_id) {
+
+        $sql = "INSERT INTO message "
+                . "(message,rental_unit_id,lister_id,student_id)"
+                . "VALUES "
+                . "(:message, :rental_unit_id,:lister_id,:student_id)";
+
+        $query = $this->db->prepare($sql);
+
+        $parameters = array(':message' => $message, ':rental_unit_id' => $rental_unit_id, ':lister_id' => $lister_id, ':student_id' => $student_id);
+
+        $status = $query->execute($parameters);
+    }
     // Deletes corresponding database entries for rental unit specified by ruid
     // in `image`, `favorites`, and `rental_unit` tables. Returns true if 
     // rental unit entry is removed, otherwise returns false.
