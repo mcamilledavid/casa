@@ -3,7 +3,7 @@
         <h1 class="top-title">Search for off-campus housing</h1>
         <h2 class="bottom-title">Rent student homes, apartments, and rooms near SF State.</h2>
         <div class="container">
-            <form method="POST" action="//sfsuswe.com/~mcdavid/casa/home/search" class="home-search-container">
+            <form method="POST" action="<?php echo URL; ?>/home/search" class="home-search-container">
                 <div class="input-group">
                     <div class="inner-addon left-addon">
                         <i class="ionicons ion-ios-search ionicons-search-home"></i>
@@ -26,6 +26,7 @@
                 foreach ($featured as $query) {
                     if ($count % 2 == 0) {
                         echo "<tr>";
+                        
                     }
                     ?>
                 <td>
