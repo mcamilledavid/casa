@@ -2,7 +2,7 @@
     <div class="col-lg-2">
         <div style="border: 1px solid #e7e7e7; width: 100%; height: 300px;"></div>
     </div>
-    <div class="col-lg-10 text-center">
+    <div class="col-lg-10">
         <?php
         $count = 0;
         foreach ($query as $query) {
@@ -10,13 +10,18 @@
             $lister_id=$query->lister_id;
             ?>
             <div class="listing-container">
-                <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
-                <?php
-                if (isset($query->thumbnail)) {
-                    echo "<img src='data:image/jpeg;base64," . base64_encode($query->thumbnail)
-                    . "' alt='Item image' class='thumbnail' height='300px'>";
-                }
-                ?>
+                <div class="listing-image-container">
+                    <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
+                      <form action="<?php echo URL; ?>favorites/addFavorite" method="POST">
+                        <button type="submit" value="<?php $query->rental_unit_id ?>" name="add_favorite" class="favorite-btn"><i class="ionicons ion-ios-heart"></i></button>
+                    </form> 
+                    <?php
+                    if (isset($query->thumbnail)) {
+                        echo "<img src='data:image/jpeg;base64," . base64_encode($query->thumbnail)
+                        . "' alt='Item image' class='thumbnail' height='auto'>";
+                    }
+                    ?>
+                </div>
                 <div class="listing-preview">
                     <h4><a href="#" target="_blank"><?php if (isset($query->title)) echo htmlspecialchars($query->title, ENT_QUOTES, 'UTF-8'); ?></a></h4>
                     <p><?php if (isset($query->type)) echo htmlspecialchars($query->type, ENT_QUOTES, 'UTF-8'); ?> -
@@ -75,7 +80,7 @@
                             echo htmlspecialchars(date("m-d-Y", strtotime($query->date_created)), ENT_QUOTES, 'UTF-8');
                         }
                         ?></p>
-                    
+
                     <?php if (empty($_SESSION)) { ?>
                         <a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                     <?php } ?>

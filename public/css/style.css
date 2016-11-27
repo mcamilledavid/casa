@@ -500,6 +500,7 @@ footer {
     font-weight: 500;
     background: rgba(0, 0, 0, 0.55);
     padding: 10px;
+    left: 0px;
 }
 
 .listing-icons {
@@ -535,4 +536,20 @@ footer {
 
 .dropdown-menu {
     border: 0!important;
+}
+
+.favorite-btn {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    padding: 10px;
+    right: 0px;
+    border: 0px!important;
+}
+
+.listing-image-container {
+    display: inline-block;
+    position: relative;
 }

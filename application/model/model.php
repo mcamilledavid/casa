@@ -183,6 +183,22 @@ class Model {
         $parameters = array(':message' => $message, ':rental_unit_id' => $rental_unit_id, ':lister_id' => $lister_id, ':student_id' => $student_id);
 
         $status = $query->execute($parameters);
+    }
+    // Deletes corresponding database entries for rental unit specified by ruid
+    // in `image`, `favorites`, and `rental_unit` tables. Returns true if 
+    // rental unit entry is removed, otherwise returns false.
+     public function deleteRentalUnit($ruid) {
+        $sql = "DELETE FROM image WHERE rental_unit_id = '$ruid'";
+        $query = $this->db->prepare($sql);
+        $status = $query->execute();
+        
+        $sql = "DELETE FROM favorites WHERE rental_unit_id = '$ruid'";
+        $query = $this->db->prepare($sql);
+        $status = $query->execute();
+        
+        $sql = "DELETE FROM rental_unit WHERE rental_unit_id = '$ruid'";
+        $query = $this->db->prepare($sql);
+        $status = $query->execute(); 
 
         return $status;
     }
@@ -200,6 +216,13 @@ class Model {
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
+    }
+    
+    public function addFavorite($user_id, $rental_unit_id){
+         $sql = "INSERT INTO favorites (student_id, rental_unit_id) VALUES (:student_id, :rental_unit_id)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':student_id' => $user_id, ':rental_unit_id' => $rental_unit_id);
+        $query->execute($parameters);
     }
 
 }
