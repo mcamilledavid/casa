@@ -30,7 +30,7 @@
                 <div class="listing-image-container">
                     <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
                      <form action="<?php echo URL; ?>favorites/addFavorite" method="POST">
-                        <button type="submit" value="<?php $query->rental_unit_id ?>" name="add_favorite" class="favorite-btn"><i class="ionicons ion-ios-heart"></i></button>
+                        <button type="submit" value="<?php echo $query->rental_unit_id ?>" name="add_favorite" class="favorite-btn"><i class="ionicons ion-ios-heart"></i></button>
                     </form> 
                     <?php
                     if (isset($query->thumbnail)) {
