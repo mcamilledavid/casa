@@ -34,14 +34,9 @@ class Favorites extends Controller {
         
         if (isset($_POST['add_favorite'])) {
             
-            /*$rental_unit_id = $_POST['add_favorite'];
+            $rental_unit_id = $_POST['add_favorite'];
             $this->model->addFavorite($_SESSION['user_id'], $rental_unit_id);
-             * *
-             */
-            $message = $_POST['add_favorite'];
-            require APP . 'view/_templates/header.php';
-            require APP . 'view/home/message.php';
-            require APP . 'view/_templates/footer.php';
+             
         }
     }
     }
