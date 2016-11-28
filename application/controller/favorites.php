@@ -40,7 +40,7 @@ class Favorites extends Controller {
              */
             $message = $_POST['add_favorite'];
             require APP . 'view/_templates/header.php';
-            require APP . 'view/home/message';
+            require APP . 'view/home/message.php';
             require APP . 'view/_templates/footer.php';
         }
     }
