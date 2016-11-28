@@ -1,6 +1,6 @@
 <div class="row" id="about-header">
 </div>
-<div class="container" id="main">
+<div class="container" id="main-alt">
     <div class="container">
         <div class="col-lg-8">
             <h2>About Casa</h2>

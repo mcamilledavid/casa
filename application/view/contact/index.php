@@ -6,7 +6,7 @@
     </div>
     <script type='text/javascript'>function init_map(){var myOptions = {zoom:15, center:new google.maps.LatLng(37.7211776, - 122.47696229999997), mapTypeId: google.maps.MapTypeId.ROADMAP}; map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions); marker = new google.maps.Marker({map: map, position: new google.maps.LatLng(37.7211776, - 122.47696229999997)}); infowindow = new google.maps.InfoWindow({content:'<strong>Casa</strong><br>1600 Holloway Ave. San Francisco, CA 94132<br>'}); google.maps.event.addListener(marker, 'click', function(){infowindow.open(map, marker); }); infowindow.open(map, marker); }google.maps.event.addDomListener(window, 'load', init_map);</script>    
 </div>
-<div class="container" id="main">
+<div class="container" id="main-alt">
     <div class="col-lg-8">
         <h2>Contact Casa</h2>
         <br>

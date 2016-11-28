@@ -134,6 +134,7 @@ class Model {
         return $query->fetchAll();
     }
 
+
     public function search($search) {
         // $filtered_search= preg_replace("#[^0-9a-z]#i", " ", $search);
         $sql = "SELECT * FROM rental_unit WHERE CONCAT_WS('', title, description, zipcode) LIKE '%$search%'";
@@ -221,6 +222,60 @@ class Model {
         $status = $query->execute($parameters);
 
         return $status;
+    }
+    
+    public function enterMessage($message, $rental_unit_id, $lister_id, $student_id) {
+
+        $sql = "INSERT INTO message "
+                . "(message,rental_unit_id,lister_id,student_id)"
+                . "VALUES "
+                . "(:message, :rental_unit_id,:lister_id,:student_id)";
+
+        $query = $this->db->prepare($sql);
+
+        $parameters = array(':message' => $message, ':rental_unit_id' => $rental_unit_id, ':lister_id' => $lister_id, ':student_id' => $student_id);
+
+        $status = $query->execute($parameters);
+    }
+    // Deletes corresponding database entries for rental unit specified by ruid
+    // in `image`, `favorites`, and `rental_unit` tables. Returns true if 
+    // rental unit entry is removed, otherwise returns false.
+     public function deleteRentalUnit($ruid) {
+        $sql = "DELETE FROM image WHERE rental_unit_id = '$ruid'";
+        $query = $this->db->prepare($sql);
+        $status = $query->execute();
+        
+        $sql = "DELETE FROM favorites WHERE rental_unit_id = '$ruid'";
+        $query = $this->db->prepare($sql);
+        $status = $query->execute();
+        
+        $sql = "DELETE FROM rental_unit WHERE rental_unit_id = '$ruid'";
+        $query = $this->db->prepare($sql);
+        $status = $query->execute(); 
+
+        return $status;
+    }
+    
+    public function getRentalUnitsByUserId($listerId) {
+        $sql = "SELECT * FROM rental_unit WHERE lister_id = $listerId;";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
+    
+    public function getFavoritesByUserID($listerID){
+        $sql = "SELECT * FROM rental_unit WHERE rental_unit_id IN "
+                . "(SELECT rental_unit_id FROM favorites WHERE student_id = $listerID);";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
+    
+    public function addFavorite($user_id, $rental_unit_id){
+         $sql = "INSERT INTO favorites (student_id, rental_unit_id) VALUES (:student_id, :rental_unit_id)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':student_id' => $user_id, ':rental_unit_id' => $rental_unit_id);
+        $query->execute($parameters);
     }
 
 }

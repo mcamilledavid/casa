@@ -10,9 +10,9 @@
         <link href="<?php echo URL; ?>css/ionicons.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">       
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500,600,700" rel="stylesheet">        
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
         <?php if (!isset($_SESSION['username'])) { ?>
@@ -54,6 +54,7 @@
                             <a href="#" class="dropdown-toggle ionicons-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="header-user"><?php if (isset($_SESSION["username"])) echo ($_SESSION["username"]); ?></span><i class="ionicons ion-ios-contact-outline"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo URL; ?>manage">Manage Listings</a></li>
+                                <?php if ($_SESSION['isStudent'] == 1) { ?> <li><a href="<?php echo URL; ?>favorites">Favorites</a></li> <?php } ?>
                                 <li><a href="<?php echo URL; ?>account">Edit Account</a></li>
                                 <li><a href="<?php echo URL; ?>logout">Logout</a></li>
                             </ul>
