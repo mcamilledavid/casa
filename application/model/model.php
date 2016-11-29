@@ -203,6 +203,12 @@ class Model {
         return $status;
     }
     
+    //used only for deleting rental unit from favorites table
+    public function deleteFavoriteRentalUnit($ruid){
+        $sql = "DELETE FROM favorites WHERE rental_unit_id = '$ruid'";
+        $query = $this->db->prepare($sql);
+        $status = $query->execute();
+    }
     // set the is_rented field for a given rental unit
     public function updateAvailability($ruid) {
         $sql = "UPDATE rental_unit SET is_rented = 1 WHERE rental_unit_id = $ruid";

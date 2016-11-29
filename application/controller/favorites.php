@@ -36,5 +36,20 @@ class Favorites extends Controller {
         }
     }
     }
+    
+    public function deleteFavorite(){
+        
+    if (!empty($_SESSION)) {
+           
+        
+        if (isset($_POST['delete_favorite'])) {
+            
+            $rental_unit_id = $_POST['delete_favorite'];
+            $this->model->deleteFavoriteRentalUnit($rental_unit_id);
+             
+            /*header('location: ' . URL . 'favorites/index');*/
+        }
+    }
+    }
    
   }
