@@ -19,7 +19,7 @@
                             <form action="<?php echo URL; ?>favorites/deleteFavorite" method="POST" target="hiddenframe">
                                 <button type="submit" value="<?php echo $query->rental_unit_id ?>" name="delete_favorite" class="favorite-btn"><i class="ionicons ion-ios-close"></i></button>
                             </form>
-                            <iframe name="hiddenframe" style="display:none;"></iframe>
+                            
                             <?php
                             if (isset($query->thumbnail)) {
                                 echo "<img src='data:image/jpeg;base64," . base64_encode($query->thumbnail)

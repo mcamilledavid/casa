@@ -47,7 +47,7 @@ class Favorites extends Controller {
             $rental_unit_id = $_POST['delete_favorite'];
             $this->model->deleteFavoriteRentalUnit($rental_unit_id);
              
-            /*header('location: ' . URL . 'favorites/index');*/
+            header('location: ' . URL . 'favorites/index');
         }
     }
     }
