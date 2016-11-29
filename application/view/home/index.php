@@ -29,9 +29,10 @@
             <div class="listing-container">
                 <div class="listing-image-container">
                     <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
-                     <form action="<?php echo URL; ?>favorites/addFavorite" method="POST">
+                     <form action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
                         <button type="submit" value="<?php echo $query->rental_unit_id ?>" name="add_favorite" class="favorite-btn"><i class="ionicons ion-ios-heart"></i></button>
                     </form> 
+                    <iframe name="hiddenframe" style="display:none;"></iframe>
                     <?php
                     if (isset($query->thumbnail)) {
                         echo "<img src='data:image/jpeg;base64," . base64_encode($query->thumbnail)
