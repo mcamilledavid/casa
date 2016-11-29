@@ -37,7 +37,7 @@ class Favorites extends Controller {
             $rental_unit_id = $_POST['add_favorite'];
             $this->model->addFavorite($_SESSION['user_id'], $rental_unit_id);
              
-            header('location: ' . URL . 'favorites/index');
+            /*header('location: ' . URL . 'favorites/index');*/
         }
     }
     }
