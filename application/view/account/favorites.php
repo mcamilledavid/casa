@@ -23,7 +23,7 @@
                             <?php
                             if (isset($query->thumbnail)) {
                                 echo "<img src='data:image/jpeg;base64," . base64_encode($query->thumbnail)
-                                . "' alt='Item image' class='thumbnail' height='auto'>";
+                                . "' alt='Item image' class='thumbnail' height='300'>";
                             }
                             ?>
                         </div>
