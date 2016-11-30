@@ -15,7 +15,7 @@ class Favorites extends Controller {
             require APP . 'view/login/popuplogin.php';
             require APP . 'view/_templates/footer.php';
         } else {
-            $favorites = $this->model->getFavoritesByUserID($_SESSION['user_id']);
+            $query = $this->model->getFavoritesByUserID($_SESSION['user_id']);
             require APP . 'view/_templates/header.php';
             require APP . 'view/message/popupmessage.php';
             require APP . 'view/account/favorites.php';

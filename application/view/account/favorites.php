@@ -11,7 +11,7 @@
                 </div>
                 <?php
                 $count = 0;
-                foreach ($favorites as $query) {
+                foreach ($query as $query) {
                     $rental_unit_id = $query->rental_unit_id;
                     $lister_id = $query->lister_id;
                     ?>
