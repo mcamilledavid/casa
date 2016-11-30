@@ -34,7 +34,7 @@
         </div>
         
         
-        <input type="hidden" name="rental_unit_id" class="form-control" value=<?php echo $rental_unit_id ?>>
+        <input type="hidden" name="rental_unit_id" class="form-control" value=<?php echo $rental_unit_id ?> >
             
         
         
