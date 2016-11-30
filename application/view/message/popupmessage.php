@@ -34,8 +34,8 @@
         </div>
         
          <?php
-            $rental_unit_id = $GET['rental_unit_id'];
-            $lister_id = $GET['lister_id'];
+            $rental_unit_id = $_GET['rental_unit_id'];
+            $lister_id = $_GET['lister_id'];
             ?>
         
         <input type="hidden" name="rental_unit_id" class="form-control" value=<?php /*echo $rental_unit_id */?> >
