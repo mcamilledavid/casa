@@ -25,6 +25,8 @@
         <?php
         $count = 0;
         foreach ($featured as $query) {
+            $rental_unit_id=$query->rental_unit_id;
+            $lister_id=$query->lister_id;
             ?>
             <div class="listing-container">
                 <div class="listing-image-container">
