@@ -1,13 +1,13 @@
 <!-- Popup -->
 <div id="popup-message" class="modal">
     <!-- Popup Content -->            
-    <form  action="<?php echo URL; ?>home/messageLister" method="POST" autocomplete="on" class="modal-content">
+    <form  action="<?php echo URL; ?>home/messageLister" method="POST" autocomplete="on" class="modal-content" target="hiddenframe">
         <span onclick="document.getElementById('popup-message').style.display = 'none'" 
               class="close" title="Close Modal">&times;</span>
         <div class="form-group">
             <h2 class="signup-login-header">Message Lister</h2>
         </div>
-
+        <iframe name="hiddenframe" style="display:none;"></iframe>
         <div class="form-group">
             <div class="row">
                 <div class="col-lg-6 left-input">
