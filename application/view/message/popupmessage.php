@@ -33,16 +33,13 @@
             </div>
         </div>
         
-         <?php
-            $rental_unit_id = $_GET['rental_unit_id'];
-            $lister_id = $_GET['lister_id'];
-            ?>
+         
         
-        <input type="hidden" name="rental_unit_id" class="form-control" value=<?php /*echo $rental_unit_id */?> >
+      <input type="hidden" name="rental_unit_id" class="form-control" value=<?php echo $rental_unit_id  ?>>
             
        
         
-        <input type="hidden" name="lister_id" class="form-control" value=<?php /*echo $lister_id */?>>
+      <input type="hidden" name="lister_id" class="form-control" value=<?php echo $lister_id ?>
             
 
         <div class="form-group">
