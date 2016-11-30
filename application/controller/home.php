@@ -56,14 +56,13 @@ class Home extends Controller {
         $student_id = $_SESSION['user_id'];
         $query=  $this->model->enterMessage($message,$rental_unit_id,$lister_id,$student_id);
         
-        /*require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/header.php';
         require APP . 'view/home/search.php';
         require APP . 'view/message/popupmessage.php';
         require APP . 'view/signup/popupsignup.php';
         require APP . 'view/login/popuplogin.php';
         require APP . 'view/_templates/footer.php';
-         * 
-         */
+     
     }
 
 }
