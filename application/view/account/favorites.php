@@ -94,7 +94,7 @@
                             <?php if (!empty($_SESSION)) { ?>
 
                                 <div class="form-group">
-                                    <a href="<?php echo URL; ?>#message?rental_unit_id=<?php echo $rental_unit_id ?>,lister_id=<?php echo $lister_id ?>" onclick="document.getElementById('popup-message').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
+                                    <a href="#message?rental_unit_id=<?php echo $rental_unit_id ?>&lister_id=<?php echo $lister_id ?>" onclick="document.getElementById('popup-message').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                                 </div>
                             <?php } ?>                
                         </div>
