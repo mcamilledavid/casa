@@ -39,7 +39,7 @@
             
        
         
-      <input type="hidden" name="lister_id" class="form-control" value=<?php echo $lister_id ?>
+      <input type="hidden" name="lister_id" class="form-control" value=<?php echo $lister_id ?>>
             
 
         <div class="form-group">
