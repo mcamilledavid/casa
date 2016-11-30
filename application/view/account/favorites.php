@@ -18,7 +18,7 @@
                     <div class="listing-container">
                         <div class="listing-image-container">
                             <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
-                            <form action="<?php echo URL; ?>favorites/deleteFavorite" method="POST">
+                            <form action="<?php echo URL; ?>favorites/deleteFavorite" method="POST" target="hiddenframe">
                                 <button type="submit" value="<?php echo $query->rental_unit_id ?>" name="delete_favorite" class="favorite-btn"><i class="ionicons ion-ios-close"></i></button>
                             </form>
 
