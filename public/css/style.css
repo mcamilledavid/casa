@@ -180,7 +180,7 @@ textarea {
 }
 
 .navbar-form {
-    width: 58%!important;
+    width: 68%!important;
 }
 
 .navbar-nav>li>a {
@@ -393,13 +393,12 @@ footer {
 
 /* home page */
 #home-header {
-    background-size: cover!important;
+    background-size: cover;
     width: 100%;
     height: 550px;
     background-position: center;
     padding: 0;
     margin: 0;
-    background: url(../public/img/home-bg.jpg);
 }
 
 .home-title-container {
@@ -409,7 +408,7 @@ footer {
     height: auto;
     font-family: 'Lato', sans-serif;
     text-align: center;
-    border-bottom: 0;
+    border-bottom: 1px solid #e7e7e7;
     width: 80%;
 }
 
@@ -417,13 +416,12 @@ footer {
     font-size: 45px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #fff!important;
 }
 
 .bottom-title {
     font-size: 28px;
     margin-top: 10px;
-    color: #fff!important;
+    color: #888!important;
 }
 
 .ionicons-search-home {
@@ -450,7 +448,7 @@ footer {
 }
 
 .home-search-form {
-    border: 0!important;
+    border: 1px solid #ddd!important;
 }
 
 .page-title-container {
@@ -461,12 +459,6 @@ footer {
 .page-subtitle-container {
     margin-bottom: 50px;
 } 
-
-.featured-listing-container {
-    max-width: 330px;
-    margin: 20px;
-    display: inline-block;
-}
 
 .manage-listing-container, .listing-container {
     max-width: 400px;
