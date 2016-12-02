@@ -1,3 +1,5 @@
+<html>
+    <body>
 <div class="container" id="main-large">
     <div class="col-lg-2">
         <div style="border: 1px solid #e7e7e7; width: 100%; height: 300px;"></div>
@@ -7,12 +9,14 @@
         $count = 0;
         foreach ($query as $query) {
             $rental_unit_id=$query->rental_unit_id;
+            echo $rental_unit_id;
             $lister_id=$query->lister_id;
+            echo $lister_id;
             ?>
             <div class="listing-container">
                 <div class="listing-image-container">
                     <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
-                      <form action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
+                    <form action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
                         <button type="submit" value="<?php echo $rental_unit_id ?>" name="add_favorite" class="favorite-btn"><i class="ionicons ion-ios-heart"></i></button>
                     </form> 
                     <iframe name="hiddenframe" style="display:none;"></iframe>
@@ -24,7 +28,7 @@
                     ?>
                 </div>
                 <div class="listing-preview">
-                    <h4><a href="#" target="_blank"><?php if (isset($query->title)) echo htmlspecialchars($query->title, ENT_QUOTES, 'UTF-8'); ?></a></h4>
+                    <h4><a href="<?php echo URL; ?>home/showSelectedListing?rental_unit_id=<?php echo $rental_unit_id ?>" target="_blank"><?php if (isset($query->title)) echo htmlspecialchars($query->title, ENT_QUOTES, 'UTF-8'); ?></a></h4>
                     <p><?php if (isset($query->type)) echo htmlspecialchars($query->type, ENT_QUOTES, 'UTF-8'); ?> -
                         <?php
                         if (isset($query->beds)) {
@@ -85,11 +89,15 @@
                     <?php if (empty($_SESSION)) { ?>
                         <a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                     <?php } ?>
-                    <?php if (!empty($_SESSION)) { ?>
-
+                    <?php if (!empty($_SESSION)) { ?>                      
                         <div class="form-group">
-                            <a href="#message?rental_unit_id=<?php echo $rental_unit_id ?>,lister_id=<?php echo $lister_id ?>" onclick="document.getElementById('popup-message').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
+                            
+                         <form action="<?php echo URL; ?>message/addMessage" method="POST" target="hiddenframe">
+                             <a href="#message?rental_unit_id=<?php echo $rental_unit_id ?>&lister_id=<?php echo $lister_id ?>"><button type="submit" value="<?php echo $rental_unit_id ?>" name="add_message" class="listing-message-btn" onclick="document.getElementById('popup-message').style.display = 'block'">Message Lister</button></a>
+                         </form>
                         </div>
+                        
+                        
                     <?php } ?>  
                 </div>
             </div>
@@ -101,4 +109,6 @@
         }
         ?>
     </div>
-</div>
+</div>   
+</body>
+</html>
