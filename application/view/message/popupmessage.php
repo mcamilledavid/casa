@@ -1,7 +1,7 @@
 <!-- Popup -->
-<div id="popup-message" class="modal">
+<div id="popup-message" class="modal">  
     <!-- Popup Content -->            
-    <form  action="<?php echo URL; ?>home/messageLister" method="POST" autocomplete="on" class="modal-content" >
+    <form  action="<?php echo URL; ?>message/addMessage" method="POST" autocomplete="on" class="modal-content" >
         <span onclick="document.getElementById('popup-message').style.display = 'none'" 
               class="close" title="Close Modal">&times;</span>
         <div class="form-group">
@@ -32,16 +32,7 @@
                 <input type="email" name="email" class="form-control" placeholder="Email" value="<?php if (isset($_SESSION["email"])) echo ($_SESSION["email"]); ?>" required>
             </div>
         </div>
-        
-         
-        
-      <input type="hidden" name="rental_unit_id" class="form-control" value=<?php echo $rental_unit_id  ?>>
-            
-       
-        
-      <input type="hidden" name="lister_id" class="form-control" value=<?php echo $lister_id ?>>
-            
-
+ 
         <div class="form-group">
             <textarea name="message" class="form-control" placeholder="I am interested in the listing."></textarea>
         </div>
@@ -50,4 +41,4 @@
             <button type="submit" class="btn btn-block signup-login-btn" name="submit_message">Send</button>
         </div> 
     </form>
-</div>
+</div> 
