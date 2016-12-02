@@ -59,9 +59,4 @@ define('DB_NAME', 'f16g12');
 define('DB_USER', 'f16g12');
 define('DB_PASS', 'sfsuf16swe');
 
-//define('DB_NAME', 'student_ktambeka');
-//define('DB_USER', 'ktambeka');
-//define('DB_PASS', 'SEF16@g12');
-
-
 define('DB_CHARSET', 'utf8');
