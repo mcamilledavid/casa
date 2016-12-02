@@ -11,14 +11,17 @@
                 </div>
                 <?php
                 $count = 0;
-                foreach ($favorites as $query) {
+                foreach ($query as $query) {
+                    $rental_unit_id = $query->rental_unit_id;
+                    $lister_id = $query->lister_id;
                     ?>
                     <div class="listing-container">
                         <div class="listing-image-container">
                             <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
-                            <form action="<?php echo URL; ?>favorites/addFavorite" method="POST">
-                                <button type="submit" value="<?php $query->rental_unit_id ?>" class="favorite-btn"><i class="ionicons ion-ios-heart"></i></button>
+                            <form action="<?php echo URL; ?>favorites/deleteFavorite" method="POST" target="hiddenframe">
+                                <button type="submit" value="<?php echo $query->rental_unit_id ?>" name="delete_favorite" class="favorite-btn"><i class="ionicons ion-ios-close"></i></button>
                             </form>
+
                             <?php
                             if (isset($query->thumbnail)) {
                                 echo "<img src='data:image/jpeg;base64," . base64_encode($query->thumbnail)
@@ -89,10 +92,11 @@
                                 <a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                             <?php } ?>
                             <?php if (!empty($_SESSION)) { ?>
+
                                 <div class="form-group">
-                                    <a href="#message" onclick="document.getElementById('popup-message').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
+                                    <a href="#message?rental_unit_id=<?php echo $rental_unit_id ?>,lister_id=<?php echo $lister_id ?>" onclick="document.getElementById('popup-message').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                                 </div>
-                            <?php } ?>                     
+                            <?php } ?>            
                         </div>
                     </div>
                     <?php

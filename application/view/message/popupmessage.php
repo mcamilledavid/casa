@@ -1,13 +1,13 @@
 <!-- Popup -->
 <div id="popup-message" class="modal">
     <!-- Popup Content -->            
-    <form  action="<?php echo URL; ?>home/messageLister" method="POST" autocomplete="on" class="modal-content">
+    <form  action="<?php echo URL; ?>home/messageLister" method="POST" autocomplete="on" class="modal-content" >
         <span onclick="document.getElementById('popup-message').style.display = 'none'" 
               class="close" title="Close Modal">&times;</span>
         <div class="form-group">
             <h2 class="signup-login-header">Message Lister</h2>
         </div>
-
+        
         <div class="form-group">
             <div class="row">
                 <div class="col-lg-6 left-input">
@@ -33,12 +33,13 @@
             </div>
         </div>
         
+         
         
-        <input type="hidden" name="rental_unit_id" class="form-control" value=<?php echo $rental_unit_id ?>>
+      <input type="hidden" name="rental_unit_id" class="form-control" value=<?php echo $rental_unit_id  ?>>
             
+       
         
-        
-        <input type="hidden" name="lister_id" class="form-control" value=<?php echo $lister_id ?>>
+      <input type="hidden" name="lister_id" class="form-control" value=<?php echo $lister_id ?>>
             
 
         <div class="form-group">

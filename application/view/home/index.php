@@ -3,7 +3,7 @@
         <h1 class="top-title">Search for off-campus housing</h1>
         <h2 class="bottom-title">Rent student homes, apartments, and rooms near SF State.</h2>
         <div class="container">
-            <form method="POST" action="<?php echo URL; ?>/home/search" class="home-search-container">
+            <form method="POST" action="<?php echo URL; ?>home/search" class="home-search-container">
                 <div class="input-group">
                     <div class="inner-addon left-addon">
                         <i class="ionicons ion-ios-search ionicons-search-home"></i>
@@ -26,13 +26,16 @@
         <?php
         $count = 0;
         foreach ($featured as $query) {
+            $rental_unit_id=$query->rental_unit_id;
+            $lister_id=$query->lister_id;
             ?>
             <div class="listing-container">
                 <div class="listing-image-container">
                     <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
-                    <form action="<?php echo URL; ?>favorites/addFavorite" method="POST">
+                     <form action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
                         <button type="submit" value="<?php echo $query->rental_unit_id ?>" name="add_favorite" class="favorite-btn"><i class="ionicons ion-ios-heart"></i></button>
                     </form> 
+                    <iframe name="hiddenframe" style="display:none;"></iframe>
                     <?php
                     if (isset($query->thumbnail)) {
                         echo "<img src='data:image/jpeg;base64," . base64_encode($query->thumbnail)
@@ -106,7 +109,7 @@
                     <?php if (!empty($_SESSION)) { ?>
 
                         <div class="form-group">
-                            <a href="#message" onclick="document.getElementById('popup-message').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
+                            <a href="#message?rental_unit_id=<?php echo $rental_unit_id ?>,lister_id=<?php echo $lister_id ?>" onclick="document.getElementById('popup-message').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                         </div>
                     <?php } ?>                     
                 </div>

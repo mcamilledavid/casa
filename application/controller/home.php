@@ -10,6 +10,7 @@ class Home extends Controller {
             $featured = $this->model->getFeaturedListings();
             require APP . 'view/_templates/homeheader.php';
             require APP . 'view/home/index.php';
+            require APP . 'view/message/popupmessage.php';
             require APP . 'view/signup/popupsignup.php';
             require APP . 'view/login/popuplogin.php';
             require APP . 'view/_templates/footer.php';
@@ -115,6 +116,7 @@ class Home extends Controller {
         require APP . 'view/signup/popupsignup.php';
         require APP . 'view/login/popuplogin.php';
         require APP . 'view/_templates/footer.php';
+     
     }
 
 }
