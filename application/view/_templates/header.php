@@ -57,7 +57,7 @@
                     <form action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" method="POST">
                         <div class="inner-addon left-addon">
                             <i class="ionicons ion-ios-search ionicons-search"></i>
-                            <input type="text" class="form-control header-search-form" name="search_value" value="<?php echo $_SESSION["search_term"]; ?>" placeholder="Search by city, zipcode, rental type.">
+                            <input type="text" class="form-control header-search-form" name="search_value" value="<?php echo isset($_SESSION["search_term"])?$_SESSION["search_term"]:""; ?>" placeholder="Search by city, zipcode, rental type.">
                         </div>
                         <button type="submit" class="btn btn-default header-search-btn" name="submit_search">Search</button>
                     </form>
