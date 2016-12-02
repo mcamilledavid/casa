@@ -77,7 +77,7 @@ class Model {
     }
     
     public function getFeaturedListings(){
-        $sql = "SELECT * FROM rental_unit ORDER BY rental_unit_id DESC LIMIT 6;";
+        $sql = "SELECT * FROM rental_unit ORDER BY rental_unit_id DESC LIMIT 4;";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
