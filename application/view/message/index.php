@@ -27,8 +27,7 @@
                     <div class="inner-addon right-addon">
                         <i class="ionicons ion-ios-email-outline"></i>
                         <input type="email" name="email" class="form-control" placeholder="Email" value="<?php if (isset($_SESSION["email"])) echo ($_SESSION["email"]); ?>" required>
-                    <?php echo $lister_id ?>
-                    <?php echo $rental_unit_id ?>
+                    
                     </div>
                 </div>
 
