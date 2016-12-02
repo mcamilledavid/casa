@@ -1,18 +1,158 @@
+<html>
+    <body>
 <div class="container" id="main-large">
     <div class="col-lg-2">
-        <div style="border: 1px solid #e7e7e7; width: 100%; height: 300px;"></div>
+        <div style="border: 1px solid #e7e7e7; width: 100%; height: 300px;">
+            <form action="<?php echo URL; ?>home/filteredSearch" method="POST">
+                <h3> FILTERS </h3>                
+                <div style="margin:5xp; padding: 12px;">     
+                    <span style="width: 100%;">Rent</span> </br>
+                    <input style="width: 48%;" type="tel" name="min_rent" placeholder="min" title="whole number, no letters or symbols" value="">
+                    <input style="width: 48%;" type="tel" name="max_rent" placeholder="max" title="whole number, no letters or symbols" value="">
+                </div>            
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Type</span>
+                    <select style="float: right; width: 50%;" name="type">
+                        <option value="Any">Any</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="House">House</option>
+                        <option value="Condo">Condo</option>
+                        <option value="Studio">Studio</option>
+                        <option value="Private Bedroom">Private Bedroom</option>
+                        <option value="Shared Bedroom">Shared Bedroom</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Beds</span>
+                    <select style="float: right; width: 50%;" name="min_beds">
+                        <option value="Any">Any</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Baths</span>
+                    <select style="float: right; width: 50%;" name="min_baths">
+                        <option value="Any">Any</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Campus Proximity</span>
+                    <select style="float: right; width: 50%;" name="distance_from_campus">
+                        <option value="Any">Any</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>  
+                </div><br/>
+
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Lease Length</span>
+                    <select style="float: right; width: 50%;" name="max_lease_length">
+                        <option value="Any">Any</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>  
+                </div></br>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Pets</span>
+                    <select style="float: right; width: 50%;" name="pets">
+                        <option value="Any">Any</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Laundry</span>
+                    <select style="float: right; width: 50%;" name="laundry">
+                        <option value="Any">Any</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Smoking</span>
+                    <select style="float: right; width: 50%;" name="smoking">
+                        <option value="Any">Any</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Furnished</span>
+                    <select style="float: right; width: 50%;" name="furnished">
+                        <option value="Any">Any</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Parking</span>
+                    <select style="float: right; width: 50%;" name="parking">
+                        <option value="Any">Any</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Deposit</span>
+                    <select style="float: right; width: 50%;" name="deposit">
+                        <option value="Any">Any</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <button type="submit" class="btn btn-block post-btn" name="apply_filters">APPLY</button>
+                </div>
+                <div class="col-lg-6">
+                    <button type="submit" class="btn btn-block post-btn" name="clear_filters">CLEAR</button>
+                </div>
+            </form>
+        </div>
     </div>
     <div class="col-lg-10">
         <?php
         $count = 0;
         foreach ($query as $query) {
-            $rental_unit_id=$query->rental_unit_id;
-            $lister_id=$query->lister_id;
+
+            $rental_unit_id = $query->rental_unit_id;
+            $lister_id = $query->lister_id;
+
             ?>
             <div class="listing-container">
                 <div class="listing-image-container">
                     <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
-                      <form action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
+                    <form action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
                         <button type="submit" value="<?php echo $rental_unit_id ?>" name="add_favorite" class="favorite-btn"><i class="ionicons ion-ios-heart"></i></button>
                     </form> 
                     <iframe name="hiddenframe" style="display:none;"></iframe>
@@ -24,7 +164,7 @@
                     ?>
                 </div>
                 <div class="listing-preview">
-                    <h4><a href="#" target="_blank"><?php if (isset($query->title)) echo htmlspecialchars($query->title, ENT_QUOTES, 'UTF-8'); ?></a></h4>
+                    <h4><a href="<?php echo URL; ?>home/showSelectedListing?rental_unit_id=<?php echo $rental_unit_id ?>" target="_blank"><?php if (isset($query->title)) echo htmlspecialchars($query->title, ENT_QUOTES, 'UTF-8'); ?></a></h4>
                     <p><?php if (isset($query->type)) echo htmlspecialchars($query->type, ENT_QUOTES, 'UTF-8'); ?> -
                         <?php
                         if (isset($query->beds)) {
@@ -85,11 +225,19 @@
                     <?php if (empty($_SESSION)) { ?>
                         <a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                     <?php } ?>
-                    <?php if (!empty($_SESSION)) { ?>
-
+                    <?php if (!empty($_SESSION) && ($_SESSION['isStudent'] == 1)) { ?>                      
                         <div class="form-group">
-                            <a href="#message?rental_unit_id=<?php echo $rental_unit_id ?>,lister_id=<?php echo $lister_id ?>" onclick="document.getElementById('popup-message').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
+
+                            <form action="<?php echo URL; ?>message/messageListerButton" method="POST" target="_blank">
+                                <input type="hidden" name="rental_unit_id" value="<?php echo $rental_unit_id ?>" />
+                                <input type="hidden" name="lister_id" value="<?php echo $lister_id ?>" />
+                                <button class="listing-message-btn" name="message_button">Message Lister</button>
+                            </form>
+                            
+
                         </div>
+                        
+                        
                     <?php } ?>  
                 </div>
             </div>
@@ -101,4 +249,6 @@
         }
         ?>
     </div>
-</div>
+</div>   
+</body>
+</html>
