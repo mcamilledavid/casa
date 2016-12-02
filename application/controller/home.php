@@ -27,8 +27,62 @@ class Home extends Controller {
 
         if (isset($_POST["submit_search"])) {
 
+            $_SESSION["search_term"]=$_POST["search_value"];
             $query = $this->model->search($_POST["search_value"]);
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/home/search.php';
+            require APP . 'view/signup/popupsignup.php';
+            require APP . 'view/login/popuplogin.php';
+            require APP . 'view/_templates/footer.php';
+        }
+    }
+    
+    public function filteredSearch() {
 
+        if (isset($_POST["apply_filters"])) {
+
+            if(isset($_POST) && array_key_exists('laundry',$_POST)){
+                $laundry= $_POST['laundry'];
+            }else{
+                $laundry= 0;
+            }
+            
+            if(isset($_POST) && array_key_exists('deposit',$_POST)){
+                $deposit= $_POST['deposit'];
+            }else{
+                $deposit= 0;
+            }
+            
+            if(isset($_POST) && array_key_exists('pets',$_POST)){
+                $pets= $_POST['pets'];
+            }else{
+                $pets= 0;
+            }
+            
+            if(isset($_POST) && array_key_exists('smoking',$_POST)){
+                $smoking= $_POST['smoking'];
+            }else{
+                $smoking= 0;
+            }
+            
+            if(isset($_POST) && array_key_exists('furnished',$_POST)){
+                $furnished= $_POST['furnished'];
+            }else{
+                $furnished= 0;
+            }
+                
+            if(isset($_POST) && array_key_exists('parking',$_POST)){
+                $parking= $_POST['parking'];
+            }else{
+                $parking= 0;
+            }
+            
+            
+            $query = $this->model->applyFilter(isset($_SESSION["search_term"])?$_SESSION["search_term"]:"",$_POST["min_rent"], 
+                    $_POST["max_rent"], $deposit, $_POST["type"], $_POST["min_beds"], $_POST["min_baths"], 
+                    $_POST["max_lease_length"], $_POST["distance_from_campus"], $pets, $smoking, 
+                    $laundry,$furnished, $parking);
+            
             require APP . 'view/_templates/header.php';
             require APP . 'view/home/search.php';
             require APP . 'view/message/popupmessage.php';

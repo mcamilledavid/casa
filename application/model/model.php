@@ -25,45 +25,46 @@ class Model {
      */
     //Use this function to add new listing
     //returns the rental_unit_id of the latest Rental unit created
-    public function addNewRentalUnit($listerId,$title,$street,$city,$state,$zipcode,
-            $beds,$baths,$rent,$deposit,$dateAvailability,$leaseLength,$description,
-            $pets,$smoking,$furnished,$parking,$laundry,$type,$distanceFromCampus){
-        $sql = "INSERT INTO rental_unit (lister_id,title, street,city,state,"
-                . "zipcode,beds,baths,rent,deposit,date_availability,"
-                . "lease_length,description,pets,smoking,furnished,parking,"
-                . "laundry,type,dist_from_campus,is_rented)"
-                . "VALUES (:listerId,:title,:street,:city,:state,:zipcode,:beds,"
-                . ":baths,:rent,:deposit,:date_availability,:lease_length,"
-                . ":description,:pets,:smoking,:furnished,:parking,:laundry,"
-                . ":type,:distance_from_campus,:is_rented)";
+    public function addNewRentalUnit($listerId, $title, $street, $city, $state, 
+            $zipcode, $beds, $baths, $rent, $deposit, $dateAvailability, $leaseLength, 
+            $description, $pets, $smoking, $furnished, $parking, $laundry, $type, $distanceFromCampus) {
+        $sql = "INSERT INTO rental_unit (lister_id, title, street,city,state,"
+                . "zipcode, beds, baths, rent, deposit, date_availability,"
+                . "lease_length, description, pets, smoking, furnished, parking,"
+                . "laundry, type, dist_from_campus, is_rented)"
+                . "VALUES "
+                . "(:listerId, :title, :street, :city, :state, :zipcode, :beds,"
+                . ":baths, :rent, :deposit, :date_availability, :lease_length,"
+                . ":description, :pets, :smoking, :furnished, :parking, :laundry,"
+                . ":type, :distance_from_campus, :is_rented)";
         $query = $this->db->prepare($sql);
-        $parameters = array(':listerId'=>$listerId,':title'=>$title,':street'=>$street,
-            ':city'=>$city,':state'=>$state,':zipcode'=>$zipcode,':beds'=>$beds,
-            ':baths'=>$baths,':rent'=>$rent,':deposit'=>$deposit,
-            ':date_availability'=>$dateAvailability,':lease_length'=>$leaseLength,
-            ':description'=>$description,':pets'=>$pets,':smoking'=>$smoking,
-            ':furnished'=>$furnished,':parking'=>$parking,':laundry'=>$laundry,
-            ':type'=>$type,':distance_from_campus'=>$distanceFromCampus,':is_rented'=> 0);
+        $parameters = array(':listerId' => $listerId, ':title' => $title, ':street' => $street,
+            ':city' => $city, ':state' => $state, ':zipcode' => $zipcode, ':beds' => $beds,
+            ':baths' => $baths, ':rent' => $rent, ':deposit' => $deposit,
+            ':date_availability' => $dateAvailability, ':lease_length' => $leaseLength,
+            ':description' => $description, ':pets' => $pets, ':smoking' => $smoking,
+            ':furnished' => $furnished, ':parking' => $parking, ':laundry' => $laundry,
+            ':type' => $type, ':distance_from_campus' => $distanceFromCampus, ':is_rented' => 0);
         $query->execute($parameters);
         return $this->getLastInsertedRentalUnitId($listerId);
     }
-    
+
     //Use this function to add image for a rental unit
-    public function addRentalUnitImages($image,$ru_id){
-         $sql = "INSERT INTO image (rental_unit_id,image) VALUES (:rental_unit_id,:image)";
+    public function addRentalUnitImages($image, $ru_id) {
+        $sql = "INSERT INTO image (rental_unit_id,image) VALUES (:rental_unit_id,:image)";
         $query = $this->db->prepare($sql);
-        $parameters = array(':rental_unit_id'=>$ru_id,':image' => $image);
+        $parameters = array(':rental_unit_id' => $ru_id, ':image' => $image);
         $query->execute($parameters);
-     }
-    
+    }
+
     //Use this function to add image for a rental unit
-    public function addRentalUnitThumbnail($image,$ru_id){
-         $sql = "UPDATE rental_unit SET thumbnail=:image WHERE rental_unit_id = $ru_id;";
+    public function addRentalUnitThumbnail($image, $ru_id) {
+        $sql = "UPDATE rental_unit SET thumbnail=:image WHERE rental_unit_id = $ru_id;";
         $query = $this->db->prepare($sql);
         $parameters = array(':image' => $image);
         $query->execute($parameters);
-    } 
-     
+    }
+
     /**
      * @listerId returns the id of the last inserted rental unit 
      */
@@ -81,9 +82,98 @@ class Model {
         $query->execute();
         return $query->fetchAll();
     }
+    
+    public function applyFilter($searchTerm, $minRent, $maxRent, $hasDeposit, $ruType, $minBeds, $minBaths, $maxLeaseLength, $maxDistFromCampus, $pets, $smoking, $laundry, $furnished, $parking) {
+
+        $sql = "SELECT * FROM rental_unit WHERE CONCAT_WS('', title, description,"
+                . " zipcode) LIKE '%$searchTerm%' ";
+        if ($minRent > 0) {
+            $sql = $sql." AND rent > $minRent ";
+        }
+        
+        if ($maxRent > 0) {
+            $sql = $sql."AND rent < $maxRent ";
+        }
+        
+        if ($hasDeposit != NULL && $hasDeposit !="Any") {
+            if ($hasDeposit > 0){
+                $sql = $sql."AND deposit > 0 ";
+            }else{
+                $sql = $sql."AND deposit = 0 ";
+            }
+        }
+        
+        if ($ruType != NULL && $ruType !="Any") {
+            $sql = $sql."AND type LIKE '$ruType' ";
+        }
+        
+        if ($minBeds != NULL && $minBeds !="Any") {
+            $sql = $sql."AND beds >= $minBeds ";
+        }
+        
+        if ($minBaths != NULL && $minBaths !="Any") {
+            $sql = $sql."AND baths >= $minBaths ";
+        }
+        
+        if ($maxLeaseLength != NULL && $maxLeaseLength !="Any") {
+            $sql = $sql."AND lease_length <= $maxLeaseLength ";
+        }
+        
+        if ($maxDistFromCampus != NULL && $maxDistFromCampus !="Any") {
+            $sql = $sql."AND dist_from_campus <= $maxDistFromCampus ";
+        }
+        
+        if ($pets != NULL && $pets !="Any") {
+            if ($hasDeposit > 0){
+                $sql = $sql."AND pets > 0 ";
+            }else{
+                $sql = $sql."AND pets = 0 ";
+            }
+        }
+        
+        if ($smoking != NULL && $smoking !="Any") {
+            if ($hasDeposit > 0){
+                $sql = $sql."AND smoking > 0 ";
+            }else{
+                $sql = $sql."AND smoking = 0 ";
+            }
+        }
+        
+        if ($laundry != NULL && $laundry !="Any") {
+            if ($hasDeposit > 0){
+                $sql = $sql."AND laundry > 0 ";
+            }else{
+                $sql = $sql."AND laundry = 0 ";
+            }
+        }
+        
+        if ($furnished != NULL && $furnished !="Any") {
+            if ($hasDeposit > 0){
+                $sql = $sql."AND furnished > 0 ";
+            }else{
+                $sql = $sql."AND furnished = 0 ";
+            }
+        }
+        
+        if ($parking != NULL && $parking !="Any") {
+            if ($hasDeposit > 0){
+                $sql = $sql."AND parking > 0 ";
+            }else{
+                $sql = $sql."AND parking = 0 ";
+            }
+        }
+
+        $sql = $sql.";";
+        $_SESSION["SQL_query"]= $sql;
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
+
 
     public function search($search) {
         // $filtered_search= preg_replace("#[^0-9a-z]#i", " ", $search);
+        $_SESSION["search_term"] =$search;
         $sql = "SELECT * FROM rental_unit WHERE CONCAT_WS('', title, description, zipcode) LIKE '%$search%'";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -134,8 +224,8 @@ class Model {
         $sql = "UPDATE registered_user SET firstname = :firstname, lastname = :lastname, "
                 . "email = :email, is_student = :isStudent, password = :password  WHERE user_id = :user_id";
         $query = $this->db->prepare($sql);
-        $parameters = array(':firstname' => $firstname, ':lastname' => $lastname, 
-            ':email' => $email, ':isStudent' => $isStudent, ':password' => $password, 
+        $parameters = array(':firstname' => $firstname, ':lastname' => $lastname,
+            ':email' => $email, ':isStudent' => $isStudent, ':password' => $password,
             ':user_id' => $user_id);
         $query->execute($parameters);
     }
