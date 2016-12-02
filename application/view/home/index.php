@@ -29,7 +29,7 @@
             $rental_unit_id=$query->rental_unit_id;
             $lister_id=$query->lister_id;
             ?>
-            <div class="listing-container">
+            <div class="featured-listing-container">
                 <div class="listing-image-container">
                     <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
                      <form action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
