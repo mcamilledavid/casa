@@ -328,5 +328,12 @@ class Model {
         $parameters = array(':student_id' => $user_id, ':rental_unit_id' => $rental_unit_id);
         $query->execute($parameters);
     }
+    
+    public function showListingsDetails($rental_unit_id){
+        $sql = "SELECT * FROM rental_unit WHERE rental_unit_id = $rental_unit_id;";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
 
 }

@@ -1,3 +1,5 @@
+<html>
+    <body>
 <div class="container" id="main-large">
     <div class="col-lg-2">
         <div style="border: 1px solid #e7e7e7; width: 100%; height: 300px;">
@@ -142,8 +144,10 @@
         <?php
         $count = 0;
         foreach ($query as $query) {
+
             $rental_unit_id = $query->rental_unit_id;
             $lister_id = $query->lister_id;
+
             ?>
             <div class="listing-container">
                 <div class="listing-image-container">
@@ -160,7 +164,7 @@
                     ?>
                 </div>
                 <div class="listing-preview">
-                    <h4><a href="#" target="_blank"><?php if (isset($query->title)) echo htmlspecialchars($query->title, ENT_QUOTES, 'UTF-8'); ?></a></h4>
+                    <h4><a href="<?php echo URL; ?>home/showSelectedListing?rental_unit_id=<?php echo $rental_unit_id ?>" target="_blank"><?php if (isset($query->title)) echo htmlspecialchars($query->title, ENT_QUOTES, 'UTF-8'); ?></a></h4>
                     <p><?php if (isset($query->type)) echo htmlspecialchars($query->type, ENT_QUOTES, 'UTF-8'); ?> -
                         <?php
                         if (isset($query->beds)) {
@@ -221,16 +225,19 @@
                     <?php if (empty($_SESSION)) { ?>
                         <a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                     <?php } ?>
-                    <?php if (!empty($_SESSION)) { ?>
-
+                    <?php if (!empty($_SESSION)) { ?>                      
                         <div class="form-group">
+
                             <form action="<?php echo URL; ?>message/messageListerButton" method="POST" target="_blank">
                                 <input type="hidden" name="rental_unit_id" value="<?php echo $rental_unit_id ?>" />
                                 <input type="hidden" name="lister_id" value="<?php echo $lister_id ?>" />
                                 <button class="listing-message-btn" name="message_button">Message Lister</button>
                             </form>
                             
+
                         </div>
+                        
+                        
                     <?php } ?>  
                 </div>
             </div>
@@ -242,4 +249,6 @@
         }
         ?>
     </div>
-</div>
+</div>   
+</body>
+</html>
