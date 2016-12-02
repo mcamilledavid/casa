@@ -106,11 +106,19 @@
                     <?php if (empty($_SESSION)) { ?>
                         <a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                     <?php } ?>
-                    <?php if (!empty($_SESSION)) { ?>
-
+                    <?php if (!empty($_SESSION) && ($_SESSION['isStudent'] == 1)) { ?>                      
                         <div class="form-group">
-                            <a href="#message?rental_unit_id=<?php echo $rental_unit_id ?>,lister_id=<?php echo $lister_id ?>" onclick="document.getElementById('popup-message').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
+
+                            <form action="<?php echo URL; ?>message/messageListerButton" method="POST" target="_blank">
+                                <input type="hidden" name="rental_unit_id" value="<?php echo $rental_unit_id ?>" />
+                                <input type="hidden" name="lister_id" value="<?php echo $lister_id ?>" />
+                                <button class="listing-message-btn" name="message_button">Message Lister</button>
+                            </form>
+                            
+
                         </div>
+                        
+                        
                     <?php } ?>                     
                 </div>
             </div>
