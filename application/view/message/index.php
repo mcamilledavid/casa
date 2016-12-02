@@ -1,7 +1,7 @@
 <div class="container" id="main-large">
     <div class="row">
         <div class="form-container">
-            <form  action="<?php echo URL; ?>" method="POST" autocomplete="off">
+            <form  action="<?php echo URL; ?>message/messageLister" method="POST" autocomplete="off">
                 <div class="form-group">
                     <h2 class="signup-login-header">Message Lister</h2>
                 </div>
