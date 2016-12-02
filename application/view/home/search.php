@@ -1,6 +1,142 @@
 <div class="container" id="main-large">
     <div class="col-lg-2">
-        <div style="border: 1px solid #e7e7e7; width: 100%; height: 300px;"></div>
+        <div style="border: 1px solid #e7e7e7; width: 100%; height: 300px;">
+            <form action="<?php echo URL; ?>home/filteredSearch" method="POST">
+                <h3> FILTERS </h3>                
+                <div style="margin:5xp; padding: 12px;">     
+                    <span style="width: 100%;">Rent</span> </br>
+                    <input style="width: 48%;" type="tel" name="min_rent" placeholder="min" title="whole number, no letters or symbols" value="">
+                    <input style="width: 48%;" type="tel" name="max_rent" placeholder="max" title="whole number, no letters or symbols" value="">
+                </div>            
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Type</span>
+                    <select style="float: right; width: 50%;" name="type">
+                        <option value="Any">Any</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="House">House</option>
+                        <option value="Condo">Condo</option>
+                        <option value="Studio">Studio</option>
+                        <option value="Private Bedroom">Private Bedroom</option>
+                        <option value="Shared Bedroom">Shared Bedroom</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Beds</span>
+                    <select style="float: right; width: 50%;" name="min_beds">
+                        <option value="Any">Any</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Baths</span>
+                    <select style="float: right; width: 50%;" name="min_baths">
+                        <option value="Any">Any</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Campus Proximity</span>
+                    <select style="float: right; width: 50%;" name="distance_from_campus">
+                        <option value="Any">Any</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>  
+                </div><br/>
+
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Lease Length</span>
+                    <select style="float: right; width: 50%;" name="max_lease_length">
+                        <option value="Any">Any</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>  
+                </div></br>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Pets</span>
+                    <select style="float: right; width: 50%;" name="pets">
+                        <option value="Any">Any</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Laundry</span>
+                    <select style="float: right; width: 50%;" name="laundry">
+                        <option value="Any">Any</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Smoking</span>
+                    <select style="float: right; width: 50%;" name="smoking">
+                        <option value="Any">Any</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Furnished</span>
+                    <select style="float: right; width: 50%;" name="furnished">
+                        <option value="Any">Any</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Parking</span>
+                    <select style="float: right; width: 50%;" name="parking">
+                        <option value="Any">Any</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div style="margin:5xp; padding: 12px;">
+                    <span style=" float: left; width: 50%;">Deposit</span>
+                    <select style="float: right; width: 50%;" name="deposit">
+                        <option value="Any">Any</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <button type="submit" class="btn btn-block post-btn" name="apply_filters">APPLY</button>
+                </div>
+                <div class="col-lg-6">
+                    <button type="submit" class="btn btn-block post-btn" name="clear_filters">CLEAR</button>
+                </div>
+            </form>
+        </div>
     </div>
     <div class="col-lg-10">
         <?php
