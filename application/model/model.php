@@ -19,15 +19,13 @@ class Model {
         $query->execute();
         return $query->fetchAll();
     }
-    
+
     /**
      * @all variables These are the values to be inserted in the database
      */
     //Use this function to add new listing
     //returns the rental_unit_id of the latest Rental unit created
-    public function addNewRentalUnit($listerId, $title, $street, $city, $state, 
-            $zipcode, $beds, $baths, $rent, $deposit, $dateAvailability, $leaseLength, 
-            $description, $pets, $smoking, $furnished, $parking, $laundry, $type, $distanceFromCampus) {
+    public function addNewRentalUnit($listerId, $title, $street, $city, $state, $zipcode, $beds, $baths, $rent, $deposit, $dateAvailability, $leaseLength, $description, $pets, $smoking, $furnished, $parking, $laundry, $type, $distanceFromCampus) {
         $sql = "INSERT INTO rental_unit (lister_id, title, street,city,state,"
                 . "zipcode, beds, baths, rent, deposit, date_availability,"
                 . "lease_length, description, pets, smoking, furnished, parking,"
@@ -68,112 +66,110 @@ class Model {
     /**
      * @listerId returns the id of the last inserted rental unit 
      */
-    public function getLastInsertedRentalUnitId($listerId) {       
+    public function getLastInsertedRentalUnitId($listerId) {
         $sql = "SELECT LAST_INSERT_ID() AS last_id FROM rental_unit WHERE lister_id = $listerId;";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetch()->last_id;
-        
     }
-    
-    public function getFeaturedListings(){
-        $sql = "SELECT * FROM rental_unit ORDER BY rental_unit_id DESC LIMIT 4;";
+
+    public function getFeaturedListings() {
+        $sql = "SELECT * FROM rental_unit ORDER BY rental_unit_id DESC LIMIT 6;";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
     }
-    
+
     public function applyFilter($searchTerm, $minRent, $maxRent, $hasDeposit, $ruType, $minBeds, $minBaths, $maxLeaseLength, $maxDistFromCampus, $pets, $smoking, $laundry, $furnished, $parking) {
 
         $sql = "SELECT * FROM rental_unit WHERE CONCAT_WS('', title, description,"
                 . " zipcode) LIKE '%$searchTerm%' ";
         if ($minRent > 0) {
-            $sql = $sql." AND rent > $minRent ";
+            $sql = $sql . " AND rent > $minRent ";
         }
-        
+
         if ($maxRent > 0) {
-            $sql = $sql."AND rent < $maxRent ";
+            $sql = $sql . "AND rent < $maxRent ";
         }
-        
-        if ($hasDeposit != NULL && $hasDeposit !="Any") {
-            if ($hasDeposit > 0){
-                $sql = $sql."AND deposit > 0 ";
-            }else{
-                $sql = $sql."AND deposit = 0 ";
-            }
-        }
-        
-        if ($ruType != NULL && $ruType !="Any") {
-            $sql = $sql."AND type LIKE '$ruType' ";
-        }
-        
-        if ($minBeds != NULL && $minBeds !="Any") {
-            $sql = $sql."AND beds >= $minBeds ";
-        }
-        
-        if ($minBaths != NULL && $minBaths !="Any") {
-            $sql = $sql."AND baths >= $minBaths ";
-        }
-        
-        if ($maxLeaseLength != NULL && $maxLeaseLength !="Any") {
-            $sql = $sql."AND lease_length <= $maxLeaseLength ";
-        }
-        
-        if ($maxDistFromCampus != NULL && $maxDistFromCampus !="Any") {
-            $sql = $sql."AND dist_from_campus <= $maxDistFromCampus ";
-        }
-        
-        if ($pets != NULL && $pets !="Any") {
-            if ($hasDeposit > 0){
-                $sql = $sql."AND pets > 0 ";
-            }else{
-                $sql = $sql."AND pets = 0 ";
-            }
-        }
-        
-        if ($smoking != NULL && $smoking !="Any") {
-            if ($hasDeposit > 0){
-                $sql = $sql."AND smoking > 0 ";
-            }else{
-                $sql = $sql."AND smoking = 0 ";
-            }
-        }
-        
-        if ($laundry != NULL && $laundry !="Any") {
-            if ($hasDeposit > 0){
-                $sql = $sql."AND laundry > 0 ";
-            }else{
-                $sql = $sql."AND laundry = 0 ";
-            }
-        }
-        
-        if ($furnished != NULL && $furnished !="Any") {
-            if ($hasDeposit > 0){
-                $sql = $sql."AND furnished > 0 ";
-            }else{
-                $sql = $sql."AND furnished = 0 ";
-            }
-        }
-        
-        if ($parking != NULL && $parking !="Any") {
-            if ($hasDeposit > 0){
-                $sql = $sql."AND parking > 0 ";
-            }else{
-                $sql = $sql."AND parking = 0 ";
+
+        if ($hasDeposit != NULL && $hasDeposit != "Any") {
+            if ($hasDeposit > 0) {
+                $sql = $sql . "AND deposit > 0 ";
+            } else {
+                $sql = $sql . "AND deposit = 0 ";
             }
         }
 
-        $sql = $sql.";";
-        $_SESSION["SQL_query"]= $sql;
+        if ($ruType != NULL && $ruType != "Any") {
+            $sql = $sql . "AND type LIKE '$ruType' ";
+        }
+
+        if ($minBeds != NULL && $minBeds != "Any") {
+            $sql = $sql . "AND beds >= $minBeds ";
+        }
+
+        if ($minBaths != NULL && $minBaths != "Any") {
+            $sql = $sql . "AND baths >= $minBaths ";
+        }
+
+        if ($maxLeaseLength != NULL && $maxLeaseLength != "Any") {
+            $sql = $sql . "AND lease_length <= $maxLeaseLength ";
+        }
+
+        if ($maxDistFromCampus != NULL && $maxDistFromCampus != "Any") {
+            $sql = $sql . "AND dist_from_campus <= $maxDistFromCampus ";
+        }
+
+        if ($pets != NULL && $pets != "Any") {
+            if ($hasDeposit > 0) {
+                $sql = $sql . "AND pets > 0 ";
+            } else {
+                $sql = $sql . "AND pets = 0 ";
+            }
+        }
+
+        if ($smoking != NULL && $smoking != "Any") {
+            if ($hasDeposit > 0) {
+                $sql = $sql . "AND smoking > 0 ";
+            } else {
+                $sql = $sql . "AND smoking = 0 ";
+            }
+        }
+
+        if ($laundry != NULL && $laundry != "Any") {
+            if ($hasDeposit > 0) {
+                $sql = $sql . "AND laundry > 0 ";
+            } else {
+                $sql = $sql . "AND laundry = 0 ";
+            }
+        }
+
+        if ($furnished != NULL && $furnished != "Any") {
+            if ($hasDeposit > 0) {
+                $sql = $sql . "AND furnished > 0 ";
+            } else {
+                $sql = $sql . "AND furnished = 0 ";
+            }
+        }
+
+        if ($parking != NULL && $parking != "Any") {
+            if ($hasDeposit > 0) {
+                $sql = $sql . "AND parking > 0 ";
+            } else {
+                $sql = $sql . "AND parking = 0 ";
+            }
+        }
+
+        $sql = $sql . ";";
+        $_SESSION["SQL_query"] = $sql;
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
     }
 
-
     public function search($search) {
         // $filtered_search= preg_replace("#[^0-9a-z]#i", " ", $search);
-        $_SESSION["search_term"] =$search;
+        $_SESSION["search_term"] = $search;
         $sql = "SELECT * FROM rental_unit WHERE CONCAT_WS('', title, description, zipcode) LIKE '%$search%'";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -260,7 +256,7 @@ class Model {
 
         return $status;
     }
-    
+
     public function enterMessage($message, $rental_unit_id, $lister_id, $student_id) {
 
         $sql = "INSERT INTO message "
@@ -274,31 +270,33 @@ class Model {
 
         $status = $query->execute($parameters);
     }
+
     // Deletes corresponding database entries for rental unit specified by ruid
     // in `image`, `favorites`, and `rental_unit` tables. Returns true if 
     // rental unit entry is removed, otherwise returns false.
-     public function deleteRentalUnit($ruid) {
+    public function deleteRentalUnit($ruid) {
         $sql = "DELETE FROM image WHERE rental_unit_id = '$ruid'";
         $query = $this->db->prepare($sql);
         $status = $query->execute();
-        
+
         $sql = "DELETE FROM favorites WHERE rental_unit_id = '$ruid'";
         $query = $this->db->prepare($sql);
         $status = $query->execute();
-        
+
         $sql = "DELETE FROM rental_unit WHERE rental_unit_id = '$ruid'";
         $query = $this->db->prepare($sql);
-        $status = $query->execute(); 
+        $status = $query->execute();
 
         return $status;
     }
-    
+
     //used only for deleting rental unit from favorites table
-    public function deleteFavoriteRentalUnit($ruid){
+    public function deleteFavoriteRentalUnit($ruid) {
         $sql = "DELETE FROM favorites WHERE rental_unit_id = '$ruid'";
         $query = $this->db->prepare($sql);
         $status = $query->execute();
     }
+
     // set the is_rented field for a given rental unit
     public function updateAvailability($ruid) {
         $sql = "UPDATE rental_unit SET is_rented = 1 WHERE rental_unit_id = $ruid";
@@ -306,30 +304,30 @@ class Model {
         $status = $query->execute();
         return $status;
     }
-    
+
     public function getRentalUnitsByUserId($listerId) {
         $sql = "SELECT * FROM rental_unit WHERE lister_id = $listerId;";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
     }
-    
-    public function getFavoritesByUserID($listerID){
+
+    public function getFavoritesByUserID($listerID) {
         $sql = "SELECT * FROM rental_unit WHERE rental_unit_id IN "
                 . "(SELECT rental_unit_id FROM favorites WHERE student_id = $listerID);";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
     }
-    
-    public function addFavorite($user_id, $rental_unit_id){
-         $sql = "INSERT INTO favorites (student_id, rental_unit_id) VALUES (:student_id, :rental_unit_id)";
+
+    public function addFavorite($user_id, $rental_unit_id) {
+        $sql = "INSERT INTO favorites (student_id, rental_unit_id) VALUES (:student_id, :rental_unit_id)";
         $query = $this->db->prepare($sql);
         $parameters = array(':student_id' => $user_id, ':rental_unit_id' => $rental_unit_id);
         $query->execute($parameters);
     }
-    
-    public function showListingsDetails($rental_unit_id){
+
+    public function showListingsDetails($rental_unit_id) {
         $sql = "SELECT * FROM rental_unit WHERE rental_unit_id = $rental_unit_id;";
         $query = $this->db->prepare($sql);
         $query->execute();
