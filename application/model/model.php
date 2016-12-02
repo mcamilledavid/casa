@@ -90,41 +90,77 @@ class Model {
         if ($minRent > 0) {
             $sql = $sql." AND rent > $minRent ";
         }
+        
         if ($maxRent > 0) {
             $sql = $sql."AND rent < $maxRent ";
         }
-        if ($hasDeposit > 0) {
-            $sql += "AND deposit > 0 ";
+        
+        if ($hasDeposit != NULL && $hasDeposit !="Any") {
+            if ($hasDeposit > 0){
+                $sql = $sql."AND deposit > 0 ";
+            }else{
+                $sql = $sql."AND deposit = 0 ";
+            }
         }
+        
         if ($ruType != NULL && $ruType !="Any") {
             $sql = $sql."AND type LIKE '$ruType' ";
         }
-        if ($minBeds > 0) {
+        
+        if ($minBeds != NULL && $minBeds !="Any") {
             $sql = $sql."AND beds >= $minBeds ";
         }
-        if ($minBaths > 0) {
+        
+        if ($minBaths != NULL && $minBaths !="Any") {
             $sql = $sql."AND baths >= $minBaths ";
         }
-        if ($maxLeaseLength > 0) {
+        
+        if ($maxLeaseLength != NULL && $maxLeaseLength !="Any") {
             $sql = $sql."AND lease_length <= $maxLeaseLength ";
         }
-        if ($maxDistFromCampus > 0) {
+        
+        if ($maxDistFromCampus != NULL && $maxDistFromCampus !="Any") {
             $sql = $sql."AND dist_from_campus <= $maxDistFromCampus ";
         }
-        if ($pets > 0) {
-            $sql = $sql."AND pets > 0 ";
+        
+        if ($pets != NULL && $pets !="Any") {
+            if ($hasDeposit > 0){
+                $sql = $sql."AND pets > 0 ";
+            }else{
+                $sql = $sql."AND pets = 0 ";
+            }
         }
-        if ($smoking > 0) {
-            $sql = $sql."AND smoking > 0 ";
+        
+        if ($smoking != NULL && $smoking !="Any") {
+            if ($hasDeposit > 0){
+                $sql = $sql."AND smoking > 0 ";
+            }else{
+                $sql = $sql."AND smoking = 0 ";
+            }
         }
-        if ($laundry > 0) {
-            $sql = $sql."AND laundry > 0 ";
+        
+        if ($laundry != NULL && $laundry !="Any") {
+            if ($hasDeposit > 0){
+                $sql = $sql."AND laundry > 0 ";
+            }else{
+                $sql = $sql."AND laundry = 0 ";
+            }
         }
-        if ($furnished > 0) {
-            $sql = $sql."AND furnished > 0 ";
+        
+        if ($furnished != NULL && $furnished !="Any") {
+            if ($hasDeposit > 0){
+                $sql = $sql."AND furnished > 0 ";
+            }else{
+                $sql = $sql."AND furnished = 0 ";
+            }
         }
-        if ($parking > 0) {
-            $sql = $sql."AND parking > 0 ";
+        
+        if ($parking != NULL && $parking !="Any") {
+            if ($hasDeposit > 0){
+                $sql = $sql."AND parking > 0 ";
+            }else{
+                $sql = $sql."AND parking = 0 ";
+            }
         }
 
         $sql = $sql.";";
@@ -137,6 +173,7 @@ class Model {
 
     public function search($search) {
         // $filtered_search= preg_replace("#[^0-9a-z]#i", " ", $search);
+        $_SESSION["search_term"] =$search;
         $sql = "SELECT * FROM rental_unit WHERE CONCAT_WS('', title, description, zipcode) LIKE '%$search%'";
         $query = $this->db->prepare($sql);
         $query->execute();
