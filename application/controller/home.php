@@ -78,7 +78,7 @@ class Home extends Controller {
             }
             
             
-            $query = $this->model->applyFilter($_SESSION["search_term"],$_POST["min_rent"], 
+            $query = $this->model->applyFilter(isset($_SESSION["search_term"])?$_SESSION["search_term"]:"",$_POST["min_rent"], 
                     $_POST["max_rent"], $deposit, $_POST["type"], $_POST["min_beds"], $_POST["min_baths"], 
                     $_POST["max_lease_length"], $_POST["distance_from_campus"], $pets, $smoking, 
                     $laundry,$furnished, $parking);
