@@ -77,7 +77,7 @@ class Model {
     }
     
     public function getFeaturedListings(){
-        $sql = "SELECT * FROM rental_unit ORDER BY rental_unit_id DESC LIMIT 4;";
+        $sql = "SELECT * FROM rental_unit ORDER BY rental_unit_id DESC LIMIT 6;";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
@@ -327,6 +327,13 @@ class Model {
         $query = $this->db->prepare($sql);
         $parameters = array(':student_id' => $user_id, ':rental_unit_id' => $rental_unit_id);
         $query->execute($parameters);
+    }
+    
+    public function showListingsDetails($rental_unit_id){
+        $sql = "SELECT * FROM rental_unit WHERE rental_unit_id = $rental_unit_id;";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
     }
 
 }
