@@ -227,7 +227,7 @@
                         <a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                     <?php } ?>
                     <?php if (!empty($_SESSION)) { ?>                      
-                        <?php if (($_SESSION['isStudent'] == 1)) { ?>
+                        <?php if (isset($_SESSION['isStudent']) && ($_SESSION['isStudent'] == 1)) { ?>
                         <div class="form-group">
 
                             <form action="<?php echo URL; ?>message/messageListerButton" method="POST" target="_blank">
