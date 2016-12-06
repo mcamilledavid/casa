@@ -223,7 +223,7 @@
                         }
                         ?></p>
 
-                    <?php if (empty($_SESSION)) { ?>
+                    <?php if (empty($_SESSION) || (!isset($_SESSION['isStudent']))) { ?>
                         <a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                     <?php } ?>
                     <?php if (!empty($_SESSION)) { ?>                      
