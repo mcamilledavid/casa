@@ -38,6 +38,20 @@ class Message extends Controller {
             }
         }
     }
+    
+    public function messageLister(){
+        $message=filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING);
+        $rental_unit_id=filter_input(INPUT_POST, 'rental_unit_id', FILTER_SANITIZE_STRING);
+        $lister_id = filter_input(INPUT_POST, 'lister_id', FILTER_SANITIZE_STRING);
+        $student_id = $_SESSION['user_id'];
+        $query=  $this->model->enterMessage($message,$rental_unit_id,$lister_id,$student_id);
+        
+        $message = "Your message has been sent!";
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/home/message.php';
+        require APP . 'view/_templates/footer.php';
+     
+    }
 
 
 }

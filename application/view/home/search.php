@@ -4,28 +4,29 @@
     <div class="col-lg-2">
         <div style="border: 1px solid #e7e7e7; width: 100%; height: 300px;">
             <form action="<?php echo URL; ?>home/filteredSearch" method="POST">
-                <h3> FILTERS </h3>                
+                <h3> FILTERS </h3> 
+                <?php $filterMap = $_SESSION["FILTER_MAP"]; ?>
                 <div style="margin:5xp; padding: 12px;">     
                     <span style="width: 100%;">Rent</span> </br>
-                    <input style="width: 48%;" type="tel" name="min_rent" placeholder="min" title="whole number, no letters or symbols" value="">
-                    <input style="width: 48%;" type="tel" name="max_rent" placeholder="max" title="whole number, no letters or symbols" value="">
+                    <input style="width: 48%;" type="tel" name="min_rent" placeholder="min" title="whole number, no letters or symbols" value="<?php echo $filterMap['min_rent'];?>">
+                    <input style="width: 48%;" type="tel" name="max_rent" placeholder="max" title="whole number, no letters or symbols" value="<?php echo $filterMap['max_rent'];?>">
                 </div>            
                 <div style="margin:5xp; padding: 12px;">
                     <span style=" float: left; width: 50%;">Type</span>
-                    <select style="float: right; width: 50%;" name="type">
-                        <option value="Any">Any</option>
-                        <option value="Apartment">Apartment</option>
-                        <option value="House">House</option>
-                        <option value="Condo">Condo</option>
-                        <option value="Studio">Studio</option>
-                        <option value="Private Bedroom">Private Bedroom</option>
-                        <option value="Shared Bedroom">Shared Bedroom</option>
+                    <select style="float: right; width: 48%;" name="type">
+                        <option value="Any" <?php if($filterMap['type']=="Any") echo "selected";?> >Any</option>
+                        <option value="Apartment" <?php if($filterMap['type']=="Apartment") echo "selected";?> >Apartment</option>
+                        <option value="House" <?php if($filterMap['type']=="House") echo "selected";?> >House</option>
+                        <option value="Condo" <?php if($filterMap['type']=="Condo") echo "selected";?> >Condo</option>
+                        <option value="Studio" <?php if($filterMap['type']=="Studio") echo "selected";?> >Studio</option>
+                        <option value="Private Bedroom" <?php if($filterMap['type']=="Private Bedroom") echo "selected";?> >Private Bedroom</option>
+                        <option value="Shared Bedroom" <?php if($filterMap['type']=="Shared Bedroom") echo "selected";?> >Shared Bedroom</option>
                     </select>
                 </div>
                 <div style="margin:5xp; padding: 12px;">
                     <span style=" float: left; width: 50%;">Beds</span>
-                    <select style="float: right; width: 50%;" name="min_beds">
-                        <option value="Any">Any</option>
+                    <select style="float: right; width: 48%;" name="min_beds">
+                        <option value="Any" <?php if($filterMap['min_beds']=="Any") echo "selected";?> >Any</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -36,8 +37,8 @@
                 </div>
                 <div style="margin:5xp; padding: 12px;">
                     <span style=" float: left; width: 50%;">Baths</span>
-                    <select style="float: right; width: 50%;" name="min_baths">
-                        <option value="Any">Any</option>
+                    <select style="float: right; width: 48%;" name="min_baths">
+                        <option value="Any" <?php if($filterMap['min_baths']=="Any") echo "selected";?> >Any</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -48,8 +49,8 @@
                 </div>
                 <div style="margin:5xp; padding: 12px;">
                     <span style=" float: left; width: 50%;">Campus Proximity</span>
-                    <select style="float: right; width: 50%;" name="distance_from_campus">
-                        <option value="Any">Any</option>
+                    <select style="float: right; width: 48%;" name="distance_from_campus">
+                        <option value="Any" <?php if($filterMap['distance_from_campus']=="Any") echo "selected";?> >Any</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -67,8 +68,8 @@
 
                 <div style="margin:5xp; padding: 12px;">
                     <span style=" float: left; width: 50%;">Lease Length</span>
-                    <select style="float: right; width: 50%;" name="max_lease_length">
-                        <option value="Any">Any</option>
+                    <select style="float: right; width: 48%;" name="max_lease_length">
+                        <option value="Any" <?php if($filterMap['max_lease_length']=="Any") echo "selected";?> >Any</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -85,50 +86,50 @@
                 </div></br>
                 <div style="margin:5xp; padding: 12px;">
                     <span style=" float: left; width: 50%;">Pets</span>
-                    <select style="float: right; width: 50%;" name="pets">
-                        <option value="Any">Any</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
+                    <select style="float: right; width: 48%;" name="pets">
+                        <option value="Any" <?php if($filterMap['pets']=="Any") echo "selected";?> >Any</option>
+                        <option value="1" <?php if($filterMap['pets']=="1") echo "selected";?> >Yes</option>
+                        <option value="0" <?php if($filterMap['pets']=="0") echo "selected";?> >No</option>
                     </select>
                 </div>
                 <div style="margin:5xp; padding: 12px;">
                     <span style=" float: left; width: 50%;">Laundry</span>
-                    <select style="float: right; width: 50%;" name="laundry">
-                        <option value="Any">Any</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
+                    <select style="float: right; width: 48%;" name="laundry">
+                        <option value="Any" <?php if($filterMap['laundry']=="Any") echo "selected";?> >Any</option>
+                        <option value="1" <?php if($filterMap['laundry']=="1") echo "selected";?> >Yes</option>
+                        <option value="0" <?php if($filterMap['laundry']=="0") echo "selected";?> >No</option>
                     </select>
                 </div>
                 <div style="margin:5xp; padding: 12px;">
                     <span style=" float: left; width: 50%;">Smoking</span>
-                    <select style="float: right; width: 50%;" name="smoking">
-                        <option value="Any">Any</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
+                    <select style="float: right; width: 48%;" name="smoking">
+                        <option value="Any" <?php if($filterMap['smoking']=="Any") echo "selected";?> >Any</option>
+                        <option value="1" <?php if($filterMap['smoking']=="1") echo "selected";?> >Yes</option>
+                        <option value="0" <?php if($filterMap['smoking']=="0") echo "selected";?> >No</option>
                     </select>
                 </div>
                 <div style="margin:5xp; padding: 12px;">
                     <span style=" float: left; width: 50%;">Furnished</span>
-                    <select style="float: right; width: 50%;" name="furnished">
-                        <option value="Any">Any</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
+                    <select style="float: right; width: 48%;" name="furnished">
+                        <option value="Any" <?php if($filterMap['furnished']=="Any") echo "selected";?> >Any</option>
+                        <option value="1" <?php if($filterMap['furnished']=="1") echo "selected";?> >Yes</option>
+                        <option value="0" <?php if($filterMap['furnished']=="0") echo "selected";?> >No</option>
                     </select>
                 </div>
                 <div style="margin:5xp; padding: 12px;">
                     <span style=" float: left; width: 50%;">Parking</span>
-                    <select style="float: right; width: 50%;" name="parking">
-                        <option value="Any">Any</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
+                    <select style="float: right; width: 48%;" name="parking">
+                        <option value="Any" <?php if($filterMap['parking']=="Any") echo "selected";?> >Any</option>
+                        <option value="1" <?php if($filterMap['parking']=="1") echo "selected";?> >Yes</option>
+                        <option value="0" <?php if($filterMap['parking']=="0") echo "selected";?> >No</option>
                     </select>
                 </div>
                 <div style="margin:5xp; padding: 12px;">
                     <span style=" float: left; width: 50%;">Deposit</span>
-                    <select style="float: right; width: 50%;" name="deposit">
-                        <option value="Any">Any</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
+                    <select style="float: right; width: 48%;" name="deposit">
+                        <option value="Any" <?php if($filterMap['deposit']=="Any") echo "selected";?> >Any</option>
+                        <option value="1" <?php if($filterMap['deposit']=="1") echo "selected";?> >Yes</option>
+                        <option value="0" <?php if($filterMap['deposit']=="0") echo "selected";?> >No</option>
                     </select>
                 </div>
                 <div class="col-lg-6">
@@ -222,10 +223,11 @@
                         }
                         ?></p>
 
-                    <?php if (empty($_SESSION)) { ?>
+                    <?php if (empty($_SESSION) || (!isset($_SESSION['isStudent']))) { ?>
                         <a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                     <?php } ?>
                     <?php if (!empty($_SESSION)) { ?>                      
+                        <?php if (isset($_SESSION['isStudent']) && ($_SESSION['isStudent'] == 1)) { ?>
                         <div class="form-group">
 
                             <form action="<?php echo URL; ?>message/messageListerButton" method="POST" target="_blank">
@@ -239,6 +241,7 @@
                         
                         
                     <?php } ?>  
+                         <?php } ?> 
                 </div>
             </div>
             <?php
