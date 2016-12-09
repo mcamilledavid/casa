@@ -160,7 +160,7 @@ class Home extends Controller {
     public function showSelectedListing(){
         $rental_unit_id=$_GET['rental_unit_id'];
         $query=$this->model->showListingsDetails($rental_unit_id);
-         require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/header.php';
         require APP . 'view/home/details.php';
 
         require APP . 'view/message/popupmessage.php';

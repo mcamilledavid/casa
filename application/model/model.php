@@ -335,5 +335,12 @@ class Model {
         $query->execute();
         return $query->fetchAll();
     }
+    
+    public function fetchMessages($lister_id){
+        $sql = "SELECT * FROM message INNER JOIN registered_user ON message.student_id=registered_user.user_id WHERE message.lister_id = $lister_id;";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
 
 }
