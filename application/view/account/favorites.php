@@ -1,11 +1,11 @@
 <div id="main-alt">
-    <div class="col-lg-12">
+    <div class="col-lg-12 text-center">
         <div class="page-title-container">
             <h2>Favorites</h2>
             <p>Keep track of listings you're thinking of renting.</p>
         </div>
         <div class="row" id="main-alt" style="background: #f8f8f8;height: auto!important;">
-            <div class="container text-center">
+            <div class="container">
                 <div class="page-subtitle-container">
                     <h2>Your Favorites</h2>
                 </div>
@@ -15,7 +15,7 @@
                     $rental_unit_id = $query->rental_unit_id;
                     $lister_id = $query->lister_id;
                     ?>
-                    <div class="listing-container">
+                    <div class="favorites-listing-container">
                         <div class="listing-image-container">
                             <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
                             <form action="<?php echo URL; ?>favorites/deleteFavorite" method="POST" target="hiddenframe">
@@ -25,7 +25,10 @@
                             <?php
                             if (isset($query->thumbnail)) {
                                 echo "<img src='data:image/jpeg;base64," . base64_encode($query->thumbnail)
-                                . "' alt='Item image' class='thumbnail' height='auto'>";
+                                . "' alt='Item image' class='thumbnail' height='230'>";
+                            }
+                            if (!isset($query->thumbnail)) {
+                                echo "<img src='" . URL . "img/default-thumbnail.jpg' title='default' width='330' height='230' class='thumbnail'>";
                             }
                             ?>
                         </div>
@@ -91,20 +94,20 @@
                             <?php if (empty($_SESSION)) { ?>
                                 <a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
                             <?php } ?>
-                            <?php if (!empty($_SESSION) ) { ?>                      
-                        <div class="form-group">
+                            <?php if (!empty($_SESSION)) { ?>                      
+                                <div class="form-group">
 
-                            <form action="<?php echo URL; ?>message/messageListerButton" method="POST" target="_blank">
-                                <input type="hidden" name="rental_unit_id" value="<?php echo $rental_unit_id ?>" />
-                                <input type="hidden" name="lister_id" value="<?php echo $lister_id ?>" />
-                                <button class="listing-message-btn" name="message_button">Message Lister</button>
-                            </form>
-                            
+                                    <form action="<?php echo URL; ?>message/messageListerButton" method="POST" target="_blank">
+                                        <input type="hidden" name="rental_unit_id" value="<?php echo $rental_unit_id ?>" />
+                                        <input type="hidden" name="lister_id" value="<?php echo $lister_id ?>" />
+                                        <button class="listing-message-btn" name="message_button">Message Lister</button>
+                                    </form>
 
-                        </div>
-                        
-                        
-                    <?php } ?>             
+
+                                </div>
+
+
+                            <?php } ?>             
                         </div>
                     </div>
                     <?php

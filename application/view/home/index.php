@@ -26,20 +26,23 @@
         <?php
         $count = 0;
         foreach ($featured as $query) {
-            $rental_unit_id=$query->rental_unit_id;
-            $lister_id=$query->lister_id;
+            $rental_unit_id = $query->rental_unit_id;
+            $lister_id = $query->lister_id;
             ?>
             <div class="featured-listing-container">
                 <div class="listing-image-container">
                     <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
-                     <form action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
+                    <form action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
                         <button type="submit" value="<?php echo $query->rental_unit_id ?>" name="add_favorite" class="favorite-btn"><i class="ionicons ion-ios-heart"></i></button>
                     </form> 
                     <iframe name="hiddenframe" style="display:none;"></iframe>
                     <?php
                     if (isset($query->thumbnail)) {
                         echo "<img src='data:image/jpeg;base64," . base64_encode($query->thumbnail)
-                        . "' alt='Item image' class='thumbnail' height='auto'>";
+                        . "' alt='Item image' class='thumbnail' height='230'>";
+                    }
+                    if (!isset($query->thumbnail)) {
+                        echo "<img src='" . URL . "img/default-thumbnail.jpg' title='default' width='330' height='230' class='thumbnail'>";
                     }
                     ?>
                 </div>
@@ -114,11 +117,11 @@
                                 <input type="hidden" name="lister_id" value="<?php echo $lister_id ?>" />
                                 <button class="listing-message-btn" name="message_button">Message Lister</button>
                             </form>
-                            
+
 
                         </div>
-                        
-                        
+
+
                     <?php } ?>                     
                 </div>
             </div>

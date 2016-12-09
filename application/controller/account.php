@@ -29,7 +29,7 @@ class Account extends Controller {
 
             $message = "Account successfully updated!";
             require APP . 'view/_templates/header.php';
-            require APP . 'view/account/message.php';
+            require APP . 'view/home/message.php';
             require APP . 'view/account/index.php';
             require APP . 'view/_templates/footer.php';
         }

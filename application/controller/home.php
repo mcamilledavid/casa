@@ -148,7 +148,6 @@ class Home extends Controller {
         $query = $this->model->getAllRentalUnits();
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/search.php';
-        require APP . 'view/message/popupmessage.php';
         require APP . 'view/signup/popupsignup.php';
         require APP . 'view/login/popuplogin.php';
         require APP . 'view/_templates/footer.php';
@@ -160,10 +159,8 @@ class Home extends Controller {
     public function showSelectedListing(){
         $rental_unit_id=$_GET['rental_unit_id'];
         $query=$this->model->showListingsDetails($rental_unit_id);
-         require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/header.php';
         require APP . 'view/home/details.php';
-
-        require APP . 'view/message/popupmessage.php';
         require APP . 'view/signup/popupsignup.php';
         require APP . 'view/login/popuplogin.php';
         require APP . 'view/_templates/footer.php';

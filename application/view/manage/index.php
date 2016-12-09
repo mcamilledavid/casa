@@ -1,11 +1,11 @@
 <div id="main-alt">
-    <div class="col-lg-12">
+    <div class="col-lg-12 text-center">
         <div class="page-title-container">
             <h2>Manage Listings</h2>
             <p>Manage listings you posted or review your favorites.</p>
         </div>
         <div class="row" id="main-alt" style="background: #f8f8f8;height: auto!important;">
-            <div class="container text-center">
+            <div class="container">
                 <div class="page-subtitle-container">
                     <h2>Your Listings</h2>
                 </div>
@@ -22,7 +22,10 @@
                             <?php
                             if (isset($result->thumbnail)) {
                                 echo "<img src='data:image/jpeg;base64," . base64_encode($result->thumbnail)
-                                . "' alt='Item image' class='thumbnail' height='auto'>";
+                                . "' alt='Item image' class='thumbnail' height='230'>";
+                            }
+                            if (!isset($result->thumbnail)) {
+                                echo "<img src='" . URL . "img/default-thumbnail.jpg' title='default' width='330' height='230' class='thumbnail'>";
                             }
                             ?>
                         </div>
@@ -47,7 +50,7 @@
                                     echo htmlspecialchars(date("m-d-Y", strtotime($result->date_created)), ENT_QUOTES, 'UTF-8');
                                 }
                                 ?></p>
-                            <a href="<?php echo URL; ?>">Edit</a> | <a href="<?php echo URL; ?>manage/deleteRentalUnit/<?php echo $result->rental_unit_id; ?>">Delete</a> | <a href="<?php echo URL; ?>manage/updateAvailability/<?php echo $result->rental_unit_id; ?>">Mark As Rented</a> | <a href="<?php echo URL; ?>">Messages</a>
+                            <a href="<?php echo URL; ?>manage/edit">Edit</a> | <a href="<?php echo URL; ?>manage/deleteRentalUnit/<?php echo $result->rental_unit_id; ?>">Delete</a> | <a href="<?php echo URL; ?>manage/updateAvailability/<?php echo $result->rental_unit_id; ?>">Mark As Rented</a> | <a href="<?php echo URL; ?>">Messages</a>
                         </div>
                     </div>
                     <?php
