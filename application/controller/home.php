@@ -88,7 +88,7 @@ class Home extends Controller {
             }else{
                 $pets= 0;
             }
-            $filterMap["laundry"]=$pets;
+            $filterMap["pets"]=$pets;
             
             if(isset($_POST) && array_key_exists('smoking',$_POST)){
                 $smoking= $_POST['smoking'];
