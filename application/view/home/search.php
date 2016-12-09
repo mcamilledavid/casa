@@ -152,7 +152,7 @@
                     <div class="listing-container">
                         <div class="listing-image-container">
                             <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
-                            <?php if (!empty($_SESSION)) { ?>  { ?>
+                            <?php if (!empty($_SESSION)) { ?>  
                                 <?php if (isset($_SESSION['isStudent']) && ($_SESSION['isStudent'] == 1)) { ?>
                                     <form action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
                                         <button type="submit" value="<?php echo $rental_unit_id ?>" name="add_favorite" class="favorite-btn"><i class="ionicons ion-ios-heart"></i></button>
