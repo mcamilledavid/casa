@@ -36,7 +36,8 @@ class Home extends Controller {
                         "pets" => "Any",
                         "smoking" => "Any", 
                         "furnished" => "Any",
-                        "parking" => "Any"
+                        "parking" => "Any",
+                        "sort_by" => 1
                     ];
         
         $_SESSION["FILTER_MAP"]=$filterMap;
@@ -111,12 +112,19 @@ class Home extends Controller {
             }
             $filterMap["parking"]=$parking;
             
-             $_SESSION["FILTER_MAP"] = $filterMap;
+            if(isset($filterMap) && array_key_exists('sort_by',$filterMap)){
+                $sort_by= $filterMap['sort_by'];
+            }else{
+                $sort_by= 1;
+            }
+            $filterMap["sort_by"]=$sort_by;
+            
+            $_SESSION["FILTER_MAP"] = $filterMap;
             
             $query = $this->model->applyFilter(isset($_SESSION["search_term"])?$_SESSION["search_term"]:"",
                     $_POST["min_rent"], $_POST["max_rent"], $deposit, $_POST["type"], 
                     $_POST["min_beds"], $_POST["min_baths"], $_POST["max_lease_length"], 
-                    $_POST["distance_from_campus"], $pets, $smoking, $laundry, $furnished, $parking);
+                    $_POST["distance_from_campus"], $pets, $smoking, $laundry, $furnished, $parking,$sort_by);
             
             require APP . 'view/_templates/header.php';
             require APP . 'view/home/search.php';
@@ -140,6 +148,86 @@ class Home extends Controller {
             
         }
     }
+    
+    public function sortedFilteredSearch() {
+        
+        if (isset($_POST["sort_rental_units"])) {
+            
+            $filterMap = $_SESSION["FILTER_MAP"];
+            $min_rent = $filterMap["min_rent"];
+            $max_rent=$filterMap["max_rent"];
+            $type = $filterMap["type"];
+            $min_beds = $filterMap["min_beds"];
+            $min_baths = $filterMap["min_baths"];
+            $max_lease_length = $filterMap["max_lease_length"];
+            $distance_from_campus = $filterMap["distance_from_campus"];
+
+            if(isset($filterMap) && array_key_exists('laundry',$filterMap)){
+                $laundry= $filterMap['laundry'];
+            }else{
+                $laundry= 0;
+            }
+            $filterMap["laundry"]=$laundry;
+            
+            if(isset($filterMap) && array_key_exists('deposit',$filterMap)){
+                $deposit= $filterMap['deposit'];
+            }else{
+                $deposit= 0;
+            }
+            $filterMap["deposit"]=$deposit;
+            
+            if(isset($filterMap) && array_key_exists('pets',$filterMap)){
+                $pets= $filterMap['pets'];
+            }else{
+                $pets= 0;
+            }
+            $filterMap["pets"]=$pets;
+            
+            if(isset($filterMap) && array_key_exists('smoking',$filterMap)){
+                $smoking= $filterMap['smoking'];
+            }else{
+                $smoking= 0;
+            }
+            $filterMap["smoking"]=$smoking;
+            
+            if(isset($filterMap) && array_key_exists('furnished',$filterMap)){
+                $furnished= $filterMap['furnished'];
+            }else{
+                $furnished= 0;
+            }
+            $filterMap["furnished"]=$furnished;
+                
+            if(isset($filterMap) && array_key_exists('parking',$filterMap)){
+                $parking= $filterMap['parking'];
+            }else{
+                $parking= 0;
+            }
+            $filterMap["parking"]=$parking;
+            
+            if(isset($_POST) && array_key_exists('sort_rental_units',$_POST)){
+                $sort_by= $_POST['sort_rental_units'];
+            }else{
+                $sort_by= 1;
+            }
+            $filterMap["sort_by"]=$sort_by;
+            
+            $_SESSION["FILTER_MAP"] = $filterMap;
+            
+            $query = $this->model->applyFilter(isset($_SESSION["search_term"])?$_SESSION["search_term"]:"",
+                    $min_rent, $max_rent, $deposit, $type, $min_beds, $min_baths,
+                    $max_lease_length, $distance_from_campus, $pets, $smoking,
+                    $laundry, $furnished, $parking,$sort_by);
+            
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/home/search.php';
+            require APP . 'view/signup/popupsignup.php';
+            require APP . 'view/login/popuplogin.php';
+            require APP . 'view/_templates/footer.php';
+        } 
+        
+    }
+    
+    
     
     public function showListings() {
 

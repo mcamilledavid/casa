@@ -1,9 +1,24 @@
 <html>
     <body>
+        <?php $filterMap = $_SESSION["FILTER_MAP"]; ?>
         <div class="container" id="main-large">
+            <div class="row col-lg-12">
+                <div class="col-lg-9 left-input"></div>
+                <div class="col-lg-3 right-input">
+                    <form action="<?php echo URL; ?>home/sortedFilteredSearch" method="POST" >
+                        <select name="sort_rental_units" onchange="this.form.submit();">
+                            <option value = "1" <?php if ($filterMap['sort_by'] == "1") echo "selected"; ?> >Newest First</option>
+                            <option value = "2" <?php if ($filterMap['sort_by'] == "2") echo "selected"; ?> >Oldest First</option>
+                            <option value = "3" <?php if ($filterMap['sort_by'] == "3") echo "selected"; ?> >Cheapest First</option>
+                            <option value = "4" <?php if ($filterMap['sort_by'] == "4") echo "selected"; ?> >Costliest First</option>
+                            <option value = "5" <?php if ($filterMap['sort_by'] == "5") echo "selected"; ?> >Closest First</option>
+                            <option value = "6" <?php if ($filterMap['sort_by'] == "6") echo "selected"; ?> >Farthest First</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
             <div class="row col-lg-3">
                 <form action="<?php echo URL; ?>home/filteredSearch" method="POST">
-                    <?php $filterMap = $_SESSION["FILTER_MAP"]; ?>
                     <h3>Search Filters</h3>
                     <div class="form-group">
                         <div class="row">
@@ -40,24 +55,24 @@
                                 <p>Beds</p>
                                 <select name="min_beds">
                                     <option value="Any" <?php if ($filterMap['min_beds'] == "Any") echo "selected"; ?> >Any</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
+                                    <option value="1" <?php if ($filterMap['min_beds'] == "1") echo "selected"; ?> >1</option>
+                                    <option value="2" <?php if ($filterMap['min_beds'] == "2") echo "selected"; ?> >2</option>
+                                    <option value="3" <?php if ($filterMap['min_beds'] == "3") echo "selected"; ?> >3</option>
+                                    <option value="4" <?php if ($filterMap['min_beds'] == "4") echo "selected"; ?> >4</option>
+                                    <option value="5" <?php if ($filterMap['min_beds'] == "5") echo "selected"; ?> >5</option>
+                                    <option value="6" <?php if ($filterMap['min_beds'] == "6") echo "selected"; ?> >6</option>
                                 </select>
                             </div>
                             <div class="col-lg-6 right-input">
                                 <p>Baths</p>
                                 <select name="min_baths">
                                     <option value="Any" <?php if ($filterMap['min_baths'] == "Any") echo "selected"; ?> >Any</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
+                                    <option value="1" <?php if ($filterMap['min_baths'] == "1") echo "selected"; ?> >1</option>
+                                    <option value="2" <?php if ($filterMap['min_baths'] == "2") echo "selected"; ?> >2</option>
+                                    <option value="3" <?php if ($filterMap['min_baths'] == "3") echo "selected"; ?> >3</option>
+                                    <option value="4" <?php if ($filterMap['min_baths'] == "4") echo "selected"; ?> >4</option>
+                                    <option value="5" <?php if ($filterMap['min_baths'] == "5") echo "selected"; ?> >5</option>
+                                    <option value="6" <?php if ($filterMap['min_baths'] == "6") echo "selected"; ?> >6</option>
                                 </select>                       
                             </div>
                         </div>
@@ -69,18 +84,18 @@
                                 <p>Proximity</p>
                                 <select name="distance_from_campus">
                                     <option value="Any" <?php if ($filterMap['distance_from_campus'] == "Any") echo "selected"; ?> >Any</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
+                                    <option value="1" <?php if ($filterMap['distance_from_campus'] == "1") echo "selected"; ?> >1</option>
+                                    <option value="2" <?php if ($filterMap['distance_from_campus'] == "2") echo "selected"; ?> >2</option>
+                                    <option value="3" <?php if ($filterMap['distance_from_campus'] == "3") echo "selected"; ?> >3</option>
+                                    <option value="4" <?php if ($filterMap['distance_from_campus'] == "4") echo "selected"; ?> >4</option>
+                                    <option value="5" <?php if ($filterMap['distance_from_campus'] == "5") echo "selected"; ?> >5</option>
+                                    <option value="6" <?php if ($filterMap['distance_from_campus'] == "6") echo "selected"; ?> >6</option>
+                                    <option value="7" <?php if ($filterMap['distance_from_campus'] == "7") echo "selected"; ?> >7</option>
+                                    <option value="8" <?php if ($filterMap['distance_from_campus'] == "8") echo "selected"; ?> >8</option>
+                                    <option value="9" <?php if ($filterMap['distance_from_campus'] == "9") echo "selected"; ?> >9</option>
+                                    <option value="10" <?php if ($filterMap['distance_from_campus'] == "10") echo "selected"; ?> >10</option>
+                                    <option value="11" <?php if ($filterMap['distance_from_campus'] == "11") echo "selected"; ?> >11</option>
+                                    <option value="12" <?php if ($filterMap['distance_from_campus'] == "12") echo "selected"; ?> >12</option>
                                 </select>                          
                             </div>
                         </div>
@@ -100,18 +115,18 @@
                                 <p>Lease Length</p>
                                 <select name="max_lease_length">
                                     <option value="Any" <?php if ($filterMap['max_lease_length'] == "Any") echo "selected"; ?> >Any</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
+                                    <option value="1" <?php if ($filterMap['max_lease_length'] == "1") echo "selected"; ?> >1</option>
+                                    <option value="2" <?php if ($filterMap['max_lease_length'] == "2") echo "selected"; ?> >2</option>
+                                    <option value="3" <?php if ($filterMap['max_lease_length'] == "3") echo "selected"; ?> >3</option>
+                                    <option value="4" <?php if ($filterMap['max_lease_length'] == "4") echo "selected"; ?> >4</option>
+                                    <option value="5" <?php if ($filterMap['max_lease_length'] == "5") echo "selected"; ?> >5</option>
+                                    <option value="6" <?php if ($filterMap['max_lease_length'] == "6") echo "selected"; ?> >6</option>
+                                    <option value="7" <?php if ($filterMap['max_lease_length'] == "7") echo "selected"; ?> >7</option>
+                                    <option value="8" <?php if ($filterMap['max_lease_length'] == "8") echo "selected"; ?> >8</option>
+                                    <option value="9" <?php if ($filterMap['max_lease_length'] == "9") echo "selected"; ?> >9</option>
+                                    <option value="10" <?php if ($filterMap['max_lease_length'] == "10") echo "selected"; ?> >10</option>
+                                    <option value="11" <?php if ($filterMap['max_lease_length'] == "12") echo "selected"; ?> >11</option>
+                                    <option value="12" <?php if ($filterMap['max_lease_length'] == "12") echo "selected"; ?> >12</option>
                                 </select>                
                             </div>
                         </div>
