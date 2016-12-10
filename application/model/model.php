@@ -288,13 +288,16 @@ class Model {
     }
     
     public function getRentalUnitById($rental_unit_id) {
-        $sql = "SELECT * FROM rental_unit WHERE rental_unit_id = $rental_unit_id";
+        $sql = "SELECT rental_unit_id,lister_id, title, street, city, state, zipcode, beds, baths,"
+                . " rent, deposit, date_availability, lease_length, description,"
+                . " pets, smoking, furnished, parking, laundry, type, dist_from_campus,"
+                . " is_rented FROM rental_unit WHERE rental_unit_id = $rental_unit_id";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetch();
     }
     
-    public function editRentalUnit($rental_unit_id, $lister_id, $is_rented, $title, 
+    public function updateRentalUnit($rental_unit_id, $lister_id, $is_rented, $title, 
             $street,$city, $state, $zipcode, $beds, $baths, $rent, $deposit, 
             $date_availability, $lease_length, $description, $pets, $smoking, 
             $furnished, $parking, $laundry, $type, $dist_from_campus) {
@@ -302,18 +305,18 @@ class Model {
         $sql = "UPDATE rental_unit SET is_rented = :is_rented , title =:title, "
                 . " street = :street , city = :city, state = :state, zipcode =  :zipcode,"
                 . " beds = :beds, baths = :baths, rent = :rent, deposit = :deposit, "
-                . "date_availability = :date_availability, lease_length = :lease_length,"
+                . " date_availability = :date_availability, lease_length = :lease_length,"
                 . " description = :description, pets = :pets, smoking = :smoking, "
-                . "furnished = :furnished, parking = :parking, laundry = :laundry, "
-                . "type = :type, dist_from_campus = :dist_from_campus "
-                . "WHERE rental_unit_id = :rental_unit_id AND lister_id= :lister_id";
+                . " furnished = :furnished, parking = :parking, laundry = :laundry, "
+                . " type = :type, dist_from_campus = :dist_from_campus "
+                . " WHERE rental_unit_id = :rental_unit_id;";
              
         $query = $this->db->prepare($sql);
 
         $parameters = array(':is_rented' => $is_rented, ':title' => $title,
             ':street' => $street, ':city' => $city, ':state' => $state,
             ':zipcode' => $zipcode, ':beds' => $beds, ':baths' => $baths,
-            ':rent' => $rent, ':deposit' => $deposit,':lister_id'=>$lister_id,
+            ':rent' => $rent, ':deposit' => $deposit,
             ':date_availability' => $date_availability,
             ':lease_length' => $lease_length, ':description' => $description,
             ':pets' => $pets, ':smoking' => $smoking, ':furnished' => $furnished,
