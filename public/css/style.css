@@ -17,7 +17,8 @@ h1,h2,h3,h4,h5,h6, strong {
     font-family: 'Lato', sans-serif!important;
 }
 
-img {
+
+.thumbnail {
     width: 100%!important;
 }
 
@@ -63,12 +64,14 @@ textarea {
 .right-addon input { padding-right: 30px; }
 .ionicons { font-size: 2.5em; }
 
-.left-input {
-    padding-right: 5px!important;
-}
+@media only screen and (max-width: 768px) {
+    .left-input {
+        padding-right: 5px!important;
+    }
 
-.right-input {
-    padding-left: 5px!important;
+    .right-input {
+        padding-left: 5px!important;
+    }
 }
 
 .form-control {
@@ -458,7 +461,7 @@ footer {
     text-align: center;
 }
 
-.featured-listing-container {
+.featured-listing-container, .manage-listing-container, .favorites-listing-container {
     max-width: 330px;
     margin: 20px;
     display: inline-block;
@@ -466,10 +469,11 @@ footer {
 
 .page-subtitle-container {
     margin-bottom: 50px;
+    text-align: center;
 } 
 
-.manage-listing-container, .listing-container {
-    max-width: 400px;
+.listing-container {
+    max-width: 380px;
     margin: 20px;
     display: inline-block;
 }
@@ -560,4 +564,14 @@ footer {
 .listing-image-container {
     display: inline-block;
     position: relative;
+}
+
+.crop {
+    height: 450px;
+    overflow: hidden;
+}
+
+.crop img {
+    margin: -200px 0 -150px 0!important;
+    width: 100%!important;
 }
