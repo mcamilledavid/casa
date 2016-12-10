@@ -32,10 +32,17 @@
             <div class="featured-listing-container">
                 <div class="listing-image-container">
                     <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
+
+                    <script type="text/javascript">
+                        function Confirm(form) {
+                            alert("Saved to favorites!");
+                            form.submit();
+                        }
+                    </script>
                     <?php if (!empty($_SESSION)) { ?> 
                         <?php if (isset($_SESSION['isStudent']) && ($_SESSION['isStudent'] == 1)) { ?>
-                            <form action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
-                                <button type="submit" value="<?php echo $query->rental_unit_id ?>" name="add_favorite" class="favorite-btn"><i class="ionicons ion-ios-heart"></i></button>
+                            <form name="form" action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
+                                <button type="submit" value="<?php echo $query->rental_unit_id ?>" name="add_favorite" class="favorite-btn" onClick="Confirm(this.form)"><i class="ionicons ion-ios-heart"></i></button>
                             </form> 
                         <?php } ?>
                     <?php } ?>

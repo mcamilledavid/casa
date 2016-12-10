@@ -201,9 +201,6 @@
                                     form.submit();
                                 }
                             </script>
-
-
-
                             <?php if (!empty($_SESSION)) { ?>  
                                 <?php if (isset($_SESSION['isStudent']) && ($_SESSION['isStudent'] == 1)) { ?>
                                     <form name="form" action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
