@@ -14,7 +14,7 @@ class Model {
     }
 
     public function getAllRentalUnits() {
-        $sql = "SELECT * FROM rental_unit ORDER BY rental_unit_id DESC";
+        $sql = "SELECT * FROM rental_unit WHERE is_rented = 0 ORDER BY rental_unit_id DESC";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
@@ -83,10 +83,12 @@ class Model {
         return $query->fetchAll();
     }
     
-    public function applyFilter($searchTerm, $minRent, $maxRent, $hasDeposit, $ruType, $minBeds, $minBaths, $maxLeaseLength, $maxDistFromCampus, $pets, $smoking, $laundry, $furnished, $parking) {
+    public function applyFilter($searchTerm, $minRent, $maxRent, $hasDeposit, 
+            $ruType, $minBeds, $minBaths, $maxLeaseLength, $maxDistFromCampus,
+            $pets, $smoking, $laundry, $furnished, $parking,$sortOption) {
 
-        $sql = "SELECT * FROM rental_unit WHERE CONCAT_WS('', title, description,"
-                . " zipcode) LIKE '%$searchTerm%' ";
+        $sql = "SELECT * FROM rental_unit WHERE is_rented = 0 AND "
+                ."CONCAT_WS('', title, description, zipcode) LIKE '%$searchTerm%' ";
         if ($minRent > 0) {
             $sql = $sql." AND rent > $minRent ";
         }
@@ -163,7 +165,30 @@ class Model {
             }
         }
 
-        $sql = $sql.";";
+        switch ($sortOption) {
+            case 1:
+                $sql = $sql . " ORDER BY rental_unit_id DESC;";
+                break;
+            case 2:
+                $sql = $sql . " ORDER BY rental_unit_id ASC;";
+                break;
+            case 3:
+                $sql = $sql . " ORDER BY rent ASC;";
+                break;
+            case 4:
+                $sql = $sql . " ORDER BY rent DESC;";
+                break;
+            case 5:
+                $sql = $sql . " ORDER BY dist_from_campus ASC;";
+                break;
+            case 6:
+                $sql = $sql . " ORDER BY dist_from_campus DESC;";
+                break;
+            default :
+                $sql = $sql . " ORDER BY rental_unit_id DESC;";
+                break;
+        }
+
         $_SESSION["SQL_query"]= $sql;
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -174,7 +199,8 @@ class Model {
     public function search($search) {
         // $filtered_search= preg_replace("#[^0-9a-z]#i", " ", $search);
         $_SESSION["search_term"] =$search;
-        $sql = "SELECT * FROM rental_unit WHERE CONCAT_WS('', title, description, zipcode) LIKE '%$search%'";
+        $sql = "SELECT * FROM rental_unit WHERE CONCAT_WS('', title, description,"
+                . " zipcode) LIKE '%$search%' AND is_rented = 0 ORDER BY rental_unit_id DESC;";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
@@ -256,6 +282,45 @@ class Model {
             ':parking' => $parking, ':laundry' => $laundry, ':type' => $type,
             ':dist_from_campus' => $dist_from_campus);
 
+        $status = $query->execute($parameters);
+
+        return $status;
+    }
+    
+    public function getRentalUnitById($rental_unit_id) {
+        $sql = "SELECT * FROM rental_unit WHERE rental_unit_id = $rental_unit_id";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetch();
+    }
+    
+    public function editRentalUnit($rental_unit_id, $lister_id, $is_rented, $title, 
+            $street,$city, $state, $zipcode, $beds, $baths, $rent, $deposit, 
+            $date_availability, $lease_length, $description, $pets, $smoking, 
+            $furnished, $parking, $laundry, $type, $dist_from_campus) {
+
+        $sql = "UPDATE rental_unit SET is_rented = :is_rented , title =:title, "
+                . " street = :street , city = :city, state = :state, zipcode =  :zipcode,"
+                . " beds = :beds, baths = :baths, rent = :rent, deposit = :deposit, "
+                . "date_availability = :date_availability, lease_length = :lease_length,"
+                . " description = :description, pets = :pets, smoking = :smoking, "
+                . "furnished = :furnished, parking = :parking, laundry = :laundry, "
+                . "type = :type, dist_from_campus = :dist_from_campus "
+                . "WHERE rental_unit_id = :rental_unit_id AND lister_id= :lister_id";
+             
+        $query = $this->db->prepare($sql);
+
+        $parameters = array(':is_rented' => $is_rented, ':title' => $title,
+            ':street' => $street, ':city' => $city, ':state' => $state,
+            ':zipcode' => $zipcode, ':beds' => $beds, ':baths' => $baths,
+            ':rent' => $rent, ':deposit' => $deposit,':lister_id'=>$lister_id,
+            ':date_availability' => $date_availability,
+            ':lease_length' => $lease_length, ':description' => $description,
+            ':pets' => $pets, ':smoking' => $smoking, ':furnished' => $furnished,
+            ':parking' => $parking, ':laundry' => $laundry, ':type' => $type,
+            ':dist_from_campus' => $dist_from_campus,':rental_unit_id' => $rental_unit_id);
+
+        // may use this status to check if the data is updated
         $status = $query->execute($parameters);
 
         return $status;
