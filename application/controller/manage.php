@@ -42,11 +42,37 @@ class Manage extends Controller {
         }
     }
     
-    public function updateAvailability() {
+    public function editRentalUnit() {
         if(!empty($_SESSION)) {
             $url_param = Manage::getUrlParameter();
             $rental_unit_id = filter_var($url_param, FILTER_SANITIZE_NUMBER_INT);
-            $this->model->updateAvailability($rental_unit_id);
+            $this->model->deleteRentalUnit($rental_unit_id);
+            
+            header('location: ' . URL . 'manage');
+        }
+        else {
+            header('location: ' . URL . 'home');
+        }
+    }
+    
+    public function markRented() {
+        if(!empty($_SESSION)) {
+            $url_param = Manage::getUrlParameter();
+            $rental_unit_id = filter_var($url_param, FILTER_SANITIZE_NUMBER_INT);
+            $this->model->updateAvailability($rental_unit_id,1);
+            
+            header('location: ' . URL . 'manage');
+        }
+        else {
+            header('location: ' . URL . 'home');
+        }
+    }
+    
+    public function markAvailable() {
+        if(!empty($_SESSION)) {
+            $url_param = Manage::getUrlParameter();
+            $rental_unit_id = filter_var($url_param, FILTER_SANITIZE_NUMBER_INT);
+            $this->model->updateAvailability($rental_unit_id,0);
             
             header('location: ' . URL . 'manage');
         }
