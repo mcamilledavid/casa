@@ -365,8 +365,8 @@ class Model {
         $status = $query->execute();
     }
     // set the is_rented field for a given rental unit
-    public function updateAvailability($ruid) {
-        $sql = "UPDATE rental_unit SET is_rented = 1 WHERE rental_unit_id = $ruid";
+    public function updateAvailability($ruid,$is_rented) {
+        $sql = "UPDATE rental_unit SET is_rented = $is_rented WHERE rental_unit_id = $ruid";
         $query = $this->db->prepare($sql);
         $status = $query->execute();
         return $status;
