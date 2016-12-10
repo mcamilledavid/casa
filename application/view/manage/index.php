@@ -50,7 +50,7 @@
                                     echo htmlspecialchars(date("m-d-Y", strtotime($result->date_created)), ENT_QUOTES, 'UTF-8');
                                 }
                                 ?></p>
-                            <a href="<?php echo URL; ?>manage/edit">Edit</a> | <a href="<?php echo URL; ?>manage/deleteRentalUnit/<?php echo $result->rental_unit_id; ?>">Delete</a> | <a href="<?php echo URL; ?>manage/updateAvailability/<?php echo $result->rental_unit_id; ?>">Mark As Rented</a> | <a href="<?php echo URL; ?>">Messages</a>
+                            <a href="<?php echo URL; ?>">Edit</a> | <a href="<?php echo URL; ?>manage/deleteRentalUnit/<?php echo $result->rental_unit_id; ?>">Delete</a> | <a href="<?php echo URL; ?>manage/updateAvailability/<?php echo $result->rental_unit_id; ?>">Mark As Rented</a> | <a href="<?php echo URL; ?>manage/displayMessages">Messages</a>
                         </div>
                     </div>
                     <?php

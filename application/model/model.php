@@ -92,14 +92,14 @@ class Model {
         }
         
         if ($maxRent > 0) {
-            $sql = $sql."AND rent < $maxRent ";
+            $sql = $sql." AND rent < $maxRent ";
         }
         
         if ($hasDeposit != NULL && $hasDeposit !="Any") {
             if ($hasDeposit > 0){
-                $sql = $sql."AND deposit > 0 ";
+                $sql = $sql." AND deposit > 0 ";
             }else{
-                $sql = $sql."AND deposit = 0 ";
+                $sql = $sql." AND deposit = 0 ";
             }
         }
         
@@ -124,7 +124,7 @@ class Model {
         }
         
         if ($pets != NULL && $pets !="Any") {
-            if ($hasDeposit > 0){
+            if ($pets > 0){
                 $sql = $sql."AND pets > 0 ";
             }else{
                 $sql = $sql."AND pets = 0 ";
@@ -132,7 +132,7 @@ class Model {
         }
         
         if ($smoking != NULL && $smoking !="Any") {
-            if ($hasDeposit > 0){
+            if ($smoking > 0){
                 $sql = $sql."AND smoking > 0 ";
             }else{
                 $sql = $sql."AND smoking = 0 ";
@@ -140,7 +140,7 @@ class Model {
         }
         
         if ($laundry != NULL && $laundry !="Any") {
-            if ($hasDeposit > 0){
+            if ($laundry > 0){
                 $sql = $sql."AND laundry > 0 ";
             }else{
                 $sql = $sql."AND laundry = 0 ";
@@ -148,7 +148,7 @@ class Model {
         }
         
         if ($furnished != NULL && $furnished !="Any") {
-            if ($hasDeposit > 0){
+            if ($furnished > 0){
                 $sql = $sql."AND furnished > 0 ";
             }else{
                 $sql = $sql."AND furnished = 0 ";
@@ -156,7 +156,7 @@ class Model {
         }
         
         if ($parking != NULL && $parking !="Any") {
-            if ($hasDeposit > 0){
+            if ($parking > 0){
                 $sql = $sql."AND parking > 0 ";
             }else{
                 $sql = $sql."AND parking = 0 ";
@@ -331,6 +331,13 @@ class Model {
     
     public function showListingsDetails($rental_unit_id){
         $sql = "SELECT * FROM rental_unit WHERE rental_unit_id = $rental_unit_id;";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
+    
+    public function fetchMessages($lister_id){
+        $sql = "SELECT * FROM message INNER JOIN registered_user ON message.student_id=registered_user.user_id WHERE message.lister_id = $lister_id;";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();

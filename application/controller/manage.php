@@ -71,16 +71,16 @@ class Manage extends Controller {
         return $retval;
     }
     
-    public function edit() {
-        if (empty($_SESSION)) {
+    public function displayMessages(){
+        
+        if(!empty($_SESSION)){
+            $lister_id=$_SESSION["user_id"];
+            $query=$this->model->fetchMessages($lister_id);
             require APP . 'view/_templates/header.php';
-            require APP . 'view/signup/index.php';
+            require APP . 'view/manage/viewMessages.php';
+            require APP . 'view/message/popupmessage.php';
             require APP . 'view/signup/popupsignup.php';
             require APP . 'view/login/popuplogin.php';
-            require APP . 'view/_templates/footer.php';
-        } else {
-            require APP . 'view/_templates/header.php';
-            require APP . 'view/manage/edit.php';
             require APP . 'view/_templates/footer.php';
         }
     }
