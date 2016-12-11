@@ -594,6 +594,7 @@ footer {
     background: url(https://upload.wikimedia.org/wikipedia/commons/f/f1/MediaWiki_Vector_skin_action_arrow.svg) no-repeat #fff!important;
     background-position-x: 98%!important;
     background-position-y: 50%!important;
+    text-align: left!important;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -602,7 +603,7 @@ footer {
     }
     .results {
         position: absolute;
-        top: 4em;
+        top: 1em;
         left: 2.2em;
         margin: 0em 0;
         color: #222;
@@ -614,13 +615,13 @@ footer {
         display: none;
     }
     #sort {
-        width: 60%!important;
+        width: 100%!important;
     }
     .results {
         display: none;
     }
     #mobile-filters {
-        width: 65%!important;
+        width: 100%!important;
         margin: 0 auto!important;
     }
 }
@@ -643,5 +644,11 @@ footer {
     #search-results {
         text-align: center;
     }
-    
+}
+
+#sort {
+    color: #222;
+    font-family: 'Lato';
+    padding-left: 15px!important;
+    margin: 10px 0;
 }
