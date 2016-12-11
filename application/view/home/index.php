@@ -29,6 +29,7 @@
             $rental_unit_id = $query->rental_unit_id;
             $lister_id = $query->lister_id;
             ?>
+        <div class="col-lg-4 text-center">
             <div class="featured-listing-container">
                 <div class="listing-image-container">
                     <div class="listing-price"><?php if (isset($query->rent)) echo '$' . htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?></div>
@@ -132,6 +133,7 @@
                     <?php } ?>
                 </div>
             </div>
+        </div>
             <?php
             $count++;
         }

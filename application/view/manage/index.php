@@ -12,7 +12,9 @@
                 <?php
                 $count = 0;
                 foreach ($result as $result) {
+                    $rental_unit_id = $result->rental_unit_id;
                     ?>
+                <div class="col-lg-4 text-center">
                     <div class="manage-listing-container">
                         <div class="listing-image-container">
                             <div class="listing-price"><?php if (isset($result->rent)) echo '$' . htmlspecialchars($result->rent, ENT_QUOTES, 'UTF-8'); ?></div>
@@ -52,18 +54,23 @@
                                 ?></p>
                             <a href="<?php echo URL; ?>manage/editRentalUnit/<?php echo $result->rental_unit_id; ?>">Edit</a> |
                             <a href="<?php echo URL; ?>manage/deleteRentalUnit/<?php echo $result->rental_unit_id; ?>">Delete</a> |
-                            <a href="<?php echo URL; ?>manage/<?php if ($result->is_rented == 0) 
-                                        echo 'markRented';
-                                    else 
-                                        echo 'markAvailable'; ?>/<?php echo $result->rental_unit_id; ?>" >Mark As 
-                                    <?php if ($result->is_rented == 0) 
-                                            echo 'Rented';
-                                        else 
-                                            echo 'Available'; ?> 
+                            <a href="<?php echo URL; ?>manage/<?php
+                            if ($result->is_rented == 0)
+                                echo 'markRented';
+                            else
+                                echo 'markAvailable';
+                            ?>/<?php echo $result->rental_unit_id; ?>" >Mark As 
+                                   <?php
+                                   if ($result->is_rented == 0)
+                                       echo 'Rented';
+                                   else
+                                       echo 'Available';
+                                   ?> 
                             </a>|
-                            <a href="<?php echo URL; ?>manage/displayMessages">Messages</a>
+                            <a href="<?php echo URL; ?>manage/displayMessages?rental_unit_id=<?php echo $rental_unit_id ?>" target="_blank">Messages</a>
                         </div>
                     </div>
+                </div>
                     <?php
                     $count++;
                 }
