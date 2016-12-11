@@ -27,10 +27,10 @@
                     <a class="navbar-brand" href="<?php echo URL; ?>">casa</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <form action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" method="POST">
+                    <form method="POST" action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" name="search_form" onsubmit="return validateSearchInput()">
                         <div class="inner-addon left-addon">
                             <i class="ionicons ion-ios-search ionicons-search"></i>
-                            <input type="text" class="form-control header-search-form" name="search_value" value="<?php echo isset($_SESSION["search_term"])?$_SESSION["search_term"]:""; ?>" placeholder="Search by city, zipcode, rental type.">
+                            <input type="text" class="form-control header-search-form" name="search_value" value="<?php echo isset($_SESSION["search_term"]) ? $_SESSION["search_term"] : ""; ?>" placeholder="Search by city, zipcode, rental type.">
                         </div>
                         <button type="submit" class="btn btn-default header-search-btn" name="submit_search">Search</button>
                     </form>
@@ -57,7 +57,7 @@
                     <form action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" method="POST">
                         <div class="inner-addon left-addon">
                             <i class="ionicons ion-ios-search ionicons-search"></i>
-                            <input type="text" class="form-control header-search-form" name="search_value" value="<?php echo isset($_SESSION["search_term"])?$_SESSION["search_term"]:""; ?>" placeholder="Search by city, zipcode, rental type.">
+                            <input type="text" class="form-control header-search-form" name="search_value" value="<?php echo isset($_SESSION["search_term"]) ? $_SESSION["search_term"] : ""; ?>" placeholder="Search by city, zipcode, rental type.">
                         </div>
                         <button type="submit" class="btn btn-default header-search-btn" name="submit_search">Search</button>
                     </form>

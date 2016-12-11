@@ -22,10 +22,6 @@
             </div>
         </div>
 
-        <div class="form-group" align="right">
-            <a href="">Forgot Password?</a>
-        </div> 
-
         <div class="form-group">
             <button type="submit" class="btn btn-block signup-login-btn" name="btn-login">Log In</button>
         </div> 

@@ -372,13 +372,13 @@
             </form>
         </div>
     </div>
-    <div class="col-lg-9 text-center">
+    <div class="col-lg-9" id="search-results">
         <div class="col-lg-12">
             <div class="col-lg-9 left-input">
             </div>
             <div class="col-lg-3 right-input">
                 <h4>Sort By:</h4>
-                <form action="<?php echo URL; ?>home/sortedFilteredSearch" method="POST" >
+                <form action="<?php echo URL; ?>home/sortedFilteredSearch" method="POST" class="text-center">
                     <select name="sort_rental_units" id="sort" onchange="this.form.submit();">
                         <option value = "1" <?php if ($filterMap['sort_by'] == "1") echo "selected"; ?> >Newest</option>
                         <option value = "2" <?php if ($filterMap['sort_by'] == "2") echo "selected"; ?> >Oldest</option>
@@ -502,9 +502,11 @@
             $count++;
         }
         if ($count == 0) {
-            echo "<h2>Sorry, no results found. Please try searching again.</h2>";
+            echo '<br>';
+            echo "<p>Sorry, no results found. Please try again.</p>";
+        } else {
+            echo '<p class="results">Displaying '.$count.' results.</p>';
         }
         ?>
-        <p class="results">Displaying <?php echo $count ?> results.</p>
     </div>
 </div>   

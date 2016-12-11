@@ -464,6 +464,7 @@ footer {
 .featured-listing-container, .manage-listing-container, .favorites-listing-container {
     max-width: 330px;
     display: inline-block;
+    margin: 15px 0;
 }
 
 .page-subtitle-container {
@@ -636,4 +637,11 @@ footer {
 
 .messages-container a {
     color: #fff!important;
+}
+
+@media only screen and (max-width: 1200px) {
+    #search-results {
+        text-align: center;
+    }
+    
 }
