@@ -1,5 +1,5 @@
 <div id="main-alt">
-    <div class="col-lg-12 text-center">
+    <div class="col-lg-12">
         <div class="page-title-container">
             <h2>Favorites</h2>
             <p>Keep track of listings you're thinking of renting.</p>

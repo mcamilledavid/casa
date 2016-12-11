@@ -64,7 +64,7 @@ textarea {
 .right-addon input { padding-right: 30px; }
 .ionicons { font-size: 2.5em; }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 1200px) {
     .left-input {
         padding-right: 5px!important;
     }
@@ -574,4 +574,52 @@ footer {
 .crop img {
     margin: -200px 0 -150px 0!important;
     width: 100%!important;
+}
+
+.filters-btn {
+    border-radius: 0px!important;
+    padding: 10px!important;
+    background: #222!important;
+    color: #fff!important;
+    margin: 10px 0;
+}
+
+.filters-toggle {
+    width: 100%;
+    border-radius: 0px!important;
+    border: 1px solid #ddd!important;
+    padding: 15px!important;
+    color: #222!important;
+    font-family: Lato;
+    background: url(https://upload.wikimedia.org/wikipedia/commons/f/f1/MediaWiki_Vector_skin_action_arrow.svg) no-repeat #fff!important;
+    background-position-x: 98%!important;
+    background-position-y: 50%!important;
+}
+
+@media only screen and (min-width: 1200px) {
+    #mobile-filters {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #desktop-filters {
+        display: none;
+    }
+    #sort {
+        width: 60%!important;
+    }
+}
+
+.messages-container {
+    width: 100%;
+    height: 350px;
+    margin: 10px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    padding: 30px;
+}
+
+.messages-container a {
+    color: #fff!important;
 }

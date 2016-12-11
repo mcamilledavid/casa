@@ -1,8 +1,8 @@
 <div id="main-alt">
-    <div class="col-lg-12 text-center">
+    <div class="col-lg-12">
         <div class="page-title-container">
             <h2>Manage Listings</h2>
-            <p>Manage listings you posted or review your favorites.</p>
+            <p>Edit, delete, or check messages for listings you posted.</p>
         </div>
         <div class="row" id="main-alt" style="background: #f8f8f8;height: auto!important;">
             <div class="container">
