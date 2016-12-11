@@ -164,7 +164,8 @@ class Manage extends Controller {
         
         if(!empty($_SESSION)){
             $lister_id=$_SESSION["user_id"];
-            $query=$this->model->fetchMessages($lister_id);
+            $rental_unit_id=$_GET['rental_unit_id'];
+            $query=$this->model->fetchMessages($lister_id, $rental_unit_id);
             require APP . 'view/_templates/header.php';
             require APP . 'view/manage/viewMessages.php';
             require APP . 'view/message/popupmessage.php';

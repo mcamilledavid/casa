@@ -24,52 +24,133 @@ foreach ($query as $query) {
         </div>
         <div class="col-lg-4">
             <h1>$<?php if (isset($query->rent)) echo htmlspecialchars($query->rent, ENT_QUOTES, 'UTF-8'); ?> / month</h1>
-            <?php if (!empty($_SESSION)) { 
-                if ($_SESSION['isStudent'] == 1) { ?>                      
-                <div class="form-group">
-                    <form action="<?php echo URL; ?>message/messageListerButton" method="POST" target="_blank">
-                        <input type="hidden" name="rental_unit_id" value="<?php echo $rental_unit_id ?>" />
-                        <input type="hidden" name="lister_id" value="<?php echo $lister_id ?>" />
-                        <button class="listing-message-btn" name="message_button">Message Lister</button>
-                    </form>
-                </div>
-            <?php }} else { ?>
+            <?php if (empty($_SESSION) || (!isset($_SESSION['isStudent']))) { ?>
                 <a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'"><button class="listing-message-btn">Message Lister</button></a>
+            <?php } ?>
+            <?php if (!empty($_SESSION)) { ?>  
+                <?php if (isset($_SESSION['isStudent']) && ($_SESSION['isStudent'] == 1)) { ?>
+                    <div class="form-group">
+                        <form action="<?php echo URL; ?>message/messageListerButton" method="POST" target="_blank">
+                            <input type="hidden" name="rental_unit_id" value="<?php echo $rental_unit_id ?>" />
+                            <input type="hidden" name="lister_id" value="<?php echo $lister_id ?>" />
+                            <button class="listing-message-btn" name="message_button">Message Lister</button>
+                        </form>
+                    </div>
+                <?php } ?>  
             <?php } ?>
         </div>
         <div class="col-lg-8">
+            <hr>
             <h2>About the Listing</h2>
             <p><?php if (isset($query->description)) echo htmlspecialchars($query->description, ENT_QUOTES, 'UTF-8'); ?></p>
-            <h2>Amenities</h2>
-            <p><?php
-                if (isset($query->pets)) {
-                    if ($query->pets == 1) {
-                        echo "<p><img src='" . URL . "img/Dog-50.png' title='pets' width='25' class='listing-icons'> Pets</p>";
-                    }
-                }
-                if (isset($query->smoking)) {
-                    if ($query->smoking == 1) {
-                        echo "<p><img src='" . URL . "img/Smoking-50.png' title='smoking' width='25' class='listing-icons'> Smoking</p>";
-                    }
-                }
-                if (isset($query->laundry)) {
-                    if ($query->laundry == 1) {
-                        echo "<p><img src='" . URL . "img/Washing Machine-50.png' title='laundry' width='25' class='listing-icons'> Washer & Dryer</p>";
-                    }
-                }
-                if (isset($query->parking)) {
-                    if ($query->parking == 1) {
-                        echo "<p><img src='" . URL . "img/Parking-50.png' title='parking' width='25' class='listing-icons'> Parking</p>";
-                    }
-                }
-                if (isset($query->furnished)) {
-                    if ($query->furnished == 1) {
-                        echo "<p><img src='" . URL . "img/Sofa-50.png' title='furnished' width='25' class='listing-icons'> Furnished</p>";
-                    }
-                }
-                ?>
-            </p>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-lg-4 row">
+                        <h4>Details</h4>
+                    </div>
+                    <div class="col-lg-4 row">
+                        <p>Bedrooms: <strong><?php if (isset($query->beds)) echo htmlspecialchars($query->beds, ENT_QUOTES, 'UTF-8'); ?></strong></p>
+                        <p>Bathrooms: <strong><?php if (isset($query->baths)) echo htmlspecialchars($query->baths, ENT_QUOTES, 'UTF-8'); ?></strong></p>
+                        <p>Lease Length: 
+                            <strong>
+                                <?php
+                                if (isset($query->lease_length)) {
+                                    if ($query->lease_length == 1) {
+                                        echo htmlspecialchars($query->lease_length, ENT_QUOTES, 'UTF-8');
+                                        echo " month";
+                                    } else {
+                                        echo htmlspecialchars($query->lease_length, ENT_QUOTES, 'UTF-8');
+                                        echo " months";
+                                    }
+                                }
+                                ?>                            
+                            </strong>
+                        </p>
+                    </div>
+                    <div class="col-lg-4 row">
+                        <p>Campus Proximity: 
+                            <strong>
+                                <?php
+                                if (isset($query->dist_from_campus)) {
+                                    if ($query->dist_from_campus == 1) {
+                                        echo htmlspecialchars($query->dist_from_campus, ENT_QUOTES, 'UTF-8');
+                                        echo " mile";
+                                    } else {
+                                        echo htmlspecialchars($query->dist_from_campus, ENT_QUOTES, 'UTF-8');
+                                        echo " miles";
+                                    }
+                                }
+                                ?>
+                            </strong>
+                        </p>
+                        <p>Security Deposit: <strong>$<?php if (isset($query->deposit)) echo htmlspecialchars($query->deposit, ENT_QUOTES, 'UTF-8'); ?></strong></p>
+                        <p>Date Availability: 
+                            <strong>
+                                <?php
+                                if (isset($query->date_created)) {
+                                    if ($query->date_created < time()) {
+                                        echo "Available";
+                                    } else {
+                                        echo "Available on " . $query->date_created;
+                                    }
+                                }
+                                ?>
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-lg-4 row">
+                        <h4>Amenities</h4>
+                    </div>
+                    <div class="col-lg-8 row">
+                        <p><?php
+                            if (isset($query->pets)) {
+                                if ($query->pets == 1) {
+                                    echo "<p><img src='" . URL . "img/Dog-50.png' title='pets' width='25' class='listing-icons'> Pets</p>";
+                                }
+                            }
+                            if (isset($query->smoking)) {
+                                if ($query->smoking == 1) {
+                                    echo "<p><img src='" . URL . "img/Smoking-50.png' title='smoking' width='25' class='listing-icons'> Smoking</p>";
+                                }
+                            }
+                            if (isset($query->laundry)) {
+                                if ($query->laundry == 1) {
+                                    echo "<p><img src='" . URL . "img/Washing Machine-50.png' title='laundry' width='25' class='listing-icons'> Washer & Dryer</p>";
+                                }
+                            }
+                            if (isset($query->parking)) {
+                                if ($query->parking == 1) {
+                                    echo "<p><img src='" . URL . "img/Parking-50.png' title='parking' width='25' class='listing-icons'> Parking</p>";
+                                }
+                            }
+                            if (isset($query->furnished)) {
+                                if ($query->furnished == 1) {
+                                    echo "<p><img src='" . URL . "img/Sofa-50.png' title='furnished' width='25' class='listing-icons'> Furnished</p>";
+                                }
+                            }
+                            ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-lg-4 row">
+                        <h4>Location</h4>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+<?php /* map goes here */ ?>
 <?php }
 ?>
