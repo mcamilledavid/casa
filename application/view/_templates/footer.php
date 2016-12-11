@@ -6,7 +6,7 @@
             <li><a href="<?php echo URL; ?>contact">Contact</a></li>
         </ul>
     </div>
-    <div class="col-lg-6" align="right">
+    <div class="col-lg-6 mobile-disclaimer" align="right">
         <p>SFSU/FAU/FULDA Software Engineering Project Fall 2016. For Demonstration Only. Copyright © 2016 Casa.</p>
     </div>
 </footer>

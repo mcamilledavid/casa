@@ -66,7 +66,7 @@
                 </div> 
 
                 <div class="signup-login-footer">
-                    Already have a Casa account?
+                    Already have an account?
                     <a href="#login" onclick="document.getElementById('popup-login').style.display = 'block'" class="signup-login-footer-btn">Log In</a>
                 </div>
             </form>
