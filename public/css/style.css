@@ -4,6 +4,11 @@ body {
     color: #888!important;
 }
 
+html, 
+body {
+    height: 100%;
+}
+
 a, a:hover { text-decoration: none!important; }
 
 p {
@@ -450,7 +455,7 @@ footer {
 }
 
 .page-title-container {
-    margin: 50px 0 100px;
+    margin: 125px 0 100px;
     text-align: center;
 }
 
@@ -710,6 +715,9 @@ footer {
     #details {
         padding: 30px 30px 50px 30px!important;
     }
+    .ionicons-search {
+        padding: 11px 18px!important;
+    }
 }
 
 
@@ -732,8 +740,124 @@ footer {
     #details {
         padding: 30px 30px 50px 30px!important;
     }
+    .navbar-form {
+        width: 65%!important;
+    }
+    .ionicons-search {
+        padding: 11px 18px!important;
+    }
 }
 
 #details {
     padding: 75px 0 75px 0;
+}
+
+@media only screen and (min-width: 1200px) {
+    label[for="nav-trigger"] {
+        display: none!important;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #desktop-nav {
+        display: none!important;
+    }
+}
+
+/* Navigation Menu - Background */
+.navigation {
+    /* critical sizing and position styles */
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0px;
+    bottom: 0;
+    z-index: 0;
+    padding: 0px;
+
+    /* non-critical appearance styles */
+    list-style: none;
+    background: #111;
+}
+
+/* Navigation Menu - List items */
+.nav-item {
+    /* non-critical appearance styles */
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #000;
+    right: 0px;
+}
+
+.nav-item a {
+    /* non-critical appearance styles */
+    display: block;
+    padding: 1em;
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    right: 0;
+}
+
+.nav-item a:hover {
+    color: #ddd!important;
+}
+
+/* Site Wrapper - Everything that isn't navigation */
+.site-wrap {
+    /* Critical position and size styles */
+    min-height: 100%;
+    min-width: 100%;
+    background-color: white; /* Needs a background or else the nav will show through */
+    position: relative;
+    top: 0;
+    bottom: 100%;
+    right: 0;
+    z-index: 1;
+}
+
+/* Nav Trigger */
+.nav-trigger {
+    /* critical styles - hide the checkbox input */
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+label[for="nav-trigger"] {
+    /* critical positioning styles */
+    position: fixed;
+    right: 20px;
+    right: 20px;
+    top: 18px;
+    z-index: 2;
+    height: 18px;
+    width: 20px;
+    cursor: pointer;
+    background-image: url(../public/img/menu-toggle.png);
+    background-size: contain;
+}
+
+/* Make the Magic Happen */
+.nav-trigger + label, .site-wrap {
+    transition: left 0.2s;
+}
+
+.nav-trigger:checked + label {
+    right: 215px;
+}
+
+.nav-trigger:checked ~ .site-wrap {
+    right: 200px;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+}
+
+body {
+    /* Without this, the body has excess horizontal scroll when the menu is open */
+    overflow-x: hidden;
+}
+
+#mobile-search-bar {
+    position: absolute;
+    top: 0;
+    left: 60px;
 }

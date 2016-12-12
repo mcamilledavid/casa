@@ -10,6 +10,7 @@
         <p>SFSU/FAU/FULDA Software Engineering Project Fall 2016. For Demonstration Only. Copyright © 2016 Casa.</p>
     </div>
 </footer>
+</div>
 
 <!-- jQuery, loaded in the recommended protocol-less way -->
 <!-- more http://www.paulirish.com/2010/the-protocol-relative-url/ -->
