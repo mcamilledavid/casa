@@ -1,10 +1,10 @@
-<div id="main-alt">
+<div class="row">
     <div class="col-lg-12">
         <div class="page-title-container">
             <h2>Post A Listing</h2>
             <p>Rent your apartment, house, or room to SF State students.</p>
         </div>
-        <div class="row" id="main-alt" style="background: #f8f8f8;height: auto!important;">
+        <div class="container-fluid" id="main-alt" style="background: #f8f8f8;height: auto!important;">
             <div class="post-container">
                 <form  action="<?php echo URL; ?>post/addRentalUnit" method="POST" autocomplete="off" enctype="multipart/form-data" onsubmit="if (document.getElementById('agree').checked) {
                             return true;

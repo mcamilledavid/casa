@@ -1,10 +1,10 @@
-<div id="main-alt">
+<div class="row">
     <div class="col-lg-12">
         <div class="page-title-container">
             <h2>Favorites</h2>
             <p>Keep track of listings you're thinking of renting.</p>
         </div>
-        <div class="row" id="main-alt" style="background: #f8f8f8;height: auto!important;">
+        <div class="container-fluid" id="main-alt" style="background: #f8f8f8;height: auto!important;">
             <div class="container">
                 <div class="page-subtitle-container">
                     <h2>Your Favorites</h2>

@@ -6,10 +6,11 @@
             <li><a href="<?php echo URL; ?>contact">Contact</a></li>
         </ul>
     </div>
-    <div class="col-lg-6" align="right">
+    <div class="col-lg-6 mobile-disclaimer" align="right">
         <p>SFSU/FAU/FULDA Software Engineering Project Fall 2016. For Demonstration Only. Copyright © 2016 Casa.</p>
     </div>
 </footer>
+</div>
 
 <!-- jQuery, loaded in the recommended protocol-less way -->
 <!-- more http://www.paulirish.com/2010/the-protocol-relative-url/ -->
@@ -46,8 +47,20 @@
 <script>
     if (datefield.type != "date") {
         jQuery(function ($) {
-            $('#date').datepicker({ dateFormat: 'yy-mm-dd' });
+            $('#date').datepicker({dateFormat: 'yy-mm-dd'});
         });
+    }
+</script>
+
+<script>
+    function validateSearchInput() {
+        var x = document.forms["search_form"]["search_value"].value;
+        var patt = new RegExp("^[a-zA-Z0-9 ]*$");
+        var result = patt.test(x);
+        if (result === false) {
+            alert("Invalid search input!");
+            return false;
+        }
     }
 </script>
 

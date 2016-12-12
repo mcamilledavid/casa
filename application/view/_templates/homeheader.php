@@ -16,51 +16,60 @@
     </head>
     <body>
         <?php if (!isset($_SESSION['username'])) { ?>
-            <nav class="navbar navbar-default">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Menu</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="<?php echo URL; ?>">casa</a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="<?php echo URL; ?>post" class="header-post-listing-btn">Post a Listing</a></li>
-                        <li><a href="<?php echo URL; ?>home/showListings">Browse Listings</a></li>
-                        <li><a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'">Sign Up</a></li>
-                        <li><a href="#login" onclick="document.getElementById('popup-login').style.display = 'block'">Log In</a></li>
-                    </ul>
-                </div>
-            </nav>
-        <?php } else { ?>
-            <nav class="navbar navbar-default">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Menu</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="<?php echo URL; ?>">casa</a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="<?php echo URL; ?>post" class="header-post-listing-btn">Post a Listing</a></li>
-                        <li><a href="<?php echo URL; ?>home/showListings">Browse Listings</a></li>
-                        <li class="dropdown header-user-container">
-                            <a href="#" class="dropdown-toggle ionicons-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="header-user"><?php if (isset($_SESSION["username"])) echo ($_SESSION["username"]); ?></span><i class="ionicons ion-ios-contact-outline"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="<?php echo URL; ?>manage">Manage Listings</a></li>
-                                <?php if ($_SESSION['isStudent'] == 1) { ?> <li><a href="<?php echo URL; ?>favorites">Favorites</a></li> <?php } ?>
-                                <li><a href="<?php echo URL; ?>account">Edit Account</a></li>
-                                <li><a href="<?php echo URL; ?>logout">Logout</a></li>
+            <ul class="navigation" id="mobile-nav">
+                <li class="nav-item"><a href="<?php echo URL; ?>post">Post a Listing</a></li>
+                <li class="nav-item"><a href="<?php echo URL; ?>home/showListings">Browse Listings</a></li>
+                <li class="nav-item"><a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'">Sign Up</a></li>
+                <li class="nav-item"><a href="#login" onclick="document.getElementById('popup-login').style.display = 'block'">Log In</a></li>
+            </ul>
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger"></label>
+            <div class="site-wrap">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="<?php echo URL; ?>">casa</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right" id="desktop-nav">
+                            <li><a href="<?php echo URL; ?>post" class="header-post-listing-btn">Post a Listing</a></li>
+                            <li><a href="<?php echo URL; ?>home/showListings">Browse Listings</a></li>
+                            <li><a href="#signup" onclick="document.getElementById('popup-signup').style.display = 'block'">Sign Up</a></li>
+                            <li><a href="#login" onclick="document.getElementById('popup-login').style.display = 'block'">Log In</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            <?php } else { ?>
+                <ul class="navigation" id="mobile-nav">
+                    <li class="nav-item" style="padding: 15px 22px; color: #fff;"><span class="header-user"><?php if (isset($_SESSION["username"])) echo ($_SESSION["username"]); ?></span><i class="ionicons ion-ios-contact-outline"></i></a></li>
+                    <li class="nav-item"><a href="<?php echo URL; ?>post">Post a Listing</a></li>
+                    <li class="nav-item"><a href="<?php echo URL; ?>home/showListings">Browse Listings</a></li>
+                    <li class="nav-item"><a href="<?php echo URL; ?>manage">Manage Listings</a></li>
+                    <?php if ($_SESSION['isStudent'] == 1) { ?> <li class="nav-item"><a href="<?php echo URL; ?>favorites">Favorites</a></li> <?php } ?>
+                    <li class="nav-item"><a href="<?php echo URL; ?>account">Edit Account</a></li>
+                    <li class="nav-item"><a href="<?php echo URL; ?>logout">Logout</a></li>
+                </ul>
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+                <label for="nav-trigger"></label>
+                <div class="site-wrap">
+                    <nav class="navbar navbar-default">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="<?php echo URL; ?>">casa</a>
+                        </div>
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right" id="desktop-nav">
+                                <li><a href="<?php echo URL; ?>post" class="header-post-listing-btn">Post a Listing</a></li>
+                                <li><a href="<?php echo URL; ?>home/showListings">Browse Listings</a></li>
+                                <li class="dropdown header-user-container">
+                                    <a href="#" class="dropdown-toggle ionicons-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="header-user"><?php if (isset($_SESSION["username"])) echo ($_SESSION["username"]); ?></span><i class="ionicons ion-ios-contact-outline"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="<?php echo URL; ?>manage">Manage Listings</a></li>
+                                        <?php if ($_SESSION['isStudent'] == 1) { ?> <li><a href="<?php echo URL; ?>favorites">Favorites</a></li> <?php } ?>
+                                        <li><a href="<?php echo URL; ?>account">Edit Account</a></li>
+                                        <li><a href="<?php echo URL; ?>logout">Logout</a></li>
+                                    </ul>
+                                </li>
                             </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        <?php } ?>
+                        </div>
+                    </nav>
+                <?php } ?>
 

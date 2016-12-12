@@ -5,7 +5,7 @@ session_start();
 class Post extends Controller {
 
     public function index() {
-        if (empty($_SESSION)) {
+        if (!isset($_SESSION['user_id'])) {
             require APP . 'view/_templates/header.php';
             require APP . 'view/signup/index.php';
             require APP . 'view/signup/popupsignup.php';

@@ -4,6 +4,11 @@ body {
     color: #888!important;
 }
 
+html, 
+body {
+    height: 100%;
+}
+
 a, a:hover { text-decoration: none!important; }
 
 p {
@@ -247,17 +252,10 @@ footer {
     line-height: 45px;
     color: #bababa;
     background-color: #fff;
-    margin: 0 auto;
-}
-
-@media only screen and (max-width: 768px) {
-    footer {
-        padding: 40px 0;
-    }
 }
 
 .footer p {
-    color: #aaa;
+    color: #666;
     font-size: 12px;
     line-height: 45px;
     font-weight: 400;
@@ -265,7 +263,7 @@ footer {
 }
 
 .footer a {
-    color: #bababa;
+    color: #666;
     font-weight: 400;
     text-decoration: none!important;
     font-size: 12px;
@@ -288,7 +286,7 @@ footer {
 }
 
 #main {
-    padding: 75px 0 75px 0!important;
+    padding: 75px 25px!important;
 }
 
 #main-alt {
@@ -457,13 +455,14 @@ footer {
 }
 
 .page-title-container {
-    margin: 50px 0 100px;
+    margin: 125px 0 100px;
     text-align: center;
 }
 
 .featured-listing-container, .manage-listing-container, .favorites-listing-container {
     max-width: 330px;
     display: inline-block;
+    margin: 15px 0;
 }
 
 .page-subtitle-container {
@@ -529,6 +528,7 @@ footer {
 
 .manage-post-listing-btn-container {
     margin: 40px auto;
+    text-align: center!important;
 }
 
 .manage-post-listing-btn {
@@ -565,16 +565,6 @@ footer {
     position: relative;
 }
 
-.crop {
-    height: 450px;
-    overflow: hidden;
-}
-
-.crop img {
-    margin: -200px 0 -150px 0!important;
-    width: 100%!important;
-}
-
 .filters-btn {
     border-radius: 0px!important;
     padding: 10px!important;
@@ -593,6 +583,7 @@ footer {
     background: url(https://upload.wikimedia.org/wikipedia/commons/f/f1/MediaWiki_Vector_skin_action_arrow.svg) no-repeat #fff!important;
     background-position-x: 98%!important;
     background-position-y: 50%!important;
+    text-align: left!important;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -601,7 +592,7 @@ footer {
     }
     .results {
         position: absolute;
-        top: 4em;
+        top: 2em;
         left: 2.2em;
         margin: 0em 0;
         color: #222;
@@ -613,13 +604,13 @@ footer {
         display: none;
     }
     #sort {
-        width: 60%!important;
+        width: 100%!important;
     }
     .results {
         display: none;
     }
     #mobile-filters {
-        width: 65%!important;
+        width: 100%!important;
         margin: 0 auto!important;
     }
 }
@@ -636,4 +627,237 @@ footer {
 
 .messages-container a {
     color: #fff!important;
+}
+
+@media only screen and (max-width: 1200px) {
+    #search-results {
+        text-align: center;
+    }
+    footer {
+        position: relative;
+        text-align: center;
+    }
+    footer p {
+        line-height: 18px!important;
+    }
+    .mobile-disclaimer {
+        border: 1px solid #eee;
+        padding: 20px 30px;
+        text-align: center;
+    }
+}
+
+#sort {
+    color: #222;
+    font-family: 'Lato';
+    padding-left: 15px!important;
+    margin: 10px 0;
+}
+
+@media only screen and (min-width: 1000px) {
+    .crop {
+        height: 450px;
+        overflow: hidden;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+
+    .crop img {
+        margin: -200px 0 -150px 0!important;
+        width: 100%!important;
+    }
+}
+
+.details-image {
+    width: 100%!important;
+}
+
+@media only screen and (max-width: 768px) {
+    .post-container {
+        width: 70%!important;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .form-container {
+        width: 35%!important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+    .form-container {
+        width: 50%!important;
+    }
+    .modal-content {
+        width: 45%!important;
+    }
+    .top-title {
+        font-size: 35px;
+    }
+    .bottom-title {
+        font-size: 20px;
+    }
+    #details {
+        padding: 30px 30px 50px 30px!important;
+    }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 768px) {
+    .form-container, .modal-content {
+        width: 60%!important
+    }
+    .top-title {
+        font-size: 40px;
+    }
+    .bottom-title {
+        font-size: 20px;
+    }
+    #details {
+        padding: 30px 30px 50px 30px!important;
+    }
+    .ionicons-search {
+        padding: 11px 18px!important;
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    .form-container {
+        width: 75%!important;
+    }
+    .modal-content {
+        width: 100%!important;
+    }
+    .top-title {
+        font-size: 45px;
+    }
+    .bottom-title {
+        font-size: 20px;
+    }
+    #home-search {
+        margin: 0 -105px!important;
+    }
+    #details {
+        padding: 30px 30px 50px 30px!important;
+    }
+    .navbar-form {
+        width: 65%!important;
+    }
+    .ionicons-search {
+        padding: 11px 18px!important;
+    }
+}
+
+#details {
+    padding: 75px 0 75px 0;
+}
+
+@media only screen and (min-width: 1200px) {
+    label[for="nav-trigger"] {
+        display: none!important;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #desktop-nav {
+        display: none!important;
+    }
+}
+
+/* Navigation Menu - Background */
+.navigation {
+    /* critical sizing and position styles */
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0px;
+    bottom: 0;
+    z-index: 0;
+    padding: 0px;
+
+    /* non-critical appearance styles */
+    list-style: none;
+    background: #111;
+}
+
+/* Navigation Menu - List items */
+.nav-item {
+    /* non-critical appearance styles */
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #000;
+    right: 0px;
+}
+
+.nav-item a {
+    /* non-critical appearance styles */
+    display: block;
+    padding: 1em;
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    right: 0;
+}
+
+.nav-item a:hover {
+    color: #ddd!important;
+}
+
+/* Site Wrapper - Everything that isn't navigation */
+.site-wrap {
+    /* Critical position and size styles */
+    min-height: 100%;
+    min-width: 100%;
+    background-color: white; /* Needs a background or else the nav will show through */
+    position: relative;
+    top: 0;
+    bottom: 100%;
+    right: 0;
+    z-index: 1;
+}
+
+/* Nav Trigger */
+.nav-trigger {
+    /* critical styles - hide the checkbox input */
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+label[for="nav-trigger"] {
+    /* critical positioning styles */
+    position: fixed;
+    right: 20px;
+    right: 20px;
+    top: 18px;
+    z-index: 2;
+    height: 18px;
+    width: 20px;
+    cursor: pointer;
+    background-image: url(../public/img/menu-toggle.png);
+    background-size: contain;
+}
+
+/* Make the Magic Happen */
+.nav-trigger + label, .site-wrap {
+    transition: left 0.2s;
+}
+
+.nav-trigger:checked + label {
+    right: 215px;
+}
+
+.nav-trigger:checked ~ .site-wrap {
+    right: 200px;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+}
+
+body {
+    /* Without this, the body has excess horizontal scroll when the menu is open */
+    overflow-x: hidden;
+}
+
+#mobile-search-bar {
+    position: absolute;
+    top: 0;
+    left: 60px;
 }

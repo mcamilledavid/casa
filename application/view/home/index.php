@@ -2,8 +2,8 @@
     <div class="home-title-container">
         <h1 class="top-title">Search for off-campus housing</h1>
         <h2 class="bottom-title">Rent student homes, apartments, and rooms near SF State.</h2>
-        <div class="container">
-            <form method="POST" action="<?php echo URL; ?>home/search" class="home-search-container">
+        <div class="container" id="home-search">
+            <form method="POST" action="<?php echo URL; ?>home/search" class="home-search-container" name="search_form" onsubmit="return validateSearchInput()">
                 <div class="input-group">
                     <div class="inner-addon left-addon">
                         <i class="ionicons ion-ios-search ionicons-search-home"></i>

@@ -1,10 +1,10 @@
-<div id="main-alt">
+<div class="row">
     <div class="col-lg-12">
         <div class="page-title-container">
             <h2>Messages</h2>
             <p>Messages from students interested in your listings.</p>
         </div>
-        <div class="row" id="main-alt" style="background: #f8f8f8;height: auto!important;">
+        <div class="container-fluid" id="main-alt" style="background: #f8f8f8;height: auto!important;">
             <div class="container">
                 <?php 
                 $count = 0;

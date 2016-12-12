@@ -1,7 +1,12 @@
 <!-- Popup -->
 <div id="popup-signup" class="modal">
     <!-- Popup Content -->
-    <form  action="<?php echo URL; ?>signup/addnewuser" method="POST" autocomplete="off" class="modal-content" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }"> 
+    <form  action="<?php echo URL; ?>signup/addnewuser" method="POST" autocomplete="off" class="modal-content" onsubmit="if (document.getElementById('agree').checked) {
+                return true;
+            } else {
+                alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy');
+                return false;
+            }"> 
         <span onclick="document.getElementById('popup-signup').style.display = 'none'" 
               class="close" title="Close Modal">&times;</span>
         <div class="form-group">
@@ -63,8 +68,8 @@
         </div> 
 
         <div class="signup-login-footer">
-            Already have a Casa account?
-            <a href="#login" onclick="document.getElementById('popup-login').style.display='block', document.getElementById('popup-signup').style.display = 'none'" class="signup-login-footer-btn">Log In</a>
+            Already have an account?
+            <a href="#login" onclick="document.getElementById('popup-login').style.display = 'block', document.getElementById('popup-signup').style.display = 'none'" class="signup-login-footer-btn">Log In</a>
         </div>
     </form>
 </div>
