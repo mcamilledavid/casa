@@ -416,11 +416,13 @@
                     <iframe name="hiddenframe" style="display:none;"></iframe>
                     <?php
                     if (isset($query->thumbnail)) {
+                        echo "<a href='" . URL . "home/showSelectedListing?rental_unit_id=" . $rental_unit_id . "' target='_blank'>";
                         echo "<img src='data:image/jpeg;base64," . base64_encode($query->thumbnail)
-                        . "' alt='Item image' class='thumbnail' height='280'>";
+                        . "' alt='Item image' class='thumbnail' height='280'></a>";
                     }
                     if (!isset($query->thumbnail)) {
-                        echo "<img src='" . URL . "img/default-thumbnail-lrg.jpg' title='default' width='380' height='280' class='thumbnail'>";
+                        echo "<a href='" . URL . "home/showSelectedListing?rental_unit_id=" . $rental_unit_id . "' target='_blank'>";
+                        echo "<img src='" . URL . "img/default-thumbnail-lrg.jpg' title='default' width='380' height='280' class='thumbnail'></a>";
                     }
                     ?>
                 </div>
