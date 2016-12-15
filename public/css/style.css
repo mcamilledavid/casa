@@ -149,6 +149,9 @@ textarea {
 .ionicons-search {
     padding: 15px 18px!important;
     font-size: 24px!important;
+    position: absolute!important;
+    left: 115px!important;
+    z-index: 1000;
 }
 
 .header-user-container {
@@ -185,6 +188,8 @@ textarea {
 
 .navbar-brand {
     height: 55px!important;
+    position: absolute!important;
+    top: -10px!important;
 }
 
 .navbar-form {
@@ -224,6 +229,7 @@ textarea {
     height: 45px!important;
     margin: 4px;
     font-size: 13px!important;
+    position: absolute;
 }
 
 .header-search-btn {
@@ -741,7 +747,7 @@ footer {
         padding: 30px 30px 50px 30px!important;
     }
     .navbar-form {
-        width: 65%!important;
+        width: 50%!important;
     }
     .ionicons-search {
         padding: 11px 18px!important;
@@ -858,6 +864,15 @@ body {
 
 #mobile-search-bar {
     position: absolute;
-    top: 0;
-    left: 60px;
+    left: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+    #mobile-search-bar {
+        visibility: hidden;
+    }
+}
+
+i.ionicons.ion-ios-search.ionicons-search {
+    padding: 15px 18px!important;
 }

@@ -27,7 +27,7 @@
             <div class="site-wrap">
                 <nav class="navbar navbar-default">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="<?php echo URL; ?>">casa</a>
+                        <a class="navbar-brand" href="<?php echo URL; ?>"><img src="<?php echo URL; ?>img/casa-logo.png" alt="casa-logo" width="100px" height="45px"></a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right" id="desktop-nav">
@@ -53,7 +53,7 @@
                 <div class="site-wrap">
                     <nav class="navbar navbar-default">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="<?php echo URL; ?>">casa</a>
+                        <a class="navbar-brand" href="<?php echo URL; ?>"><img src="<?php echo URL; ?>img/casa-logo.png" alt="casa-logo" width="100px" height="45px"></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right" id="desktop-nav">

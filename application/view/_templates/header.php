@@ -27,10 +27,10 @@
             <div class="site-wrap">
                 <nav class="navbar navbar-default">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="<?php echo URL; ?>">casa</a>
+                        <a class="navbar-brand" href="<?php echo URL; ?>"><img src="<?php echo URL; ?>img/casa-logo.png" alt="casa-logo" width="100px" height="45px"></a>
                     </div>
                     <div class="collapse navbar-collapse">
-                        <form method="POST" action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" name="search_form" onsubmit="return validateSearchInput()">
+                        <form method="POST" action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" name="search_form" onsubmit="return validateSearchInput()" id="desktop-search-bar">
                             <div class="inner-addon left-addon">
                                 <i class="ionicons ion-ios-search ionicons-search"></i>
                                 <input type="text" class="form-control header-search-form" name="search_value" value="<?php echo isset($_SESSION["search_term"]) ? $_SESSION["search_term"] : ""; ?>" placeholder="Search by city, zipcode, rental type.">
@@ -44,7 +44,7 @@
                             <li><a href="#login" onclick="document.getElementById('popup-login').style.display = 'block'">Log In</a></li>
                         </ul>
                     </div>
-                    <form method="POST" action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" name="search_form" onsubmit="return validateSearchInput()"  id="mobile-search-bar">
+                    <form method="POST" action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" name="search_form" onsubmit="return validateSearchInput()" id="mobile-search-bar">
                         <div class="inner-addon left-addon">
                             <i class="ionicons ion-ios-search ionicons-search"></i>
                             <input type="text" class="form-control header-search-form" name="search_value" value="<?php echo isset($_SESSION["search_term"]) ? $_SESSION["search_term"] : ""; ?>" placeholder="Search by city, zipcode, etc.">
@@ -69,7 +69,7 @@
                 <div class="site-wrap">
                     <nav class="navbar navbar-default">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="<?php echo URL; ?>">casa</a>
+                        <a class="navbar-brand" href="<?php echo URL; ?>"><img src="<?php echo URL; ?>img/casa-logo.png" alt="casa-logo" width="100px" height="45px"></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <form action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" method="POST">
