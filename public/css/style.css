@@ -272,7 +272,7 @@ footer {
     color: #666;
     font-weight: 400;
     text-decoration: none!important;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .footer a:hover {
@@ -406,7 +406,7 @@ footer {
     background-position: center;
     padding: 0;
     margin: 0;
-    background: url(../public/img/home-bg.jpg);
+    background: lightslategray;
 }
 
 .home-title-container {
@@ -451,7 +451,7 @@ footer {
     border-radius: 4px!important;
     padding: 0 30px!important;
     color: #fff!important;
-    background: #333!important;
+    background: #394158!important;
     border: 0!important;
     font-size: 16px!important;
 }
@@ -574,7 +574,7 @@ footer {
 .filters-btn {
     border-radius: 0px!important;
     padding: 10px!important;
-    background: #222!important;
+    background: #394158!important;
     color: #fff!important;
     margin: 10px 0;
 }
@@ -687,6 +687,12 @@ footer {
 @media only screen and (min-width: 1000px) {
     .form-container {
         width: 35%!important;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .home-title-container {
+        padding: 16% 0!important;
     }
 }
 
