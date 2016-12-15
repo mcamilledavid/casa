@@ -212,7 +212,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-block post-btn" name="update_listing">UPDATE</button>
+                        <button type="submit" class="btn btn-block post-btn" name="update_listing">Update</button>
                     </div> 
                 </form>
             </div>

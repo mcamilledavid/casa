@@ -98,7 +98,7 @@ textarea {
     height: 55px!important;
     font-weight: 400;
     color: #fff;
-    background: #000;
+    background: #394158;
     color: #fff;
 }
 
@@ -363,7 +363,7 @@ footer {
     float: right;
     color: #fff;
     padding: 15px 15px!important;
-    background: #888;
+    background: #394158;
 }
 
 .post-btn:hover {
@@ -436,13 +436,14 @@ footer {
 .ionicons-search-home {
     font-size: 25px;
     padding: 12px!important;
-    z-index: 100;
+    z-index: 10000;
+    position: relative!important;
+    left: 45px!important;
+    top: 3px;
 }
 
 .home-search-container {
     margin: 45px auto;
-    width: 70%;
-    display: inline-block;
 }
 
 .home-search-btn {
@@ -454,10 +455,14 @@ footer {
     background: #394158!important;
     border: 0!important;
     font-size: 16px!important;
+    vertical-align: bottom!important;
 }
 
 .home-search-form {
     border: 0!important;
+    border: 0!important;
+    display: inline-block!important;
+    width: 55%!important;
 }
 
 .page-title-container {
@@ -503,6 +508,7 @@ footer {
     color: #fff!important;
     font-family: 'Lato', sans-serif!important;
     padding: 10px 18px!important;
+    width: 100%;
 }
 
 .listing-message-btn:hover{
@@ -692,7 +698,30 @@ footer {
 
 @media only screen and (max-width: 1200px) {
     .home-title-container {
-        padding: 16% 0!important;
+        padding: 12% 0!important;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .home-title-container {
+        padding: 14% 0!important;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .home-title-container {
+        padding: 10% 0!important;
+    }
+    .home-search-form {
+        display: block!important;
+        width: 100%!important;
+    }
+    .home-search-btn {
+        width: 100%!important;
+        margin: 0!important;
+    }
+    .home-search-container {
+        margin: 0 auto;
     }
 }
 
@@ -704,10 +733,10 @@ footer {
         width: 45%!important;
     }
     .top-title {
-        font-size: 35px;
+        font-size: 38px;
     }
     .bottom-title {
-        font-size: 20px;
+        font-size: 22px;
     }
     #details {
         padding: 30px 30px 50px 30px!important;
