@@ -17,10 +17,6 @@
                     <div class="col-lg-4 text-center">
                         <div class="manage-listing-container">
                             <div class="listing-image-container">
-                                <div class="listing-price"><?php if (isset($result->rent)) echo '$' . htmlspecialchars($result->rent, ENT_QUOTES, 'UTF-8'); ?></div>
-                                <form action="<?php echo URL; ?>favorites/addFavorite" method="POST">
-                                    <button type="submit" value="<?php $result->rental_unit_id ?>" class="favorite-btn"><i class="ionicons ion-ios-heart"></i></button>
-                                </form>
                                 <?php
                                 if (isset($result->thumbnail)) {
                                     echo "<a href='" . URL . "home/showSelectedListing?rental_unit_id=" . $rental_unit_id . "' target='_blank'>";

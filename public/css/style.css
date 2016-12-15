@@ -507,7 +507,7 @@ footer {
     background: #5cb85c!important;
     color: #fff!important;
     font-family: 'Lato', sans-serif!important;
-    padding: 10px 18px!important;
+    padding: 15px 18px!important;
     width: 100%;
 }
 
@@ -555,6 +555,19 @@ footer {
 
 .manage-post-listing-btn:hover{
     background: #666!important; 
+}
+
+.message-reply-btn {
+    margin: 25px 0 0 0;
+    font-size: 13px!important;
+    border: 0!important;
+    background: #5cb85c!important;
+    color: #fff!important;
+    font-family: 'Lato', sans-serif!important;
+    padding: 15px 18px!important;
+    width: 50%;
+    position: absolute;
+    bottom: 40px;
 }
 
 .dropdown-menu {
@@ -720,8 +733,10 @@ footer {
         width: 100%!important;
         margin: 0!important;
     }
-    .home-search-container {
-        margin: 0 auto;
+    .ionicons-search-home {
+        position: absolute!important;
+        top: 0!important;
+        left: 0!important;
     }
 }
 
@@ -899,12 +914,19 @@ body {
 
 #mobile-search-bar {
     position: absolute;
-    left: 15px;
+    left: 8px;
+    width: 55%!important;
 }
 
 @media only screen and (min-width: 768px) {
     #mobile-search-bar {
         visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    #mobile-search-bar {
+        width: 52%!important;
     }
 }
 
