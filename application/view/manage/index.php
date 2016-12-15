@@ -23,11 +23,13 @@
                                 </form>
                                 <?php
                                 if (isset($result->thumbnail)) {
+                                    echo "<a href='" . URL . "home/showSelectedListing?rental_unit_id=" . $rental_unit_id . "' target='_blank'>";
                                     echo "<img src='data:image/jpeg;base64," . base64_encode($result->thumbnail)
-                                    . "' alt='Item image' class='thumbnail' height='230'>";
+                                    . "' alt='Item image' class='thumbnail' height='230'></a>";
                                 }
                                 if (!isset($result->thumbnail)) {
-                                    echo "<img src='" . URL . "img/default-thumbnail.jpg' title='default' width='330' height='230' class='thumbnail'>";
+                                    echo "<a href='" . URL . "home/showSelectedListing?rental_unit_id=" . $rental_unit_id . "' target='_blank'>";
+                                    echo "<img src='" . URL . "img/default-thumbnail.jpg' title='default' width='330' height='230' class='thumbnail'></a>";
                                 }
                                 ?>
                             </div>
