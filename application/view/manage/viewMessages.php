@@ -22,7 +22,7 @@
                             <strong>Message:</strong><br>
                             <?php if (isset($query->message)) echo htmlspecialchars($query->message, ENT_QUOTES, 'UTF-8'); ?>
                         </p>
-                        <button class="listing-message-btn" name="message_button"><a href="mailto:<?php if (isset($query->email)) echo htmlspecialchars($query->email, ENT_QUOTES, 'UTF-8'); ?>">Reply</a></button>
+                        <button class="message-reply-btn" name="message_button"><a href="mailto:<?php if (isset($query->email)) echo htmlspecialchars($query->email, ENT_QUOTES, 'UTF-8'); ?>">Reply</a></button>
                     </div>
                     </div>
                 <?php
