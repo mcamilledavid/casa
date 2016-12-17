@@ -55,7 +55,7 @@
 <script>
     function validateSearchInput() {
         var x = document.forms["search_form"]["search_value"].value;
-        var patt = new RegExp("^[a-zA-Z0-9 ]*$");
+        var patt = new RegExp("^[a-zA-Z0-9. ]*$");
         var result = patt.test(x);
         if (result === false) {
             alert("Invalid search input!");
