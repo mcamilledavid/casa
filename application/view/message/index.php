@@ -39,7 +39,7 @@
                 <input type="hidden" name="lister_id" class="form-control" value="<?php echo $lister_id ?>">
 
                 <div class="form-group">
-                    <textarea name="message" class="form-control" placeholder="I am interested in the listing."></textarea>
+                    <textarea name="message" class="form-control">I am interested in the listing</textarea>
                 </div>
 
                 <div class="form-group">
