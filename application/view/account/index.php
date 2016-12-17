@@ -40,14 +40,14 @@
                 <div class="form-group">
                     <div class="inner-addon right-addon">
                         <i class="ionicons ion-ios-locked-outline"></i>
-                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                        <input type="password" name="password" class="form-control" placeholder=" New Password" >
                     </div>
                 </div>
 
                 <div class="form-group text-center">
                     Are you currently an SF State student?
                     <label class="switch">
-                        <input type="checkbox" name="isStudent" value="1">
+                        <input type="checkbox" name="isStudent" value="1" <?php if (isset($_SESSION["isStudent"])) if($_SESSION["isStudent"]==1) echo "checked"; ?>>
                         <div class="slider round"></div>
                     </label>
                 </div>
