@@ -248,12 +248,17 @@ class Model {
 
     public function updateUserInfo($firstname, $lastname, $email, $isStudent, $password, $user_id) {
         $sql = "UPDATE registered_user SET firstname = :firstname, lastname = :lastname, "
-                . "email = :email, is_student = :isStudent, password = :password  WHERE user_id = :user_id";
+                . "email = :email, is_student = :isStudent";
+        if(isset($password) && $password !=""){
+            $sql= $sql. ", password = '$password' ";
+        }
+        $sql= $sql . " WHERE user_id = :user_id";
         $query = $this->db->prepare($sql);
         $parameters = array(':firstname' => $firstname, ':lastname' => $lastname,
-            ':email' => $email, ':isStudent' => $isStudent, ':password' => $password,
+            ':email' => $email, ':isStudent' => $isStudent,
             ':user_id' => $user_id);
-        $query->execute($parameters);
+        return $query->execute($parameters);
+        
     }
 
     // returns true if rental unit sucessfully added to database, otherwise 
