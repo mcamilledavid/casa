@@ -69,7 +69,7 @@
                 <div class="site-wrap">
                     <nav class="navbar navbar-default">
                         <div class="navbar-header">
-                        <a class="navbar-brand" href="<?php echo URL; ?>"><img src="<?php echo URL; ?>img/casa-logo.png" alt="casa-logo" width="100px" height="45px"></a>
+                            <a class="navbar-brand" href="<?php echo URL; ?>"><img src="<?php echo URL; ?>img/casa-logo.png" alt="casa-logo" width="100px" height="45px"></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <form action="<?php echo URL; ?>home/search" class="navbar-form navbar-left" method="POST">

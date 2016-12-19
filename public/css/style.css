@@ -829,7 +829,7 @@ footer {
     top: 0;
     right: 0px;
     bottom: 0;
-    z-index: 0;
+    z-index: -1;
     padding: 0px;
 
     /* non-critical appearance styles */
@@ -932,4 +932,34 @@ body {
 
 i.ionicons.ion-ios-search.ionicons-search {
     padding: 15px 18px!important;
+}
+
+.notification-bar {
+    background-color: #a94442;
+    text-align: center;
+    position: fixed!important;
+    top: 55px;
+    z-index: 1000;
+    width: 100%;
+}
+
+.text {
+    color: #fff;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top: 10px;
+    display: inline-block;
+}
+
+.btn.btn-close {
+    color: #fff;
+    background: transparent;
+    font-weight:bold;
+    display: inline-block;
+    float: right;
+    padding-top: 12px;
+}
+
+.btn.btn-close:hover {
+    color: #fff;
 }

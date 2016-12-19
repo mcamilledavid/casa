@@ -25,6 +25,12 @@
             <input type="checkbox" id="nav-trigger" class="nav-trigger" />
             <label for="nav-trigger"></label>
             <div class="site-wrap">
+                <div class="notification-bar">
+                    <div class="text">
+                        <p>SFSU/FAU/FULDA Software Engineering Project Fall 2016. For Demonstration Only.</p>
+                    </div>
+                    <button class="btn btn-close dismisbar"  type="button">&times;</button>
+                </div>
                 <nav class="navbar navbar-default">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="<?php echo URL; ?>"><img src="<?php echo URL; ?>img/casa-logo.png" alt="casa-logo" width="100px" height="45px"></a>
@@ -51,9 +57,15 @@
                 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
                 <label for="nav-trigger"></label>
                 <div class="site-wrap">
+                    <div class="notification-bar">
+                        <div class="text">
+                            <p>SFSU/FAU/FULDA Software Engineering Project Fall 2016. For Demonstration Only.</p>
+                        </div>
+                        <button class="btn btn-close dismisbar"  type="button">&times;</button>
+                    </div>
                     <nav class="navbar navbar-default">
                         <div class="navbar-header">
-                        <a class="navbar-brand" href="<?php echo URL; ?>"><img src="<?php echo URL; ?>img/casa-logo.png" alt="casa-logo" width="100px" height="45px"></a>
+                            <a class="navbar-brand" href="<?php echo URL; ?>"><img src="<?php echo URL; ?>img/casa-logo.png" alt="casa-logo" width="100px" height="45px"></a>
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right" id="desktop-nav">

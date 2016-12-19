@@ -64,6 +64,12 @@
     }
 </script>
 
+<script>
+    $(".dismisbar").click(function () {
+        $(".notification-bar").hide();
+    });
+</script>
+
 <!-- Google Analytic JavaScript -->
 <!--DO NOT TOUCH/EDIT THIS SCRIPT -->
 <script>
