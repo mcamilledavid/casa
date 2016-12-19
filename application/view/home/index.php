@@ -31,7 +31,7 @@
                         <script type="text/javascript">
                             function Confirm(form) {
                                 alert("Saved to favorites!");
-                                form.submit();
+                                //form.submit();
                             }
                         </script>
                         <?php if (!empty($_SESSION)) { ?> 
