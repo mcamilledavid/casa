@@ -1,9 +1,18 @@
 <?php
 
+     /**
+     * @file: Class Home
+     * @brief: Contains the search and filter functionality 
+     *         and displays the home page
+     */
 session_start();
 
 class Home extends Controller {
 
+    /**
+    * PAGE: index
+    * This method handles what happens when you move to http://yourproject/casa/index
+    */
     public function index() {
 
         if (empty($_SESSION)) {
@@ -23,6 +32,7 @@ class Home extends Controller {
         }
     }
     
+    // Default filters value
     public function resetFilters(){
         $filterMap = [  "min_rent" => "", 
                         "max_rent" => "",
@@ -43,6 +53,7 @@ class Home extends Controller {
         $_SESSION["FILTER_MAP"]=$filterMap;
     }
 
+    // Displays the search results
     public function search() {
 
         if (isset($_POST["submit_search"])) {
@@ -57,6 +68,7 @@ class Home extends Controller {
         }
     }
     
+    // Displays the rental unit corresponding to the filters constraints
     public function filteredSearch() {
         
         if (isset($_POST["apply_filters"])) {
@@ -149,6 +161,7 @@ class Home extends Controller {
         }
     }
     
+    // Displays the rental unit corresponding the user's sort functionality
     public function sortedFilteredSearch() {
         
         if (isset($_POST["sort_rental_units"])) {
@@ -228,7 +241,7 @@ class Home extends Controller {
     }
     
     
-    
+    // Displays a list of rental units
     public function showListings() {
 
         $_SESSION["search_term"]="";

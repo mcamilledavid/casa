@@ -1,9 +1,18 @@
 <?php
-
+     /**
+     * @file: Class Login
+     * @brief: The login functionality of the website.
+     */
 session_start();
 
+    /**
+     * PAGE: index
+     * This method handles what happens when you move to http://yourproject/login/index or
+     * http://yourproject/#login
+     */
 class Login extends Controller {
 
+    // loads the login page views
     public function index() {
 
         require APP . 'view/_templates/header.php';
@@ -13,7 +22,8 @@ class Login extends Controller {
         require APP . 'view/_templates/footer.php';
         
     }
-
+    
+    // the pop up view for login
     public function popuplogin() {
 
         require APP . 'view/_templates/header.php';
@@ -21,7 +31,8 @@ class Login extends Controller {
         require APP . 'view/_templates/footer.php';
         
     }
-
+    
+    // verifies if the user enters the correct username and password
     public function logInUser() {
 
         if (!empty($_POST)) {

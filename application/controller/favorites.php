@@ -1,11 +1,18 @@
 <?php
 
+     /**
+     * @file: Class Favorites
+     * @brief: Displays the users favorite rental unit 
+     */
 session_start();
 
 class Favorites extends Controller {
 
-    
-  public function index(){
+    /**
+    * PAGE: index
+    * This method handles what happens when you move to http://yourproject/favorites/index
+    */
+    public function index(){
       
         if (empty($_SESSION)) {
             require APP . 'view/_templates/header.php';
@@ -23,6 +30,7 @@ class Favorites extends Controller {
         }
     }
     
+    // marks the rentail unit as your favorite
     public function addFavorite(){
         
         
@@ -39,6 +47,7 @@ class Favorites extends Controller {
     }
     }
     
+    // deletes the rentail unit in the users favorite
     public function deleteFavorite(){
         
     if (!empty($_SESSION)) {
