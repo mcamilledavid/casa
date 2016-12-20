@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file terms.php
+ * @brief This page displays the terms and conditions
+ */
+
 session_start();
 
 class Terms extends Controller {

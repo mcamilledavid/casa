@@ -102,6 +102,7 @@ class Post extends Controller {
         }
     }
 
+    //adds a rental unit to the databse
     public function addRentalUnit() {
         if (filter_has_var(INPUT_POST, 'submit_post_listing') && $_SESSION['user_id']) {
             $lister_id = $_SESSION['user_id'];

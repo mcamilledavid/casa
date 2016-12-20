@@ -1,4 +1,10 @@
 <?php
+/**
+ * @file manage.php
+ * @brief This page is for all the functions related 
+ * to managing the posted rental units 
+ */
+
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -29,6 +35,7 @@ class Manage extends Controller {
         
     }
     
+    //deletes selected rental unit
     public function deleteRentalUnit() {
         if(!empty($_SESSION)) {
             $url_param = Manage::getUrlParameter();
@@ -42,6 +49,7 @@ class Manage extends Controller {
         }
     }
     
+    //opens edit listin page for given rental unit
     public function editRentalUnit() {
         if (isset($_SESSION)||!empty($_SESSION)) {
             $url_param = Manage::getUrlParameter();
@@ -61,7 +69,7 @@ class Manage extends Controller {
         }
     }
 
-    
+    //edits rental unit details with the new given values
     public function updateRentalUnit() {
         if (filter_has_var(INPUT_POST, 'update_listing') && $_SESSION['user_id']) {
             $lister_id = $_SESSION['user_id'];
@@ -118,6 +126,7 @@ class Manage extends Controller {
         }
     }
 
+    //updates a rental unit as rented
     public function markRented() {
         if(!empty($_SESSION)) {
             $url_param = Manage::getUrlParameter();
@@ -131,6 +140,7 @@ class Manage extends Controller {
         }
     }
     
+    //updates a rental unit as available
     public function markAvailable() {
         if(!empty($_SESSION)) {
             $url_param = Manage::getUrlParameter();
@@ -160,6 +170,7 @@ class Manage extends Controller {
         return $retval;
     }
     
+    //displays messages sent to lister for a selected rental unit
     public function displayMessages(){
         
         if(!empty($_SESSION)){
