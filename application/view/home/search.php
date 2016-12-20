@@ -1,3 +1,6 @@
+<style>
+    .hide { position:absolute; top:-1px; left:-1px; width:1px; height:1px; }
+</style>
 <?php $filterMap = $_SESSION["FILTER_MAP"]; ?>
 <div class="container" id="main-large">
     <div class="col-lg-3">
@@ -413,7 +416,7 @@
                             </form> 
                         <?php } ?>
                     <?php } ?>
-                    <iframe name="hiddenframe" style="display:none;"></iframe>
+                    <iframe name="hiddenframe" class="hide" style="display:none;"></iframe>
                     <?php
                     if (isset($query->thumbnail)) {
                         echo "<a href='" . URL . "home/showSelectedListing?rental_unit_id=" . $rental_unit_id . "' target='_blank'>";
