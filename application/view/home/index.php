@@ -1,3 +1,6 @@
+<style>
+    .hide { position:absolute; top:-1px; left:-1px; width:1px; height:1px; }
+</style>
 <div class="row" id="home-header">
     <div class="home-title-container">
         <h1 class="top-title">Search for off-campus housing</h1>
@@ -34,6 +37,7 @@
                                 //form.submit();
                             }
                         </script>
+
                         <?php if (!empty($_SESSION)) { ?> 
                             <?php if (isset($_SESSION['isStudent']) && ($_SESSION['isStudent'] == 1)) { ?>
                                 <form name="form" action="<?php echo URL; ?>favorites/addFavorite" method="POST" target="hiddenframe">
@@ -41,7 +45,7 @@
                                 </form> 
                             <?php } ?>
                         <?php } ?>
-                        <iframe name="hiddenframe" style="display:none;"></iframe>
+                        <iframe name="hiddenframe" class="hide" style="display:none;"></iframe>
                         <?php
                         if (isset($query->thumbnail)) {
                             echo "<a href='" . URL . "home/showSelectedListing?rental_unit_id=" . $rental_unit_id . "' target='_blank'>";
