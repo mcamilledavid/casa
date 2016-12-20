@@ -1,9 +1,18 @@
 <?php
 
+    /**
+     * @file: Class Logout
+     * @brief: Ends the user's session and logs out of their account.  
+     */
 session_start();
 
 class Logout extends Controller {
 
+    /**
+    * PAGE: index
+    * This method destroys the user's cookies and ends the sesstion. It takes
+    * user back to the log in page.
+    */
     public function index() {
         
         $_SESSION = array();

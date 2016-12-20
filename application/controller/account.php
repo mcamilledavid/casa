@@ -1,11 +1,20 @@
 <?php
 
+    /**
+     * @file: Class Account
+     * @brief: Creates and updates the account on casa. 
+     */
 session_start();
 
 class Account extends Controller {
-
+    
+    /**
+     * PAGE: index
+     * This method handles what happens when you move to http://yourproject/account/index
+     */
     public function index() {
 
+        // load views with session
         if (empty($_SESSION)) {
             require APP . 'view/_templates/header.php';
             require APP . 'view/login/index.php';
@@ -18,7 +27,8 @@ class Account extends Controller {
             require APP . 'view/_templates/footer.php';
         }
     }
-
+    
+    // function that updates the user's info and error message if fails. 
     public function updateUserInfo() {
 
         if (isset($_POST['submit_update_user']) && $_SESSION['user_id']) {
