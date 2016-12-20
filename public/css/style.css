@@ -957,7 +957,7 @@ i.ionicons.ion-ios-search.ionicons-search {
     font-weight:bold;
     display: inline-block;
     float: right;
-    padding-top: 12px;
+    font-size: 25px;
 }
 
 .btn.btn-close:hover {
