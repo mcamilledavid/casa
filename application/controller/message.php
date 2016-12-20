@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file message.php
+ * @brief This page is for all the message related functionality 
+ */
+
 session_start();
 
 class Message extends Controller {
@@ -17,7 +22,8 @@ class Message extends Controller {
             require APP . 'view/_templates/footer.php';
         }
     }
-
+    
+    //displays send message page for selected rental unit
     public function messageListerButton() {
         if (empty($_SESSION)) {
             require APP . 'view/_templates/header.php';
@@ -39,6 +45,7 @@ class Message extends Controller {
         }
     }
     
+    //functionality for inserting messages from student to lister
     public function messageLister(){
         $message=filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING);
         $rental_unit_id=filter_input(INPUT_POST, 'rental_unit_id', FILTER_SANITIZE_STRING);

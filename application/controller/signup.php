@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file signup.php
+ * @brief This page provides functionality for new users
+ */
+
 session_start();
 
 class Signup extends Controller {
@@ -16,6 +21,7 @@ class Signup extends Controller {
         
     }
 
+    //displays popup for a sign up
     public function popupsignup() {
 
         require APP . 'view/_templates/header.php';
@@ -23,6 +29,7 @@ class Signup extends Controller {
         require APP . 'view/_templates/footer.php';
     }
 
+    //functionality to add new user to database
     public function addNewUser() {
 
         if (isset($_POST['submit_add_user'])) {
