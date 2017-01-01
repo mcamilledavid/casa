@@ -1,0 +1,3 @@
+# Casa
+
+In today’s competitive rental listing market, there are many options, yet few that are specific to San Francisco State University students. One of the most common challenges faced by college students is searching for a place to live. Neither Roomster nor Craigslist are college student specific. There are thousands of results that come up when someone searches for sites to rent and lease their rental units, but so are the number of fraudulent cases that we see associated with it. For those looking to rent their spare room to verified SFSU students, there are no options. Casa fills a glaring hole in the market by providing a unique solution to SFSU students looking for reliable housing and for those looking to rent only to verified students.
